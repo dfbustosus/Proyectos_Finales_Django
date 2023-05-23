@@ -1,0 +1,19 @@
+{% extends "Blogapp/padre.html" %}
+
+{% load static %}
+
+{% block title %}
+    Mensajes
+{% endblock %}
+
+{% block titulo %}
+    Mensajes <br>
+    {{ mensaje }}
+{% endblock %}
+
+{% block contenido %}
+    <div style="text-align: center; padding-top: 1%; padding-bottom: 1%;">
+        <a class="" href="{% url 'enviar_mensaje' %}"> Mensaje Nuevo </a>
+        <a class="" href="{% url 'casilla_mensajes' %}"> Casilla de Mensajes </a>
+    </div>
+{% endblock %}

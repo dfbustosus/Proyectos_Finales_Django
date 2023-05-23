@@ -1,0 +1,45 @@
+{% extends 'tienda/base.html' %}
+
+
+{% block contenido %}
+
+{% load crispy_forms_tags %}
+
+<div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
+        <div class="card mt-4">
+            <div class="card-body">
+                <h2>Contactanos!</h2>
+                <hr>
+                <form action="" class="" method="POST">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    
+                    <br>
+                    <br>
+                    <hr>
+                    <div class="d-flex justify-content-end">
+                        <button  type="reset" value="Cancelar" class="btn btn-secondary">
+                            <a class="botonCancelar" href="{% url 'home' %}">
+                                Cancelar
+                            </a></button>
+                    &nbsp;
+                    <button class="btn btn-primary" type="submit" id="btnEnviar" class="button">Enviar</button>
+                    </div>
+                    {{mensaje}}
+                
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="irinicio">
+    <button  type="reset" value="Inicio" class="btn btn-secondary mb-3">
+        <a class="botonCancelar" href="{% url 'home' %}">
+            Inicio
+        </a>
+    </button>
+</div>
+{% endblock %}
+    

@@ -1,0 +1,33 @@
+{% extends "Blogapp/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+    Mensaje de {{mensaje.usuario}}
+{% endblock %}
+
+{% block title %}
+    Mensaje
+{% endblock %}
+
+{% block subtitulo %}
+    
+{% endblock %}
+
+{% block contenido %} 
+        <div style="text-align: center;">
+            <h5>
+                {{mensaje.usuario}}
+            </h5>
+        </div>
+        <div style="text-align: center; ">
+            <p style="border: solid 1px; padding: 10px 5px ; width: 50%; display: inline-block; ">
+                {{ mensaje.mensaje }}
+            </p>
+        </div>
+        <div style="text-align: center;">
+            <a class="" href="{% url 'responder_mensaje' mensaje.id %}"> Responder </a>
+            <a class="" href="{% url 'eliminar_mensaje' mensaje.id %}"> Eliminar </a>
+            <a class="" href="{% url 'casilla_mensajes' %}"> Volver </a>
+        </div>
+{% endblock %}

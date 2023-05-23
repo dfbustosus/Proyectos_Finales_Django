@@ -1,0 +1,43 @@
+{% extends "App1/padre.html" %}
+{% block contenidoQueCambia %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-image: url('{% static 'App1/assets/img/bg-showcase-1.jpg' %}'); 
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: lower">
+
+<br>
+<br>
+
+
+
+ <center>           
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="color: aliceblue;">Registro</h1>
+    <h3 style="color: aliceblue;">Por favor completa los campos para realizar el registro</h3>
+    <form style="color: aliceblue;" action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Registrate!</button>
+    </form>
+</body>
+</html></center>
+{%endblock%}

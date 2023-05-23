@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h1 class="mt-5">Detalles del curso "{{ curso.nombre }}"</h1>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h2 class="card-title">Descripción</h2>
+          <p class="card-text">{{ curso.descripcion }}</p>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h2 class="card-title">Información del Curso</h2>
+          <ul class="list-group">
+            <li class="list-group-item"><strong>Nombre del Curso:</strong> {{ curso.nombre }}</li>
+            <li class="list-group-item"><strong>Jornada del Curso:</strong> {{ curso.Jornada }}</li>
+            <li class="list-group-item"><strong>Profesor:</strong>
+              <ul class="list-group">
+                {% for profesor in curso.profesor_set.all %}
+                  <li class="list-group-item"><a href="{% url 'detalle_profesor' profesor.id %}">{{ profesor.nombre }} {{ profesor.apellido }}</a></li>
+                {% empty %}
+                  <li class="list-group-item">No hay profesores asignados a este curso.</li>
+                {% endfor %}
+              </ul>
+            </li>
+            <li class="list-group-item"><strong>Cantidad de Estudiantes:</strong> {{ curso.estudiante_set.all|length }}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h2 class="card-title">Estudiantes</h2>
+          <ul class="list-group">
+            {% for estudiante in curso.estudiante_set.all %}
+              <li class="list-group-item"><a href="{% url 'detalle_estudiante' estudiante.id %}">{{ estudiante.nombre }} {{ estudiante.apellido }}</a></li>
+            {% empty %}
+              <li class="list-group-item">No hay estudiantes inscritos en este curso.</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h2 class="card-title">Entregables</h2>
+          <ul class="list-group">
+            {% for entregable in curso.entregable_set.all %}
+              <li class="list-group-item"><a href="{% url 'detalle_entregable' entregable.id %}">{{ entregable.titulo }}</a></li>
+            {% empty %}
+              <li class="list-group-item">No hay entregables asociados a este curso.</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

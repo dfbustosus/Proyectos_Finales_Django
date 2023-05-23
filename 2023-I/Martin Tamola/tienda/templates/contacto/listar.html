@@ -1,0 +1,50 @@
+{% extends 'tienda/base.html' %}
+
+    
+
+{% block contenido %}
+
+<div class="card mt-4">
+    <div class="card-body">
+        <h2 class="mb-3">Listado de Mensajes</h2>
+        <hr>
+        <table class="text-center table table-striped table-hover table-responsive-sm cartcelu">
+            <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Tipo Consulta</th>
+                <th>Mensaje</th>
+            </tr>
+            {% for m in mensajes %}
+            <tr>
+                <td>{{ m.nombre }}</td>
+                <td>{{ m.correo }}</td>
+                {% if m.tipo_consulta == 0 %}
+                    <td>Consulta</td>
+                {% elif m.tipo_consulta == 1 %}
+                    <td>Reclamo</td>
+                {% elif m.tipo_consulta == 2 %}
+                    <td>Sugerencia</td>
+                {% else %}
+                    <td>Felicitaciones</td>
+                {% endif %}
+                <td>{{ m.mensaje }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <hr>
+        <div>
+            {% include 'contacto/paginator.html' %}
+        </div>
+    </div>
+</div>
+
+<div class="irinicio">
+    <button  type="reset" value="Inicio" class="btn btn-secondary">
+        <a class="botonCancelar" href="{% url 'home' %}">
+            Inicio
+        </a>
+    </button>
+</div>
+
+{% endblock %}

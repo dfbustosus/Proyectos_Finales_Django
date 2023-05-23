@@ -1,0 +1,43 @@
+{% extends 'tienda/base.html' %}
+
+{% load static %}
+
+
+{% block js %}
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+{% endblock %}
+    
+
+{% block contenido %}
+
+<main role="main">
+    <div class="container text-white">
+        <div class="row mt-3">
+            <div class="col-md-9 mx-auto mb-5">
+                    <div class="row">
+                        <!-- Previa del avatar -->
+                        <div class="col-md-2 fotoperfil">
+                            <img src="{% static 'sobremi/sobremi.jpg' %}" class="img-fluid">
+                        </div>
+                        <!-- Formulario -->
+                        <div class="col-md-10">
+                            <div class="fotoperfil">
+                                <h2>Martin Tamola</h2>
+                                <h3>Desarrollador Frontend | Backend</h3>
+                                <p>Página desarrollada con Django. Para el curso de Python de Coder House</p>
+                            </div>
+                            <div style="display: flex; justify-content: center; margin-top: 50px;">
+                                <a class="btn btn-primary btn-block mt-3" href="{% url 'home' %}">Inicio</a>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

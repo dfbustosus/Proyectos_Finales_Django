@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agregar Estudiante</title>
+</head>
+</html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header text-center bg-success text-white">Agregar Estudiante</div>
+        <div class="card-body">
+          {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-danger" role="alert">
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
+          <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Nombre</span>
+            <input type="text" class="form-control" name="nombre" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Apellido</span>
+            <input type="text" class="form-control" name="apellido" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Edad</span>
+            <input type="text" class="form-control" name="edad" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Documento (solo num.)</span>
+            <input type="text" class="form-control" name="Documento" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
+          
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Telefono</span>
+            <input type="text" class="form-control" name="Telefono" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Email (.com)</span>
+            <input type="text" class="form-control" name="email" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Curso</span>
+            <select class="form-control" name="curso" id="curso">
+              <option value="">Seleccione un curso</option>
+              {% for curso in cursos %}
+                <option value="{{ curso.id }}">{{ curso.nombre }}</option>
+              {% endfor %} 
+            </select>
+          </div>
+          <div class="text-center">
+          <button type="submit" class="btn btn-success">Guardar</button>
+        </form>
+      </div>
+      </div>
+    </div>
+  </div>
+  {% include 'parts/foots/footagregar_Estud.html' %}
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'social/feed.html' %}
+{% block content %}
+
+<!-- Profile -->
+<div class="profile">
+	
+	<h1>Cambiar foto de Perfil</h1>
+	<img src="{{ user.profile.image.url }}">
+	<form method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit">Actualizar</button>
+	</form>
+	
+	
+</div>
+
+{{ block.super }}
+{% endblock %}

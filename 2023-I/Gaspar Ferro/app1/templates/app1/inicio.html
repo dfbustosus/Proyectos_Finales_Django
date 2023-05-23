@@ -1,0 +1,97 @@
+{% block contenidoQueCambia %}
+    <!--Aquí va lo que cambia, y lo asociado a esta vista :) -->
+    {% if mensaje %}
+        <p>{{ mensaje }}</p>
+    {% endif %}
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+</head>
+<body>
+  
+  
+      <h1>Iniciar sesión</h1>
+      <form method="post">
+          {% csrf_token %}
+          {{ login_form.as_p }}
+          <button type="submit" class="small-button">Iniciar sesión</button>
+      </form>
+  
+      <h1>Registrarse</h1>
+      <form method="post">
+          {% csrf_token %}
+          {{ register_form.as_p }}
+          <button type="submit" class="small-button">Registrarse</button>
+      </form>
+
+</body>
+</html>
+<style>
+  body {
+    background-image: url("https://malditosnerds.com/wp-content/uploads/2023/01/Dungeons-Dragons-malditosnerds.jpg");
+    background-size: cover;
+    font-family: "Times New Roman", Times, serif;
+    color: #FFF;
+  }
+  
+  .login, .register {
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 10px;
+    margin: 10% auto;
+    padding: 20px;
+    width: 300px;
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+  }
+  
+  .small-button {
+    background-color: #FFC107;
+    color: #FFF;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    width: 120px; /* Cambia el ancho del botón según tu preferencia */
+  }
+  
+  .small-button:hover {
+    background-color: #FFA000;
+  }
+  
+</style>
+
+</html>

@@ -1,0 +1,48 @@
+{% extends "App1/padre.html" %}
+{% block contenidoQueCambia %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-image: url('{% static 'App1/assets/img/bg-masthead2.jpg' %}'); 
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: lower">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p style="margin-bottom: 100px"></p>
+    <center>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Cargar Avatar</title>
+</head>
+<body>
+    <h3>Cargar Avatar</h3>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ miFormulario.as_p}}
+        <input type="submit" value="Actualizar">
+    </form>
+</body>
+</html>
+    </center>
+    {%endblock%}

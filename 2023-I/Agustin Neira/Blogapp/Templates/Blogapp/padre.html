@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Proyecto Final - {% block title %} {% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{% static 'Blogapp/assets/favicom.png' %}" />
+    </head>
+    <body id="">
+        <!-- Navigation-->
+        <nav class="">
+            <div class="">
+                <a class="" href="{% url 'inicio' %}">INICIO</a>
+                <div class="" id="">
+                    <ul class="">
+                        <li class=""><a class="" href="{% url 'posteos' %}">Post</a></li>
+                        <li class=""><a class="" href="{% url 'about' %}">About</a></li>
+
+                    {% if user.is_authenticated %}
+                        <li class=""><a class="" href="{% url 'logout' %}">Cerrar Sesion</a></li>
+                        <li class=""><a class="" href="{% url 'perfil' %}">Perfil de {{ user.username }}</a></li>
+                        <img src="{{ avatar }}" alt="" style="height: 40px; border-radius: 50%  ;">
+                        <li class=""><a class="" href="{% url 'mensajes' %}">Mensajes {% if msj > 0 %} ({{ msj }}) {% endif %}</a></li>
+                        {%if user.is_superuser %}
+                            <li class=""><a class="" href="http://127.0.0.1:8000/admin/">Admin</a></li>
+                        {% endif %}
+                    {% else %}    
+                        <li class=""><a class="" href="{% url 'registro' %}">Sign Up</a></li>
+                        <li class=""><a class="" href="{% url 'login' %}">Log In</a></li>
+                    {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="">
+            <div class="">
+                <div class="">
+                    <h1 class="">{% block titulo %} {% endblock %} </h1>
+                    <h2 class="">{% block subtitulo %} {% endblock %}</h2>
+                    {% block boton-principal %} {% endblock %}
+                    {% block boton-secundario %} {% endblock %}
+                </div>
+            </div>
+            <div class=""></div>
+            <div class=""></div>
+            <div class=""></div>
+            <div class=""></div>
+        </header>
+
+        {% block contenido %} 
+        
+        {% endblock %} 
+        
+        <!-- Footer-->
+        <footer class="">
+            <div class=""><p class="">Proyecto Python Coderhouse 2023-Neira</p></div>
+        </footer>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

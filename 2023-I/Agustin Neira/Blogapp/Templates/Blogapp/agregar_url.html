@@ -1,0 +1,33 @@
+{% extends "Blogapp/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+    AGREGAR URL
+{% endblock %}
+
+{% block title %}
+    Agregar Url
+{% endblock %}
+
+{% block subtitulo %}
+    {{ mensaje }}
+{% endblock %}
+
+
+{% block contenido %} 
+    
+    <div>
+        <form style="padding-left: 40%; padding-top: 1em;" action="{% url 'agregar_url' %}" method="POST" enctype="multipart/form-data"> {% csrf_token %} 
+            <table>
+                {{ form.as_table }} 
+            </table>
+            
+            <div style="padding-left: 2%;">
+                <input class="" type="submit" value="Agregar">
+                <a class="" href="{% url 'perfil' %}"> Volver </a>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+

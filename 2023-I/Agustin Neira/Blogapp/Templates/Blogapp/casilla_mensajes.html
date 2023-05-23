@@ -1,0 +1,30 @@
+{% extends "Blogapp/padre.html" %}
+
+{% load static %}
+
+{% block title %}
+    Lista de mensajes <br>
+    {{ user.username }}
+{% endblock %}
+
+{% block titulo %}
+    Buzon de Mensaje <br>
+    {{ mensaje }}
+{% endblock %}
+
+{% block contenido %}
+    {% for mensaje in mensajes %}
+        <li style="text-align: center; clear: both; list-style: none;"> 
+            Mensaje de {{mensaje.usuario}} - {{ mensaje.fecha }}
+            {% if mensaje.leido == False %}
+            <i class=""></i>
+            {% else %}
+            <i class=""></i>
+            {% endif %}
+            <a class="" href="{% url 'mostrar_mensaje' mensaje.id %}"> Leer</a>
+        </li>
+    {% endfor %}
+    <div style="text-align: center;">
+        <a class="" href="{% url 'mensajes' %}"> Volver </a>
+    </div>
+{% endblock %}

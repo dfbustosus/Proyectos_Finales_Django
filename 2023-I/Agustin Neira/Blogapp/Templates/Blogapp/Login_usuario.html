@@ -1,0 +1,27 @@
+{% extends "Blogapp/padre.html" %}
+
+{% load static %}
+
+{% block title %}
+    login
+{% endblock %}
+
+{% block titulo %}
+    Log in
+{% endblock %}
+
+{% block subtitulo %}
+    {{ mensaje }}
+{% endblock %}
+
+{% block contenido %} 
+    <form action="{% url 'login' %}" method="POST"> {% csrf_token %} 
+        <table>
+            {{ form.as_table }}
+        </table>
+        
+        <input class="" type="submit" value="Ingresar">
+        <a class="" href="{% url 'inicio' %}"> Volver </a>
+    </form>
+    
+{% endblock %}

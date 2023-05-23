@@ -1,0 +1,11 @@
+{% extends "AppPreEntreg3/padre.html" %}
+
+{% load static %}
+
+{% block BloqueCambiante %}
+
+<!--Aquí va lo que cambia, y lo asociado a está vista -->
+    {% if mensaje5 %}<h3 style="color: red;">*{{ mensaje5 }}</h3>{% endif %}
+    <h4>Bienvenido a nuestra página de inicio, por favor seleccione el producto que desea observar desde la pestaña "Productos" en la barra de navegación.</h4>
+
+{% endblock %}

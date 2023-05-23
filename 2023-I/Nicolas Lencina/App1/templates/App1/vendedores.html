@@ -1,0 +1,52 @@
+
+
+{% extends "App1/padre.html" %}
+
+{% load static %}
+
+        {% block contenidoQueCambia %}
+        <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-image: url('{% static 'App1/assets/img/Lista.jpg' %}'); 
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center">
+</body>
+
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Document</title>
+        </head>
+        
+        <body>
+            <center><h1>Ingresar producto</h1></center>
+            <center><h8>En esta sección se ingrsan los nuevos productos al inventario</h8></center>
+            <p></p>
+            <center><form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <!--Aca esta la magia-->
+                <table>
+                    {{ miFormulario.as_table }}
+                </table>
+                
+                <input type="submit" value="Cargar producto">
+            </form>
+                
+                
+            </ul></center>
+            
+        {% endblock %}
+       

@@ -1,0 +1,63 @@
+{% extends "Blogapp/padre.html" %}
+
+{% load static %}
+
+{% block title %}
+    Inicio
+{% endblock %}
+
+{% block titulo %}
+    Blog Coder
+{% endblock %}
+
+{% block subtitulo %}
+    {{mensaje}}
+{% endblock %}
+
+{% block contenido %}
+    <!-- Content section 1-->
+    <section id="">
+        <div class="">
+            <div class="">
+                <div class="" >
+                    <div class=""><img class="" src="{% static 'Blogapp/assets/img/bienvenido.jpg' %}"  style="height: 10rem;" alt="..." /></div>
+                </div>
+                <div class="">
+                    <div class="">
+                        <p>Sean bienvenidos todos aquellos que quieran compartir sus viajes, experiencias, contarnos algo de su vida o simplemente quieran pasar un rato.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Content section 2-->
+    <section>
+        <div class="">
+            <div class="">
+                <div class="">
+                    <div class=""><img class="" src="{% static 'Blogapp/assets/img/saludos.png' %}" style="height: 10rem;" alt="..." /></div>
+                </div>
+                <div class="">
+                    <div class="">
+                        <p>Y esperamos que nos llenes de posteos, es la forma de conocerte y conectarte con vos. Y tambien la forma de que te conozca toda la comunidad.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Content section 3-->
+    <section>
+        <div class="">
+            <div class="">
+                <div class="">
+                    <div class=""><img class="" src="{% static 'Blogapp/assets/img/comencemos.jpg' %}" style="height: 10rem;" alt="..." /></div>
+                </div>
+                <div class="">
+                    <div class="">
+                        <p>Espero que disfrutes de los posteos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> 
+{% endblock %}

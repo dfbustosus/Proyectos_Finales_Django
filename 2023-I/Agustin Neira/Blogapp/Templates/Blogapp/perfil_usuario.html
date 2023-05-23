@@ -1,0 +1,46 @@
+{% extends "Blogapp/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+    Perfil de Usuario
+{% endblock %}
+
+{% block subtitulo %}
+    {{ user.username }} <br>
+    {{ mensaje }}
+{% endblock %}
+
+<style>
+    .li {
+        border: 1px;
+        border-style: groove 1px;
+        
+    }
+</style>
+
+{% block contenido %} 
+    <div style="text-align: center; padding-top: 10px;"> 
+        <img src="{{ avatar }}" class="" alt="..." width="200" height="200"> 
+    </div>
+    <div>
+        <div style="text-align: center;">
+            <ul style="padding-left: 0;">
+                <li> {{ user.username }} </li>
+                <li> {{ user.first_name }} </li>
+                <li> {{ user.last_name }} </li>
+                <li> {{ user.email }} </li>
+                <li> {{ url }} </li>
+                <li> {{ descripcion }} </li>
+            </ul>
+        </div>
+    </div>
+    <div style="text-align: center; padding: 10px 0px">
+        <a class=""  href="{% url 'editar_usuario' %}"> Modificar Datos</a>  ||
+        <a class=""  href="{% url 'agregar_url' %}"> Agregar Urls</a>  ||
+        <a class=""  href="{% url 'agregar_descripcion' %}"> Agregar Descripcion</a>  ||
+        <a class=""  href="{% url 'agregar_avatar' %}"> Cambiar Avatar</a>  ||
+        <a class=""  href="{% url 'inicio' %}"> Volver </a>
+    </div>
+{% endblock %}
+

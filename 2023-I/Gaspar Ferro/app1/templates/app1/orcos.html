@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Orcos</title>
+    <style>
+      /* Estilos CSS para el cuerpo de la página */
+      body {
+        background-color: #7f7f7f;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      
+      /* Estilos CSS para el encabezado */
+      header {
+        background-color: #44332a;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+      }
+      
+      /* Estilos CSS para la sección principal */
+      main {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      
+      /* Estilos CSS para las imágenes de orcos */
+      img {
+        display: block;
+        margin: 20px auto;
+        max-width: 100%;
+      }
+      
+      /* Estilos CSS para los títulos de sección */
+      h2 {
+        color: #fff;
+        font-size: 24px;
+        margin-top: 40px;
+        text-align: center;
+        text-shadow: 2px 2px 4px #000000;
+      }
+      
+      /* Estilos CSS para los párrafos de sección */
+      p {
+        line-height: 1.5;
+        margin-bottom: 20px;
+        text-align: justify;
+      }
+      
+      /* Estilos CSS para el pie de página */
+      footer {
+        background-color: #44332a;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Orcos</h1>
+    </header>
+    <main>
+      <h2>La historia de los orcos</h2>
+      <img src="https://redaccionrosario.com/wp-content/uploads/2020/08/orco.jpg" alt="Orcos">
+      <p>Los orcos son una raza de criaturas violentas y brutales que habitan en los bosques y las montañas. Son conocidos por su ferocidad en la batalla y su habilidad para crear armas y armaduras poderosas. Aunque a menudo se los considera malvados, algunos orcos son capaces de bondad y compasión.</p>
+      <h2>Los orcos en la cultura popular</h2>
+      
+      <p>Los orcos han sido un elemento básico en la cultura popular durante muchos años, apareciendo en la literatura, el cine y los videojuegos. En las películas de fantasía, los orcos a menudo son representados como enemigos peligrosos y feroces, mientras que en los videojuegos, son conocidos por su habilidad en la lucha cuerpo a cuerpo y en el uso de armas pesadas.</p>
+    </main>
+    {% block content %}
+	<form action="" method="post">
+        {% if miFormulario.errors %} 
+    
+    <p style="color: red;"> Estan mal los datos, revisalos</p>
+    
+    {% endif %}
+
+    <form action="" method="post">{% csrf_token %}
+        
+        <table>
+
+            {{ miFormulario.as_table }}
+
+        </table>
+
+        <input type="submit", value="Enviar">
+    </form>
+	{% endblock %}
+    <footer>
+      <p>© 2023 Orcos Inc. Todos los derechos reservados.</p>
+    </footer>
+  </body>
+</html>

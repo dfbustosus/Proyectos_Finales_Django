@@ -1,0 +1,25 @@
+{% extends "Blogapp/padre.html" %}
+
+{% load static %}
+
+{% block title %}
+    Nuevo Mensaje
+{% endblock %}
+
+{% block titulo %}
+    MENSAJE
+{% endblock %}
+
+{% block contenido %} 
+    
+    <form action="{% url 'enviar_mensaje' %}" method="POST" style="padding-left: 33%;"> {% csrf_token %} 
+        <table>
+            {{ form.as_table }}
+        </table>
+        <div style="padding-left: 15%;">
+            <input class="" type="submit" value="Enviar">
+            <a class="" href="{% url 'mensajes' %}"> Volver </a>
+        </div>
+    </form>
+    
+{% endblock %}

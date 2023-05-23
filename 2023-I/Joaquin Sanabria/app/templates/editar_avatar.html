@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header text-center bg-success text-white">
+          Editar Avatar
+        </div>
+        <div class="card-body">
+          <div class="row justify-content-center">
+            <div class="col-md-4">
+              <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="mb-3">
+                  <div class="form-label">Avatar</div>
+                  {{ miFormulario.imagen }}
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-success mt-3">
+                    Guardar Cambios
+                  </button>
+                </div>
+              </form>
+              {% if miFormulario.errors %}
+              <div class="alert alert-danger mt-3" role="alert">
+                <strong>Error:</strong> Por favor, corrija los errores e inténtelo de nuevo.
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

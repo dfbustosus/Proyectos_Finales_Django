@@ -1,0 +1,34 @@
+{% extends 'tienda/base.html' %}
+
+
+{% block contenido %}
+
+{% load crispy_forms_tags %}
+
+<div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
+        <div class="card mt-4 mb-4">
+            <div class="card-body">
+                <h2>Editar Marcas</h2>
+                <hr>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {{ form | crispy}}
+
+                    <div class="d-flex justify-content-end">
+
+                        <button  type="reset" value="Cancelar" class="btn btn-secondary">
+                            <a class="botonCancelar" href="{% url 'listar_marcas' %}">
+                                Cancelar
+                            </a></button>
+                        &nbsp;
+                        <input type="submit" value="Editar" class="btn btn-primary">
+                    </div>
+                    {{mensaje}}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

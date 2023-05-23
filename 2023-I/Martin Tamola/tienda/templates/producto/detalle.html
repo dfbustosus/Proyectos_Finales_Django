@@ -1,0 +1,52 @@
+{% extends 'tienda/base.html' %}
+
+{% load static %}
+
+{% block js %}
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.slider').bxSlider({
+            mode: 'fade',//horizontal, vertical, fade
+            auto: true,
+            pause: 2000
+        });
+    });
+</script>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+{% endblock %}
+
+{% block contenido %}
+
+
+{% load humanize %}
+
+<h2 class="text-center text-white mt-5 mb-5">Detalle del Producto</h2>
+
+<div class="productos">
+
+    <div class="producto card m-2">
+        <div style="display: flex; justify-content: flex-start; margin-top: 10px; margin-left: 10px;">
+            <a class="btn colorboton" href="{% url 'home' %}">Volver</a>
+        </div>
+        <div class="contenedor_producto card-body">
+            <img class="img-fluid" src="{{ producto.imagen.url}}" alt="imagen producto">
+            <div class="detalle">
+                <h2>{{producto.nombre | title}}</h2>
+                <h5>{{producto.marca | capfirst}}</h5>
+                <h3>{{producto.precio | intcomma}} USD</h3>
+                <h3>{{producto.descripcion}}</h3>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<br><br>
+
+
+
+{% endblock %}

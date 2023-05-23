@@ -1,0 +1,10 @@
+.row.justify-content-center .col-md-6 {
+    display: flex;
+    align-items: center;
+  }
+
+  .col-md-6 img {
+    max-width: 200px;
+    height: auto;
+    margin-right: 20px;
+  }

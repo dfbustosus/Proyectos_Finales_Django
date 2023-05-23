@@ -1,0 +1,25 @@
+{% extends "AppFinal/padre.html" %}
+
+{% load static %}
+
+{% block ContenidoCambiante %}
+<br>
+<br>
+<center><div>
+    <h2>Todos los registros de Usuario</h2>
+    <br>
+{% for p in usuario %}
+
+    <li>{{p}}</li>
+    <button class="btn btn-success btn-sm">
+        <a href="{% url 'Usuarios' %}">Añadir</a>
+    </button>
+    <button class="btn btn-danger btn-sm">
+        <a href="{% url 'delete_user' p.nombre %}"> Eliminar </a>
+    </button>
+    <button class="btn btn-warning btn-sm">
+        <a href="{% url 'edit_user' p.nombre %}"> Editar </a>
+    </button>
+{% endfor %} 
+
+{% endblock %}

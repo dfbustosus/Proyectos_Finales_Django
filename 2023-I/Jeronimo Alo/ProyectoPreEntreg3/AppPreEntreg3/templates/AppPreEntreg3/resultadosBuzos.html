@@ -1,0 +1,44 @@
+{% extends "AppPreEntreg3/padre.html" %}
+
+{% load static %}
+
+{% block BloqueCambiante %}
+    <h3> A continuación se mostraran los resultados de la busqueda: {{buzo}}</h3>
+    {% if buzos %} 
+        <ul>
+        {% for buzo in buzos %} 
+            <section class="py-0">
+                <div class="container px-4 px-lg-5 mt-5">
+                    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                        <div class="col mb-5">
+                            <div class="card h-100">
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product details-->
+                                        <h5 class="fw-bolder">{{buzo.nombre}}</h5>
+                                        <h6 class="fw-semibold">Tamaño: {{buzo.tamaño}}</h6>
+                                        <h6 class="fw-semibold">Color: {{buzo.color}}</h6> <br>
+                                        ${{buzo.precio}} <br>
+                                        Unidades Restantes: {{buzo.stock}}
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Editar (No disponible)</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        {% endfor %}
+        </ul>
+        {% else %}
+            <p> No hay datos con esa descripcion</p>
+            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                <a class="btn btn-outline-dark mt-auto" href="{% url 'Inicio' %}">Volver al Inicio</a>
+            </div>
+    {% endif %}
+    <p>{{respuesta}}</p>
+{% endblock %}

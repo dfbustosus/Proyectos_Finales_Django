@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header text-center bg-success text-white">Búsqueda</div>
+          <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="mb-3">
+                <label for="{{ form.opcion.id_for_label }}">Opción de búsqueda</label>
+                <select class="form-select" name="{{ form.opcion.name }}" id="{{ form.opcion.id_for_label }}">
+                  <option value="">Seleccione una opción</option>
+                  {% for opcion in form.opcion.field.choices %}
+                    <option value="{{ opcion.0 }}" {% if form.opcion.value == opcion.0 %}selected{% endif %}>{{ opcion.1 }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="{{ form.busqueda.id_for_label }}">Buscar</label>
+                <input type="text" class="form-control" name="{{ form.busqueda.name }}" id="{{ form.busqueda.id_for_label }}"
+                    {% if form.busqueda.value %}value="{{ form.busqueda.value }}"{% endif %}>
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-success">Buscar</button>
+              </div>
+            </form>
+            {% if mensajes %}
+              <div class="alert alert-warning mt-3">
+                {% for mensaje in mensajes %}
+                  {{ mensaje }}
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% include 'parts/foots/footbuscar.html' %}
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends "AppFinal/padre.html" %}
+
+{% load static %}
+
+{% block ContenidoCambiante %}
+<div  class="car">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-12">
+             <div class="titlepage">
+                <h2>Variedad de Autos </h2>
+                <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</span>
+             </div>
+          </div>
+       </div>
+       <div class="row">
+          <div class="col-md-4 padding_leri">
+             <div class="car_box">
+                <figure><img src="{% static 'AppFinal/images/car_img1.png' %}" alt="#"/></figure>
+                <h3>Hyundai Verna 2018</h3>
+             </div>
+          </div>
+          <div class="col-md-4 padding_leri">
+             <div class="car_box">
+                <figure><img src="{% static 'AppFinal/images/car_img2.png' %}" alt="#"/></figure>
+                <h3>Audi Q3 2015</h3>
+             </div>
+          </div>
+          <div class="col-md-4 padding_leri">
+             <div class="car_box">
+                <figure><img src="{% static 'AppFinal/images/car_img3.png' %}" alt="#"/></figure>
+                <h3>Bmw M3 2013</h3>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+ <!-- BANNER END-->
+ <br>
+ <center><div>
+   <form action="" method="POST"> {% csrf_token %}
+      <h2>Registra tu vehiculo</h2>
+      <table>
+
+       {{ miFormulario.as_table }}
+
+      </table>
+      <br>
+      <input type="submit" value="Enviar vehiculo">
+   </form>
+       
+</div></center>
+<br>
+<center><h2>Verifica tu vehiculo</h2></center>
+<center><div>
+    
+    <form action="/AppFinal/buscarvehiculo/" method="GET">
+       <input type="text" name="marca" id="marca">
+       <input type="submit" value="Buscar en DB">
+    </form>
+    <br>
+   
+    
+  {% if vehiculos %}
+    <p>Buscando registro... "{{marca}}"</p>
+    <br>
+       <ul>
+          {% for vehiculo in vehiculos %}
+          <li>Marca: {{vehiculo.marca}}</li>
+          <li>Tipo:  {{vehiculo.tipo}}</li>
+          <li>Modelo: {{vehiculo.modelo}}</li>
+          <li>Precio: {{vehiculo.precio}}</li>
+       {% endfor %}   
+       </ul>
+    
+       {% endif %}
+    </div>
+    </center> 
+
+
+{% endblock %}

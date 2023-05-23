@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h1 class="mt-5">{{ entregable.titulo }}</h1>
+      <div class="card mb-3">
+        <div class="card-body">
+          <p class="card-text"><strong>ID:</strong> {{ entregable.id }}</p>
+          <p class="card-text"><strong>Estudiante:</strong> {{ entregable.estudiante.nombre }}  {{ entregable.estudiante.apellido }}</p>
+          <p class="card-text"><strong>Titulo:</strong> {{ entregable.titulo }}</p>
+          <p class="card-text"><strong>Fecha:</strong> {{ entregable.fecha_entrega }}</p>
+          <p class="card-text"><strong>Curso:</strong> {{ entregable.curso }}</p>
+          <p class="card-text"><strong>Descripción:</strong> {{ entregable.descripcion }}</p>
+          <p class="card-text"><strong>Adjunto: </strong><a href= "{{ entregable.archivo.url }}" download>Descargar Archivo</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

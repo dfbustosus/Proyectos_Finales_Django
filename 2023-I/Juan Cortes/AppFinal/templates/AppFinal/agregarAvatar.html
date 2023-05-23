@@ -1,0 +1,21 @@
+{% extends "AppFinal/padre.html" %}
+
+{% load static %}
+
+{% block ContenidoCambiante %}
+<center>
+    <div> 
+    <br>
+        <h1>Cargar el Avatar para el usuario {{user}}</h1>
+        <br>
+        <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ miFormulario.as_p }}
+            <br>
+
+        <input type="submit" value="Subir imagen">
+        </form>
+    </div>
+</center>
+
+{% endblock %}

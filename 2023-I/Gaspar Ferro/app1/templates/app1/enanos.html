@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Enanos</title>
+    <style>
+      /* Estilos CSS para el cuerpo de la página */
+      body {
+        background-color: #f3f3f3;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      
+      /* Estilos CSS para el encabezado */
+      header {
+        background-color: #44332a;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+      }
+      
+      /* Estilos CSS para la sección principal */
+      main {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      
+      /* Estilos CSS para las imágenes de enanos */
+      img {
+        display: block;
+        margin: 20px auto;
+        max-width: 100%;
+      }
+      
+      /* Estilos CSS para los títulos de sección */
+      h2 {
+        color: #44332a;
+        font-size: 24px;
+        margin-top: 40px;
+        text-align: center;
+      }
+      
+      /* Estilos CSS para los párrafos de sección */
+      p {
+        line-height: 1.5;
+        margin-bottom: 20px;
+        text-align: justify;
+      }
+      
+      /* Estilos CSS para el pie de página */
+      footer {
+        background-color: #44332a;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Enanos</h1>
+    </header>
+    <main>
+      <h2>La historia de los enanos</h2>
+      <img src="https://geekandchic.cl/wp-content/uploads/2011/07/balin-dwalin.jpg" alt="Enanos">
+      <p>Los enanos son una raza legendaria de criaturas subterráneas que son conocidos por su habilidad en la minería y la forja de armas y armaduras de calidad. Los enanos son extremadamente resistentes y fuertes, y se dice que pueden soportar cargas pesadas y trabajar largas horas en las minas sin descanso.</p>
+      <h2>Los enanos en la cultura popular</h2>
+      
+      <p>Los enanos han sido un elemento básico en la cultura popular durante muchos años, apareciendo en la literatura, el cine y los videojuegos. En las películas de fantasía, los enanos a menudo son representados como guerreros valientes y habilidosos, mientras que en los videojuegos, son conocidos por su capacidad para recolectar y crear objetos valiosos.</p>
+    </main>
+    {% block content %}
+	<form action="" method="post">
+        {% if miFormulario.errors %} 
+    
+    <p style="color: red;"> Estan mal los datos, revisalos</p>
+    
+    {% endif %}
+
+    <form action="" method="post">{% csrf_token %}
+        
+        <table>
+
+            {{ miFormulario.as_table }}
+
+        </table>
+
+        <input type="submit", value="Enviar">
+    </form>
+	{% endblock %}
+    <footer>
+      <p>© 2023 Enanos Inc. Todos los derechos reservados.</p>
+    </footer>
+  </body>
+</html>

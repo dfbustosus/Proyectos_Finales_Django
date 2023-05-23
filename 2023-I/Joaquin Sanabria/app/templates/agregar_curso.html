@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agregar Curso</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header text-center bg-success text-white">Agregar Curso</div>
+          <div class="card-body">
+            {% if messages %}
+              {% for message in messages %}
+                <div class="alert alert-danger" role="alert">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+            <form method="post">
+              {% csrf_token %}
+              
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Nombre del Curso</span>
+                <input type="text" class="form-control" name="{{ form.nombre.name }}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ request.POST.nombre }}">
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Tipo de Curso</span>
+                <select class="form-select" name="{{ form.Tipo.name }}" aria-label="Default select example">
+                    <option value="" selected>Seleccione una opción</option>
+                    {% for tipo in tipos %}
+                        <option value="{{ tipo.0 }}" {% if form.Tipo.value == tipo.0 %}selected{% endif %}>{{ tipo.1 }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+                          
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Tipo de Jornada</span>
+                <select class="form-select" name="{{ form.Jornada.name }}" aria-label="Default select example">
+                    <option value="" selected>Seleccione una opción</option>
+                    {% for jornada in jornadas %}
+                        <option value="{{ jornada.0 }}" {% if form.Jornada.value == jornada.0 %}selected{% endif %}>{{ jornada.1 }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Costo del Curso</span>
+                <input type="number" class="form-control" name="{{ form.Costo.name }}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ request.POST.Costo }}">
+              </div>
+
+              <div class="form-group">
+                <label for="{{ form.descripcion.id_for_label }}">Descripción del Curso</label>
+                <textarea class="form-control" name="{{ form.descripcion.name }}" id="{{ form.descripcion.id_for_label }}">{{ request.POST.descripcion }}</textarea>
+              </div>
+
+              <div class="text-center">
+                <input type="submit" value="Agregar" class="btn btn-success mt-3">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% include 'parts/foots/footagregar_curso.html' %}
+{% endblock %}
+</body>
+</html>

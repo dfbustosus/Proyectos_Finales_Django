@@ -1,0 +1,82 @@
+{% extends 'tienda/base.html' %}
+
+
+{% block js %}
+    <script>
+        function eliminarProducto(id){
+            Swal.fire({
+                "title": "¿Estas seguro?",
+                "text" : "No podras deshacer",
+                "icon" : "question",
+                "showCancelButton": true,
+                "cancelButtonText": "Cancelar",
+                "confirmButtonText": "Si, Eliminar",
+                "reverseButtons":true,
+                "confirmButtonColor" : "#dc3545"
+            })
+            .then(function(result){
+                if(result.isConfirmed){
+                    window.location.href = "/eliminar-producto/" + id + "/"
+                }
+            })
+        }
+    </script>
+{% endblock %}
+    
+
+{% block contenido %}
+
+{% load humanize %}
+<div class="card mt-4">
+    <div class="card-body ">
+        <h2 class="mb-3">Listado de productos</h2>
+        <hr>
+        <table class="text-center table table-striped table-hover table-responsive-sm cartcelu">
+            <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Marca</th>
+                <th>¿Es Nuevo?</th>
+                <th>Opciones</th>
+            </tr>
+        
+        
+            {% for p in productos %}
+            <tr>
+                <td>{{ p.nombre | title }}</td>
+                <td>{{ p.precio | intcomma }} <b>USD</b> </td>
+                <td>{{ p.marca | title }}</td>
+                <td>
+                    {% if p.nuevo %}
+                    Si
+                    {% else %}
+                    No
+                    {% endif %}
+                </td>
+                <td>
+                    {% if perms.tienda.change_prodcto %}
+                    <a class="btn btn-info btn-sm" href="{% url 'modificar_productos' p.id %}">Editar</a>
+                    {% endif %}
+                    {% if perms.tienda.delete_prodcto %}
+                    <a class="btn btn-danger btn-sm" href="#" onclick="eliminarProducto({{p.id}})">Eliminar</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <hr>
+        <div>
+            {% include 'producto/paginator.html' %}
+        </div>
+    </div>
+</div>
+
+
+<div class="irinicio">
+    <button  type="reset" value="Inicio" class="btn btn-secondary">
+        <a class="botonCancelar" href="{% url 'home' %}">
+            Inicio
+        </a>
+    </button>
+</div>
+{% endblock %}

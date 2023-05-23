@@ -1,0 +1,34 @@
+{% extends 'tienda/base.html' %}
+
+{% load static %}
+
+
+{% block js %}
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+{% endblock %}
+    
+
+{% block contenido %}
+
+<h2 class="text-center text-white mt-5">Galería de nuestra tienda</h2>
+<br><br>
+<div class="galeria">
+    <a data-fancybox="gallery" href="{% static 'tienda/img/tienda/tienda1.jpg' %}"><img src="{% static 'tienda/img/tienda/tienda1.jpg' %}"></a>
+    <a data-fancybox="gallery" href="{% static 'tienda/img/tienda/tienda2.jpeg' %}"><img src="{% static 'tienda/img/tienda/tienda2.jpeg' %}"></a>
+    <a data-fancybox="gallery" href="{% static 'tienda/img/tienda/tienda3.jpg' %}"><img src="{% static 'tienda/img/tienda/tienda3.jpg' %}"></a>
+    <a data-fancybox="gallery" href="{% static 'tienda/img/tienda/tienda4.jpg' %}"><img src="{% static 'tienda/img/tienda/tienda4.jpg' %}"></a>
+    <a data-fancybox="gallery" href="{% static 'tienda/img/tienda/tienda5.jpg' %}"><img src="{% static 'tienda/img/tienda/tienda5.jpg' %}"></a>
+</div>
+<div class="irinicio">
+    <button  type="reset" value="Inicio" class="btn btn-secondary">
+        <a class="botonCancelar" href="{% url 'home' %}">
+            Inicio
+        </a>
+    </button>
+</div>
+
+{% endblock %}

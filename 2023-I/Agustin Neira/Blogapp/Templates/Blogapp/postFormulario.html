@@ -1,0 +1,23 @@
+{% extends "Blogapp/padre.html" %}
+
+{% load static %}
+
+{% block title %}
+    Nuevo Posteo
+{% endblock %}
+
+{% block titulo %}
+    Nuevo POST
+{% endblock %}
+
+{% block contenido %} 
+    <form action="{% url 'nuevoPost' %}" method="POST" enctype="multipart/form-data"> {% csrf_token %} 
+        <table>
+            {{ form.as_table}}
+        </table>
+        
+        <input class="" type="submit" value="Postear">
+        <a class="" href="{% url 'posteos' %}"> Volver </a>
+    </form>
+    
+{% endblock %}

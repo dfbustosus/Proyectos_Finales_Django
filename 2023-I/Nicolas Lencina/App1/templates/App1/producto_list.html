@@ -1,0 +1,61 @@
+
+{% extends "App1/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-image: url('{% static 'App1/assets/img/bg-masthead2.jpg' %}'); 
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: lower">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<center>
+<body>
+    <h1>Lista de Productos </h1>
+    <ul>
+        {% for producto in object_list %}
+            <li>
+                <p>Nombre: {{ producto.nombre }}</p>
+                <p>Descripcion: <i>{{producto.descripcion}}</i><p></p>
+                {% if producto.imagen %}
+                <img src="{{producto.imagen.url}}" width="200" height="200">
+                {% endif %}
+                <p>
+                    <a href="{% url 'Detail' producto.id %}">Ver</a>
+                    <a href="{% url 'Edit' producto.id %}">Editar</a>
+                    <a href="{% url 'Delete' producto.id %}">Borrar</a>
+                    
+                </p>
+                
+            </li>
+            
+        {% endfor %}
+        <p>
+            <a href="{%url 'Productos' %}">Regresar</a>
+        </p>
+    </ul>
+
+    
+</body>
+</html>
+</center>
+
+{%endblock%}

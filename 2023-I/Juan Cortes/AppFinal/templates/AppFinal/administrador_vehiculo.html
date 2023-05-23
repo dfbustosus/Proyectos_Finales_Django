@@ -1,0 +1,29 @@
+{% extends "AppFinal/padre.html" %}
+
+{% load static %}
+
+{% block ContenidoCambiante %}
+<br>
+<br>
+<center><div>
+    <h2>Todos los registros de Vehiculos</h2>
+    <br>
+
+{% for p in vehiculo %}
+
+    <li>{{p}}</li>
+    <button class="btn btn-success btn-sm">
+        <a href="{% url 'Vehiculos' %}">Añadir</a>
+    </button>
+    <button class="btn btn-danger btn-sm">
+        <a href="{% url 'delete_vehicle' p.marca %}"> Eliminar </a>
+    </button>
+    <button class="btn btn-warning btn-sm">
+        <a href="{% url 'edit_vehicle' p.marca %}"> Editar </a>
+    </button>
+    
+{% endfor %}
+</div></center> 
+
+{% endblock %}
+

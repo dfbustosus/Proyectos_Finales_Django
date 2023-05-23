@@ -1,0 +1,47 @@
+{% extends "App1/padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+<center>
+{% if usuario %}
+  <h3>Datos del usuario:</h3>
+  <p>Nombre de usuario: {{ usuario.username }}</p>
+  <p>Email: {{ usuario.email }}</p>
+  <p>Apellido: {{usuario.last_name}}</p>
+  <p>Nombre: {{usuario.first_name}}</p></center>
+  
+{% endif %}
+<br>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-image: url('{% static 'App1/assets/img/Perfil.jpg' %}'); 
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center">
+</body>
+    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    <center>
+    <h3>Editar Perfil</h3>
+    <h5> {{usuario}}</h5>
+    <h8>Por favor completa todos los campos con la información actual o modificada en caso que lo desees</h8>
+    <form action="" method="POST">{% csrf_token %}
+        <!-- Acá está la magia de Django-->
+        <table>
+            {{ miFormulario.as_table }}
+        </table>
+        <p></p>
+        <input type="submit", value="Enviar">
+    </form>  
+    <p></p>
+
+    <a class="btn btn-primary" href="{% url 'AgregarAvatar'%}" > Cargar/Cambiar Avatar
+    </center>
+    
+{% endblock %}

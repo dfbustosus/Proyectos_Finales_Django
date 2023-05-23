@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h1 class="mt-5">{{ estudiante.nombre }} {{ estudiante.apellido }}</h1>
+<div class="card mb-3">
+  <div class="card-body">
+    <p class="card-text"><strong>ID:</strong> {{ estudiante.id }}</p>
+    <p class="card-text"><strong>Nombre:</strong> {{ estudiante.nombre }}</p>
+    <p class="card-text"><strong>Apellido:</strong> {{ estudiante.apellido }}</p>
+    <p class="card-text"><strong>Edad:</strong> {{ estudiante.edad }}</p>
+    <p class="card-text"><strong>Documento:</strong> {{ estudiante.Documento }}</p>
+    <p class="card-text"><strong>Teléfono:</strong> {{ estudiante.Telefono }}</p>
+    <p class="card-text"><strong>Email:</strong> {{ estudiante.email }}</p>
+    <p class="card-text"><strong>Curso:</strong> {{ estudiante.curso.nombre }}</p>
+  </div>
+</div>
+
+<h2 class="mt-5">Entregables:</h2>
+<ul class="list-group">
+  {% for entregable in estudiante.entregable_set.all %}
+    <li class="list-group-item">{{ entregable.titulo }} - {{ entregable.fecha_entrega }} <a href= "{{ entregable.archivo.url }}" download>Descargar Archivo</a></li> 
+            {% empty %}
+              <li class="list-group-item">No hay entregables para mostrar.</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

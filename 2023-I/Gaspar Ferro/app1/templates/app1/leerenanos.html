@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>enanos</title>
+</head>
+<body>
+    {% for p in enano%}
+        <li>{{p}}</li>
+        <button>
+            <a href="{% url 'eliminar_enano' p.nombre %}"> eliminar</a>
+        </button>
+        <button>
+            <a href="{% url 'editar_enano' p.nombre %}"> editar</a>
+        </button>
+    {% endfor %}
+        
+</body>
+</html>

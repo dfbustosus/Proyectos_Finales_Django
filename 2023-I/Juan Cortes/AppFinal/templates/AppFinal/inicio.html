@@ -1,0 +1,59 @@
+{% extends "AppFinal/padre.html" %}
+
+{% load static %}
+
+{% block ContenidoCambiante %}
+<br>
+<center>
+   {% if request.user.is_authenticated %}
+      {% with avatares=request.user.avatar_set.all %}
+         {% if avatares %}
+         <img width="200px" src="{{url}}"> 
+         {% endif %}
+
+      {% endwith %}
+   {% else %}
+
+   {% endif %}
+   <h1>{{ respuesta }} {{ nickname }}</h1>
+   <h1>{{ respuesta2 }}</h1>
+</center>
+<!-- choose  section -->
+<div>
+   <img class="rounded mx-auto d-block"  src="{% static 'AppFinal/images/concesionario.jpg' %}">
+</div>
+<div class="choose ">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="titlepage">
+               <h2>Porque escogernos</h2>
+               <span>Somos una empresa que te genera confianza y seguridad al momento de rentar vehiculos</span>
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-12">
+            <div class="choose_box">
+               <span>01</span>
+               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni dolore debitis hic soluta, eos, fugit voluptates a quae sit officia ut amet est expedita repudiandae incidunt excepturi non iste quos. </p>
+            </div>
+         </div>
+         <div class="col-md-12">
+            <div class="choose_box">
+               <span>02</span>
+               <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere similique fuga ducimus. Debitis libero enim blanditiis tenetur veniam eos eligendi dicta incidunt aliquam, error quaerat modi? Maiores molestiae enim a! </p>
+            </div>
+         </div>
+         <div class="col-md-12">
+            <div class="choose_box">
+               <span>03</span>
+               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam eligendi quia fugiat earum, maxime perspiciatis enim dicta consectetur eos obcaecati porro necessitatibus aperiam sunt recusandae, itaque dolor, tempora molestiae accusamus. </p>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- end choose  section -->
+
+{% endblock %}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hobbits</title>
+    <style>
+      /* Estilos CSS para el cuerpo de la página */
+      body {
+        background-color: #f1d7c8;
+        color: #3d3d3d;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      
+      /* Estilos CSS para el encabezado */
+      header {
+        background-color: #7d614f;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+      }
+      
+      /* Estilos CSS para la sección principal */
+      main {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      
+      /* Estilos CSS para las imágenes de hobbits */
+      img {
+        display: block;
+        margin: 20px auto;
+        max-width: 100%;
+      }
+      
+      /* Estilos CSS para los títulos de sección */
+      h2 {
+        color: #7d614f;
+        font-size: 24px;
+        margin-top: 40px;
+        text-align: center;
+        text-shadow: 2px 2px 4px #f1d7c8;
+      }
+      
+      /* Estilos CSS para los párrafos de sección */
+      p {
+        line-height: 1.5;
+        margin-bottom: 20px;
+        text-align: justify;
+      }
+      
+      /* Estilos CSS para el pie de página */
+      footer {
+        background-color: #7d614f;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Hobbits</h1>
+    </header>
+    <main>
+      <h2>La vida de los hobbits</h2>
+      <img src="https://hips.hearstapps.com/es.h-cdn.co/mcres/images/mi-casa/salones/el-hobbit-recreamos-su-ambiente-con-una-decoracion-sin-efectos-especiales/en-un-agujero-en-el-suelo-vivia-un-hobbit/1040472-1-esl-ES/en-un-agujero-en-el-suelo-vivia-un-hobbit.jpg" alt="Hobbits">
+      <p>Los hobbits son una raza de seres pequeños y pacíficos que viven en casas subterráneas en la región de la Comarca. Son conocidos por su amor por la comida, la bebida y la vida tranquila, así como por su habilidad para la jardinería y la música.</p>
+      <h2>Los hobbits en la obra de J.R.R. Tolkien</h2>
+      
+      <p>Los hobbits son una raza ficticia creada por el escritor J.R.R. Tolkien. Aparecen en su obra más conocida, El Señor de los Anillos, donde son los protagonistas principales. La obra de Tolkien ha tenido una gran influencia en la cultura popular, y los hobbits se han convertido en un símbolo de la amistad, la valentía y la perseverancia.</p>
+    </main>
+    {% block content %}
+	<form action="" method="post">
+        {% if miFormulario.errors %} 
+    
+    <p style="color: red;"> Estan mal los datos, revisalos</p>
+    
+    {% endif %}
+
+    <form action="" method="post">{% csrf_token %}
+        
+        <table>
+
+            {{ miFormulario.as_table }}
+
+        </table>
+
+        <input type="submit", value="Enviar">
+    </form>
+	
+  {% endblock %}
+    <footer>
+      <p>© 2023 Hobbits Inc. Todos los derechos reservados.</p>
+    </footer>
+  </body>
+</html>

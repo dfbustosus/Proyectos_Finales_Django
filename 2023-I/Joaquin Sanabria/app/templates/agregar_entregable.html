@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agregar Entregable</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha512-i/7ILjPrU6cJ/8XnAtId0dY1zUnhIwVwMbgZTJbyc0CzQ2x/cb7s0yjz1Y7GJHtP+VtXXuI2rqMFV+yPdJ/sKw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css" integrity="sha512-6iSLU6B1MTl+VOou8XlP6xvCCJmZfnIdCm/dmTJbPSFkM2ozvhbUXnHfARX+tWxKx7CrFfH/JEOY7QI26tRnRw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+</html>
+{% extends 'base.html' %}
+{% load static %}
+{% load tz %}
+
+{% block title %}Agregar Entregable{% endblock %}
+
+{% block content %}
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header text-center bg-success text-white">Adjuntar Entregable</div>
+          <div class="card-body">
+            <form action="" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Titulo</span>
+                <input type="text" class="form-control" name="titulo" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              </div>
+
+              <div class="form-group mb-3">
+                <label for="descripcion">Descripción de Entrega</label>
+                <textarea class="form-control" name="descripcion" id="descripcion"></textarea>
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Fecha</span>
+                <input type="text" class="form-control datepicker" name="fecha_entrega" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ fecha_actual }}">
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Curso</span>
+                <select class="form-control" name="curso" id="curso">
+                  <option value="">Seleccione un curso</option>
+                  {% for curso in cursos %}
+                    <option value="{{ curso.id }}">{{ curso.nombre }} -- Jornada: {{ curso.Jornada }}</option>
+                  {% endfor %} 
+                </select>
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Estudiante</span>
+                <select class="form-control" name="estudiante" id="estudiante">
+                  <option value="">Seleccione un estudiante</option>
+                  {% for estudiante in estudiantes %}
+                    <option value="{{ estudiante.id }}">{{ estudiante.nombre }}  {{ estudiante.apellido }}  --  CI:{{ estudiante.Documento }}</option>
+                  {% endfor %} 
+                </select>
+              </div>
+
+              <div class="form-group mb-3">
+                <label for="archivo">Archivo</label>
+                <input type="file" class="form-control" name="archivo" id="archivo">
+                <small class="form-text text-muted">Seleccione un archivo en formato PDF, máximo 30MB.</small>
+              </div>
+              
+              {% if messages %}
+              <div class="alert alert-danger">
+                {% for message in messages %}
+                <p>{{ message }}</p>
+                {% endfor %}
+              </div>
+              {% endif %}          
+              <div class="text-center">
+                <button type="submit" class="btn btn-success">Guardar</button>
+            </div>
+           </form>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>  
+     {% include 'parts/foots/footagregar_Entreg.html' %}
+    {% endblock %}
+              

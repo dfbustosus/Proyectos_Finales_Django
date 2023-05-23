@@ -1,0 +1,48 @@
+{% extends "App1/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-image: url('{% static 'App1/assets/img/bg-masthead2.jpg' %}'); 
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: lower">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario - Agregar Producto</title>
+</head>
+<body>
+     <p> El producto encontrado es: {{producto}}</p>
+     {% if productos %} 
+     <ul>
+     {% for producto in productos %} 
+         <li>producto: {{producto.nombre}}</li>
+         <li>codigodeventa: {{producto.codigodeventa}}</li>
+         <p>Descripcion: <i>{{producto.descripcion}}</i><p></p>
+         {% if producto.imagen %}
+    <img src="{{producto.imagen.url}}" width="200" height="200">
+        {% endif %}
+    
+     {% endfor %}
+     </ul>
+     {% endif %}
+</body>
+</html>
+
+{%endblock%}

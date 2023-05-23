@@ -1,0 +1,24 @@
+{% extends "AppFinal/padre.html" %}
+
+{% load static %}
+
+{% block ContenidoCambiante %}
+<br>
+<center><div>
+<h1>Formulario - Editar Perfil</h1>
+<h1>De {{usuario}}</h1>
+<br>
+<h3>Para editar otro usuario distinto, cierra sesion e ingresa con el usuario que deseas editar</h3>
+<br>
+<form action="" method="POST">{% csrf_token %}
+    <table>
+        {{ miFormulario.as_table }}
+
+    </table>
+    <br>
+    <input type="submit", value ="Editar Perfil">
+</form>
+
+</div></center>
+
+{% endblock %}

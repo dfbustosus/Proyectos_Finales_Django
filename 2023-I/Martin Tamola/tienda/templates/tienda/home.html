@@ -1,0 +1,94 @@
+{% extends 'tienda/base.html' %}
+
+{% load static %}
+
+{% block js %}
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.slider').bxSlider({
+            mode: 'fade',//horizontal, vertical, fade
+            auto: true,
+            pause: 2000
+        });
+    });
+</script>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+{% endblock %}
+
+{% block contenido %}
+
+<div class="row">
+    <div class="col-8">
+        <div class="slider">
+            <div>
+                <img src="{% static 'tienda/img/banner/banner1.png' %}" alt="">
+            </div>
+            <div>
+                <img src="{% static 'tienda/img/banner/banner2.png' %}" alt="">
+            </div>
+            <div>
+                <img src="{% static 'tienda/img/banner/banner3.png' %}" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="carritonav">
+            {% include 'carrito.html' %}
+        </div>
+    </div>
+</div>
+
+
+
+
+{% load humanize %}
+
+
+    
+    
+    <div class="col-12">
+        <div class="barrabusqueda mt-5 mb-5">
+            <form class="" action="" method="GET">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Buscar" name="buscar" >
+                    <button class="btn colorboton" type="submit" >Buscar</button>
+                </div>
+    
+            </form>
+        </div>
+        <div class="productos">
+            {% for d in data %}
+            
+            <div class="producto card m-2">
+                <div class="contenedor_producto card-body">
+                    {% if d.imagen %}
+                    <img class="img-fluid" src="{{ d.imagen.url}}" alt="imagen producto">
+                    {% endif %}
+                    <div class="detalle">
+                        <h5>{{d.marca | capfirst}}</h5>
+                        <h2>{{d.nombre | title}}</h2>
+                        <h3>{{d.precio | intcomma}} USD</h3>
+                    </div>
+                    <div>
+                        <div style="display: flex; justify-content: center;">
+                            <a class="btn colorboton" href="{% url 'detalle_producto' d.id %}">Detalle</a>
+                        </div>
+                        
+                        <a href="{% url 'agregar' d.id %}" class="btn colorboton mt-2" >Agregar al Carrito</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+
+<br><br>
+
+
+
+{% endblock %}

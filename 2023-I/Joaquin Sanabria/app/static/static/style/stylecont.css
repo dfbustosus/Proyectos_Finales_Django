@@ -1,0 +1,14 @@
+#password-validation-message[data-strength="weak"]:after {
+    content: "La fortaleza de la contraseña es débil.";
+    color: red !important;
+}
+  
+#password-validation-message[data-strength="medium"]:after {
+    content: "La fortaleza de la contraseña es media.";
+    color: orange !important;
+}
+  
+#password-validation-message[data-strength="strong"]:after {
+    content: "La fortaleza de la contraseña es alta.";
+    color: green !important;
+}

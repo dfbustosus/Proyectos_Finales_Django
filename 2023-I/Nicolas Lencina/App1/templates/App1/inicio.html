@@ -1,0 +1,29 @@
+
+{% extends "App1/padre.html" %}
+
+{% load static %}
+    {% block contenidoQueCambia %}
+    
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-image: url('{% static 'App1/assets/img/Globo.jpg' %}'); 
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center">
+</body>
+<center>
+<h1 style="color:aliceblue">Bienvenidos</h1>
+<h3 style="color:aliceblue">Este es mi proyecto final</h3>
+<h6 style="color:aliceblue">La página se basa en un inventario de productos para vendedores <br>
+que puedan tener la posibilidad de cargar sus productos con los detalles necesarios <br>
+y puedan consultar la información sobre esto a modo de chequear stock, analizar comentarios <br>
+respecto a si se vende o no, etc.</h6></center>
+    {% endblock %}

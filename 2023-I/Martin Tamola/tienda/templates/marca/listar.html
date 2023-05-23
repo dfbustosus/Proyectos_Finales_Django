@@ -1,0 +1,70 @@
+{% extends 'tienda/base.html' %}
+
+
+{% block js %}
+    <script>
+        function eliminarMarca(id){
+            Swal.fire({
+                "title": "¿Estas seguro?",
+                "text" : "No podras deshacer",
+                "icon" : "question",
+                "showCancelButton": true,
+                "cancelButtonText": "Cancelar",
+                "confirmButtonText": "Si, Eliminar",
+                "reverseButtons":true,
+                "confirmButtonColor" : "#dc3545"
+            })
+            .then(function(result){
+                if(result.isConfirmed){
+                    window.location.href = "/eliminar-marca/" + id + "/"
+                }
+            })
+        }
+    </script>
+{% endblock %}
+    
+
+{% block contenido %}
+
+{% load humanize %}
+<div class="card mt-4">
+    <div class="card-body">
+        <h2 class="mb-3">Listado de Marcas</h2>
+        <hr>
+        <table class="text-center table table-striped table-hover table-responsive-sm">
+            <tr>
+                <th>Nombre</th>
+                <th>Opciones</th>
+            </tr>
+        
+        
+            {% for m in marcas %}
+            <tr>
+                <td>{{ m.nombre | title }}</td>
+                <td>
+                    {% if perms.tienda.change_marca %}
+                    <a class="btn btn-info btn-sm" href="{% url 'modificar_marca' m.id %}">Editar</a>
+                    {% endif %}
+                    {% if perms.tienda.delete_marca %}
+                    <a class="btn btn-danger btn-sm" href="#" onclick="eliminarMarca({{m.id}})">Eliminar</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <hr>
+        <div>
+            {% include 'marca/paginator.html' %}
+        </div>
+    </div>
+</div>
+
+<div class="irinicio">
+    <button  type="reset" value="Inicio" class="btn btn-secondary">
+        <a class="botonCancelar" href="{% url 'home' %}">
+            Inicio
+        </a>
+    </button>
+</div>
+
+{% endblock %}

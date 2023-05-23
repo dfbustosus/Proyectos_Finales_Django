@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	
+	<title>Elfos</title>
+	<style>
+		body {
+			background-color: #e6e6fa;
+			font-family: Arial, sans-serif;
+		}
+		
+		h1 {
+			text-align: center;
+			color: #008000;
+			font-size: 48px;
+		}
+		
+		p {
+			font-size: 24px;
+			line-height: 1.5;
+			margin: 20px;
+		}
+		
+		#elfo {
+			display: block;
+			margin: 0 auto;
+			width: 400px;
+		}
+		
+		#informacion {
+			text-align: center;
+			margin: 50px;
+		}
+		
+		#informacion h2 {
+			color: #008000;
+			font-size: 36px;
+			margin-bottom: 20px;
+		}
+		
+		#informacion ul {
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+		}
+		
+		#informacion li {
+			display: inline-block;
+			margin: 20px;
+			color: #008000;
+			font-size: 24px;
+		}
+		
+		#informacion li:hover {
+			color: #ff69b4;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	
+	<h1>Elfos</h1>
+	<img id="elfo" src="https://i.pinimg.com/564x/aa/4e/63/aa4e63b9dbcb0a5c43d75fb33b4035c5.jpg" alt="Elfo">
+	<div id="informacion">
+		<h2>Información de los elfos</h2>
+	
+	</div>
+	<p>Los elfos son una raza de seres con afinidad para la magia, se caracterizan por su habilidad con el arco, agilidad y longevidad. Se los describe como seres de tez clara y cabello dorado, con orejas puntiagudas y ojos de color verde o azul.</p>
+	
+	{% block content %}
+	<form action="" method="post">
+        {% if miFormulario.errors %} 
+    
+    <p style="color: red;"> Estan mal los datos, revisalos</p>
+    
+    {% endif %}
+
+    <form action="" method="post">{% csrf_token %}
+        
+        <table>
+
+            {{ miFormulario.as_table }}
+
+        </table>
+
+        <input type="submit", value="Enviar">
+    </form>
+	
+	{% endblock %}
+	
+</body>
+
+
+</html>

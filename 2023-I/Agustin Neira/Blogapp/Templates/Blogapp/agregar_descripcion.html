@@ -1,0 +1,30 @@
+{% extends "Blogapp/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+    AGREGAR AVATAR
+{% endblock %}
+
+{% block subtitulo %}
+    {{ mensaje }}
+{% endblock %}
+
+
+{% block contenido %} 
+    <div style="text-align: center;">
+        <img src="{{ avatar }}" class="" alt="..." width="200" height="200">
+    </div>
+    <div style="padding: 10px 5px;">
+        <form style="padding-left: 33%;" action="{% url 'agregar_descripcion' %}" method="POST"> {% csrf_token %} 
+            <table>
+                {{ form.as_table }}
+            </table>
+            <div style="padding-left: 15%;">
+                <input class="" type="submit" value="Agregar">
+                <a class="" href="{% url 'perfil' %}"> Volver </a>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+

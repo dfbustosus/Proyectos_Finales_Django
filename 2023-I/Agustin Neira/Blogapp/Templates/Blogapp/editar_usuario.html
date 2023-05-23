@@ -1,0 +1,25 @@
+{% extends "Blogapp/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+    Editar Usuario <br> {{ user.username }}
+{% endblock %}
+
+{% block subtitulo %}
+    {{ mensaje }}
+{% endblock %}
+
+
+{% block contenido %} 
+    <form action="{% url 'editar_usuario' %}" method="POST" style="padding-left: 40%;"> {% csrf_token %} 
+        <table>
+            {{ form.as_table }}
+        </table>
+        
+        <input class="" type="submit" value="Guardar Cambios">
+        <a class="" href="{% url 'perfil' %}"> Cancelar </a>
+    </form>
+    
+{% endblock %}
+

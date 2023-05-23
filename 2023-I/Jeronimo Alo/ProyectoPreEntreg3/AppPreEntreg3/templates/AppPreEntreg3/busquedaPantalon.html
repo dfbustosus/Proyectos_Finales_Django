@@ -1,0 +1,13 @@
+{% extends "AppPreEntreg3/padre.html" %}
+
+{% load static %}
+
+{% block BloqueCambiante %}
+    <form action="buscarPant" method="GET">
+
+        <input type="text" name="pantalon" id="pantalon">
+
+        <input type="submit" value="Buscar Pantalon">
+        
+    </form>   
+{% endblock %}

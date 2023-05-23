@@ -1,0 +1,25 @@
+{% extends "Blogapp/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+    Editar POST
+{% endblock %}
+
+{% block subtitulo %}
+    {{ mensaje }}
+{% endblock %}
+
+
+{% block contenido %} 
+    <form action="{% url 'editar_post' post.id %}" method="POST"> {% csrf_token %} 
+        <table>
+            {{ form.as_table }}
+        </table>
+        
+        <input class="" type="submit" value="Modificar">
+        <a class="" href="{% url 'mostrarPost' post.id %}"> Volver </a>
+    </form>
+    
+{% endblock %}
+

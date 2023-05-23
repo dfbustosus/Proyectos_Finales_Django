@@ -1,0 +1,34 @@
+{% extends "Blogapp/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+    {{post.titulo}}
+{% endblock %}
+
+{% block title %}
+    Posteo - {{ post.titulo }}
+{% endblock %}
+
+{% block subtitulo %}
+    {{post.subtitulo}}
+    {{ mensaje }}
+{% endblock %}
+
+{% block contenido %} 
+        <div style="text-align: center;">
+            <img src=" /media/{{ post.imagen }}" alt="{{ post.titulo }}" style="max-width: 50%; max-height: 50%;">
+        </div>
+        <div style="text-align: center;">
+            <p>
+                {{ post.cuerpo }}               
+                <br>
+                <div style="text-align:center;"><em> "{{ post.autor }}"</em></div>
+            </p>
+        </div>
+        <div style="text-align: right;">
+            <a class="" href="{% url 'editar_post' post.id %}"> Editar </a>
+            <a class="" href="{% url 'borrar_post' post.id %}"> Eliminar </a>
+            <a class="" href="{% url 'lista_posteos' %}"> Volver </a>
+        </div> 
+{% endblock %}

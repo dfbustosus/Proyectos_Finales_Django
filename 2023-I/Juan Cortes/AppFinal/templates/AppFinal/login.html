@@ -1,0 +1,27 @@
+{% extends "AppFinal/padre.html" %}
+
+{% load static %}
+
+{% block ContenidoCambiante %}
+
+
+
+<div><p>{{ respuesta.respuesta }}</p></div>
+<br>
+<center><div>
+<h2>Ingresa a la pagina</h2>
+<h3>Si no tienes un usuario aun, puedes hacerlo desde el boton "Registro de Usuarios"</h3>
+<br>
+<form action="" method="POST">
+
+   {% csrf_token %}
+
+   {{ form.as_p }}
+   <br>
+   <input type="submit", value="Iniciar Sesion">
+</form>
+</div></center>
+<br>
+
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "Blogapp/padre.html" %}
+
+{% load static %}
+
+{% block title %}
+    About
+{% endblock %}
+
+{% block titulo %}
+    SOBRE MI
+{% endblock %}
+
+{% block contenido %}
+    
+    <section>
+        <div class="" style="text-align: center;">
+            <img class="" style="height: 7rem;" src="{% static 'Blogapp\assets\img\bienvenido.jpg' %}" alt="..." />
+            <h4>Agustin Neira</h4>
+            <p class="">Cursando python</p>
+            <a class="" href="https://www.instagram.com/" target="_blank" aria-label="Agustin Neira instagram profile"><i class="fab fa-instagram"></i></a>
+            <a class="" href="https://github.com/" target="_blank" aria-label="Agustin Neira github profile"><i class="fab fa-github"></i></a>
+            <a class="" href="https://www.linkedin.com/in/agustinneira/" target="_blank" aria-label="Agustin Neira linkedin profile"><i class="fab fa-linkedin-in"></i></a>
+            <div>
+                <p>
+                    <br>
+                    Mi nombre es Agustin Neira, nací y me crié en la ciudad de Río Gallegos provincia de Santa Cruz, estudie Ingeniería Industrial en la UTN de la ciudad de Córdoba.<br>
+                    Actualmente me desempeño como Analista de Datos para una pequeña empresa de Buenos Aires trabajando de forma totalmente remota.
+                    Me apasiona el mundo de la informatica, la tecnología y la programacion <br>
+                    Actulamente estoy teminando el curso de Python en Coderhouse, además de haber cursando anteriormente Full Stack en el año 2022.<br> Saludos!
+                </p>
+            </div>
+        </div>
+    </section>
+    
+{% endblock %}

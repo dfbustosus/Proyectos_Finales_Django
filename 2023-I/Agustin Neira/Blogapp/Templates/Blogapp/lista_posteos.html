@@ -1,0 +1,26 @@
+{% extends "Blogapp/padre.html" %}
+
+{% load static %}
+
+{% block title %}
+    Lista de posteos
+{% endblock %}
+
+{% block titulo %}
+    POSTEOS <br>
+    {{ mensaje }}
+{% endblock %}
+
+{% block contenido %}
+    {% for posteo in posteos %}
+        <li style="text-align: center; clear: both; list-style: none;"> 
+            {{posteo.titulo}} - {{ posteo.subtitulo }} 
+            <a class="" href="{% url 'mostrarPost' posteo.id %}"> Leer más... </a>
+            <!-- <a class="" href="#"> Eliminar  </a>  -->
+        </li>
+    {% endfor %}
+    <div style="text-align: center;">
+        <a class="" href="{% url 'nuevoPost' %}"> Crear </a>
+        <a class="" href="{% url 'posteos' %}"> Volver </a>
+    </div>
+{% endblock %}

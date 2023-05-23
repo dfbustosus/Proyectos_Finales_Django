@@ -1,0 +1,55 @@
+{% extends "AppFinal/padre.html" %}
+
+{% load static %}
+
+{% block ContenidoCambiante %}
+
+{% if miFormulario.errors %}
+
+<p> Los datos no coinciden</p>
+
+{% endif %}
+<br>
+<center><div>
+    <form action="" method="POST"> {% csrf_token %}
+       <h2>Registra tu usuario de renta</h2>
+       <table>
+
+        {{ miFormulario.as_table }}
+
+       </table>
+       <br>
+       <input type="submit" value="Registrar Usuario">
+    </form>
+        
+</div></center>
+<br>
+<center><h2>Verifica tu usuario en la base de datos</h2></center>
+<center><div>
+    
+    <form action="/AppFinal/buscarusuario/" method="GET">
+       <input type="text" name="nombre" id="nombre">
+       <input type="submit" value="Buscar en DB">
+    </form>
+    <br>
+    {% if usuarios %}
+    <p>Buscando registro..... "{{nombre}}"</p>
+    <br>
+       <ul>
+          {% for usuario in usuarios %}
+          <li>Nombre: {{usuario.nombre}}</li>
+          <li>Email: {{usuario.email}}</li>
+          <li>Telefono: {{usuario.telefono}}</li>
+       {% endfor %}   
+       </ul>
+    
+       {% endif %}
+    </div>
+    </center>
+<br>
+<br>
+   <div class="text-bg">
+      <span>Ingreso al area de administrador</span>
+      <a href="{% url 'Administrador' %}">Administrador</a>
+   </div>
+{% endblock %}
