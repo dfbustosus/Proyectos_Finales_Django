@@ -1,0 +1,11 @@
+{% extends "Receta_app/home.html" %}
+
+{% block contenidoQueCambia %}
+  <h2>Agregar Receta</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+  </form>
+  <a class="btn btn-success" href="{% url 'receta_list' %}">Volver al listado</a>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends 'appcoder/base.html' %}
+{% block contenido %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Ingresar">
+    </form>
+{% endblock %}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Iniciar Sesion</title>
+    <style>
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+      }
+      label {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      input[type=text],
+      input[type=password] {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      input[type=submit] {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+      input[type=submit]:hover {
+        background-color: #3e8e41;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Formulario de inicio de sesión</h1>
+      <form action="{% url 'login' %}" method="POST">
+      {% csrf_token %}
+      <label for="username">Nombre de usuario:</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Contraseña:</label>
+      <input type="password" id="password" name="password" required>
+
+      <input type="submit" value="Iniciar sesión">
+    </form>
+  </body>
+</html>

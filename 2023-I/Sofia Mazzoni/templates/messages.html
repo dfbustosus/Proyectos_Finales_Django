@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Inbox</h2>
+    <ul>
+        {% for message in inbox %}
+            <li{% if not message.is_read %} class="unread"{% endif %}>
+                <a href="{% url 'view_message' message.id %}">
+                    <strong>{{ message.sender.username }}</strong>
+                    {{ message.subject }}
+                </a>
+            </li>
+        {% empty %}
+            <li>No messages.</li>
+        {% endfor %}
+    </ul>
+    <h2>Outbox</h2>
+    <ul>
+        {% for message in outbox %}
+            <li>
+                <a href="{% url 'view_message' message.id %}">
+                    <strong>{{ message.receiver.username }}</strong>
+                    {{ message.subject }}
+                </a>
+            </li>
+        {% empty %}
+            <li>No messages.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'App1/padre.html' %}
+
+{% block contenidoQueCambia %}
+  <h1>Nuevo debate</h1>
+  <form method="post">
+    {% csrf_token %}
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" id="nombre" required><br>
+
+    <label for="apellido">Apellido:</label>
+    <input type="text" name="apellido" id="apellido" required><br>
+
+    <label for="tema">Tema:</label>
+    <input type="text" name="tema" id="tema" required><br>
+
+    <label for="opinion">Opinión:</label>
+    <textarea name="opinion" id="opinion" cols="30" rows="10" required></textarea><br>
+
+    <input type="submit" value="Crear debate">
+  </form>
+{% endblock %}

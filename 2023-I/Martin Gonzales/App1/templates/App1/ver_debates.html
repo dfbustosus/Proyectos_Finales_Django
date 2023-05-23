@@ -1,0 +1,14 @@
+{% extends 'App1/padre.html' %}
+
+{% block contenidoQueCambia %}
+{% for debate in debates %}
+<h2>{{ debate.titulo }}</h2>
+<p>Creado por: {{ debate.nombre }}</p>
+<img height="80px" src="{{ user.Avatar.url }}">
+<p>{{ debate.opinion }}</p>
+<a href="{% url 'opinar_sobre_debate' debate_id=debate.id %}">Opinar sobre el debate</a>
+<a href="{% url 'ver_opiniones' debate_id=debate.id %}">Ver opiniones de los usuarios</a>
+<hr>
+
+{% endfor %}
+{% endblock %}

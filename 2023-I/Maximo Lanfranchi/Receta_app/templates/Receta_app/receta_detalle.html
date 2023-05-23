@@ -1,0 +1,22 @@
+{% extends "Receta_app/home.html" %}
+
+{% block contenidoQueCambia %}
+
+<div class="card mb-5" style="width: 700px">    <!-- Puse una URL en src --> 
+  {% if receta.poster %}
+    <a href="#!"></a><img class="card-img-top" src="{{ receta.poster.url }}" alt="{{ receta.title }}" /></a>
+  {% endif %}
+  <div class="card-body bg-info bg-opacity-50">
+      <h2 class="card-title h4">{{ receta.title }}</h2>
+      <h3>{{receta.subtitle}}</h3>
+      <p>{{receta.description}}</p>
+      <h6 class="card-text">Autor: {{ receta.author }}</h6>
+      <div class="small text-muted">{{ receta.release_date }}</div>
+      <a class="btn btn-success" href="{% url 'receta_list' %}">Volver al listado</a>
+      <a class="btn btn-warning" href="{% url 'receta-modificar' receta.pk %}">Editar receta</a> 
+      <a class="btn btn-danger" href="{% url 'confirmar-receta-borrar' receta.pk %}">Eliminar receta</a>
+  </div>
+</div>
+
+
+{% endblock %}

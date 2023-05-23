@@ -1,0 +1,25 @@
+{% extends "app/Pag_Admin_Style.html" %}
+{% load static %}
+
+{% block extra_head %}    
+    <link rel="stylesheet" href="{% static 'app/Crear_individuo.css' %}">
+    
+{% endblock %}
+
+
+{% block title %}Crear Individuo{% endblock %}
+
+{% block main %}
+<form action="{% url 'app:Crear_Individuo_Admin_Post' request.user.id %}" method="POST">
+    {% csrf_token %}
+    <h1>Crear Individuo</h1>
+    <label for="">Apellidos</label>
+    <input type="text" placeholder="Apellidos" name="Apellidos" id="Apellidos" required> <br> <p></p>
+    <label for="">Nombre</label>
+    <input type="text" placeholder="Nombres" name="Nombres" id="Nombre" required> <br> <p></p>
+    <label for="">Fecha de Nacimiento</label>
+    <input type="date" placeholder="Fecha de Nacimiento" name="Fecha de Nacimiento"  id="Fecha">
+    <input class="form-boton" type="submit" value="Crear"> <p></p>  
+    <br><p></p>            
+</form>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "app/Pag_Admin_Style.html" %}
+{% load static %}
+
+
+{% block extra_head %}    
+    <link rel="stylesheet" href="{% static 'app/crear_proceso_admin.css' %}">
+{% endblock %}
+
+{% block title %}Crear Proceso{% endblock %}
+
+{% block main %}
+<form action="{% url 'app:Crear_Proceso_Admin_Post' %}" method="POST">
+    {% csrf_token %}
+    <h1>Crear Proceso</h1>
+            <label for="">Título</label>
+            <input type="text" placeholder="Título"  name="titulo" id="titulo"> <br> <br>
+            <label for="" id="F_Inicio">Fecha de Inicio</label>
+            <input type="date" name="F_Inicio"> <br> <br>
+            <label for="" id="F_Fin">Fecha de Finalización</label>
+            <input type="date" name="F_Fin"> <br> <br>
+            <label for="">Abierto</label>
+            <input type="checkbox" name="abierto" id="abierto"> <br> <br>
+            <label for="">Entidad</label>
+            <input type="text" placeholder="Entidad" name="entidad" id="entidad"> <br> <br>
+            <label for="">Monto</label>
+            <input type="text" placeholder="$" name="monto" id="monto"> <br> <br>
+            <label for="" >Comentarios</label><br>
+            <textarea name="comentarios" id="comentarios" placeholder="Escriba sus comentarios aquí" ></textarea><br>
+            <input class="form-boton" type="submit" value="Crear"> <br>
+                      
+</form>
+{% endblock %}

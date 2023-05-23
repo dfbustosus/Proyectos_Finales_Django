@@ -1,0 +1,24 @@
+{% extends "App1/pibot.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    {% if miFormulario.errors %} 
+    <p style="color: red;">Estan mal los datos, revisar</p>
+    {% endif %}
+
+    <form action="" method="post">{% csrf_token %}
+        <!--Aca esta la magia-->
+        <table>
+            <br>
+            <center><h1 style="background-color: rgb(68, 207, 17); color: white;">ALTA </h1></center>
+            {{ miFormulario.as_table }}
+        </table>
+
+        <input type="submit", value="Enviar">
+
+    </form>
+
+{% endblock %}

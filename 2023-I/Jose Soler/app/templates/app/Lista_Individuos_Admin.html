@@ -1,0 +1,40 @@
+{% extends "app/Pag_Admin_Style.html" %}
+{% load static %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'app/Consul_Lista_Indivios.css' %}">
+{% endblock %}
+
+{% block title %}Lista de Individuos{% endblock %}
+
+{% block main %}
+<table>
+            
+    <thead>
+        
+        <td class="table_titulo" COLSPAN=6 >Lista de Individuos</td>
+        <tr>
+            <th>Apellidos</th>
+            <th>Nombre</th>
+            <th>Ultimo partido afiliado</th>
+            <th>Total procesos</th>
+            <th>Aprobados</th> 
+            <th>Consulta</th>                   
+            </tr>
+    </thead>
+    <tbody>
+
+        {% for L in listas %}
+        <tr>
+            <td><a href="#"> {{ L.apellidos }}  </a></td>
+            <td><a href="#"> {{ L.nombres }}  </a></td>
+            <td> {{L.partido}} </td>
+            <td>0</td> <!-- Toltal procesos -->
+            <td><a href="#"> {{ Aprobado }}  </a></td>
+            <td><a href="#">🔎</a></td>
+        </tr>
+        {% endfor %}
+        
+    </tbody>
+</table>
+
+{% endblock %}

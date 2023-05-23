@@ -1,0 +1,17 @@
+{% extends 'App1/padre.html' %}
+
+{% block contenidoQueCambia %}
+    <h1>Opiniones del debate: {{ debate.nombre }}</h1>
+
+    {% if debate.opiniones.all %}
+        <ul>
+            {% for opinion in debate.opiniones.all %}
+                <li>{{ opinion.nombre }} {{ opinion.apellido }} dijo: {{ opinion.mensaje }}</li>
+            {% endfor %}
+            <h5><a href="{%url 'foro'%}">Volver al Foro</a></h5>
+        </ul>
+    {% else %}
+        <p>No hay opiniones disponibles.</p>
+        <h5><a href="{%url 'foro'%}">Volver al Foro</a></h5>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "AppEntrega/padre.html" %}
+{% load static %}
+{% block cambio %}
+
+<h1>Formulario - Editar Perfil</h1>
+    <h1>De {{usuario}}</h1>
+    <form action="" method="POST">{% csrf_token %}
+       
+        <table>
+            {{ miformulario.as_table }}
+        </table>
+        <input type="submit", value="Enviar">
+    </form>  
+
+    <button>
+        <a href="{% url 'AgregarAvatar' %}">Agrega imagen de perfil</a>
+       
+    </button>
+
+
+
+
+
+{% endblock %}

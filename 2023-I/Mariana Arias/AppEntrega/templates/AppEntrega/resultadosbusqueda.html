@@ -1,0 +1,25 @@
+{% extends "AppEntrega/padre.html" %}
+{% load static %}
+{% block cambio %}
+
+<body>
+    <h3>
+        {% if recetas %} 
+    <p> Aqui está la receta de:  {{nombre}} </p>
+    </h3> 
+        <ul>
+            
+            {% for nombre in recetas %} 
+                        
+                <li> Ingredientes: {{nombre.ingredientes}}</li>
+                <li>Pasos a Seguir: {{nombre.descripcion}}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <h2>Oops! Al parecer esa no la tenemos aún</h2>
+        
+      {% endif %}
+
+    
+</body>
+{% endblock %}

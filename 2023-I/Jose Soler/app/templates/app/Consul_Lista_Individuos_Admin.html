@@ -1,0 +1,38 @@
+{% extends "app/Pag_Admin_Style.html" %}
+{% load static %}
+{% block title %} Consulta Individuos {% endblock %}
+
+
+{% block extra_head %}    
+    <link rel="stylesheet" href="{% static 'app/Consul_Lista_Indivios.css' %}">
+{% endblock %}
+
+{% block main %}
+<table>
+            
+    <thead>
+        
+        <td class="table_titulo" COLSPAN=6 >Consultar lista de Individuos</td>
+        <tr>
+            <th>Apellidos</th>
+            <th>Nombres</th>
+            <th>Ultimo partido afiliado</th>
+            <th>Total procesos</th>
+            <th>Aprobados</th>  
+            <th>Consulta</th>                   
+        </tr>
+    </thead>
+    <tbody>
+       {% for listas in lista %}
+        <tr>
+            <td><a href="Consultar_Individuo_Admin.html">{{ listas.Nombre }}</a></td>
+            <td><a href="Consultar_Individuo_Admin.html">{{ listas.Apellidos }}</a></td>
+            <td>Verdes</td>
+            <td>15</td>
+            <td>✔</td>
+            <td><a href="Consultar_Individuo_Admin.html">🔎</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Wellfleet&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Css/Pag_Usuario_Style.css">
+    <link rel="stylesheet" href="Css/Implicar_Afiliado_Admin.css">
+    <title>Implicar Afiliado</title>
+</head>
+<body>    
+    <header>
+        <h1>CorPage</h1>
+        <div class="botones">
+            <a href="Pag_Usuario_Actu_Datos.html" class="boton-cuenta">Cuenta</a>
+            <a href="index.html" class="boton-cerrar">Cerrar sesión</a>
+       </div>        
+    </header>
+    <div class="barra-nav">
+
+        <samp>USUARIO</samp>
+        <nav>
+            <ul class="main-nav">                
+                <li class="main-nav__item"><a href="">CONSULTAS ↧</a>
+                    <ul>                        
+                        <li class="main-nav__item-subm"><a href="Consulta_Lista_Individuos_Usuario.html">✔ Lista individuos</a></li>                      
+                        <li class="main-nav__item-subm"><a href="Consultar_Lista_PartidosP_Usuario.html">✔ Lista partidos</a></li>                        
+                    </ul>           
+                 </li><br>
+                <li class="main-nav__item"><a href="Crear_individuo_Usuario.html">CREAR INDIVIDUO</a></li>
+                <li class="main-nav__item"><a href="Crear_Proceso_Usuario.html">CREAR PROCESO</a></li>
+                <li class="main-nav__item"><a href="Afiliar_a_partido_Usuario.html">AFILIAR INDIVIDUO A PARTIDO</a></li>                           
+                <li class="main-nav__item"><a href="Implicar_Afiliado_Usuario.html">IMPLICAR AFILIADO A PROCESO</a></li>              
+                
+            </ul>   
+                     
+        </nav>   
+                     
+        </nav>       
+
+
+    </div>
+
+    <main>
+        <form action="">
+            <h1>Implicar afiliado a proceso</h1>
+            <label for="">Afiliado</label>
+            <select id="afiliado"> 
+                <option value="1">Seleccione</option> 
+                <option value="2">Camilo</option> 
+                <option value="3">John</option> 
+                <option value="4">Jonathan</option> 
+                <option value="5">Jose</option> 
+            </select> <br> <br>
+            <label for="">Proceso</label>
+            <select id="proceso"> 
+                <option value="1">Seleccione</option> 
+                <option value="2">Proceso A</option> 
+                <option value="3">Proceso B</option> 
+                <option value="4">Proceso C</option> 
+            </select> <br> <br>
+            <label for="" >Fecha de Implicación</label>
+            <input type="date" id="Fecha_I"> <br> <br>
+            <label for="">Acusación</label>
+            <input type="text" placeholder="Acusación" id="acusacion"> <br> <br>
+            <label for="">Inocente/Culpable</label>
+            <select id="inocente"> 
+                <option value="1">Seleccione</option> 
+                <option value="2">Culpable</option> 
+                <option value="3">Inocente</option> 
+            </select> <br> <br>
+            <label for="">Pena</label>
+            <input type="text" placeholder="Pena"  id="Pena"> <br> <br>
+            <label for="" >Comentarios</label><br>
+            <textarea name="" id="comentarios" placeholder="Escriba sus comentarios aquí" ></textarea><br> 
+            <input class="form-boton" type="submit" value="Crear"> <br>
+            <br><p></p>            
+        </form>
+    </main>
+
+
+</body>
+</html>

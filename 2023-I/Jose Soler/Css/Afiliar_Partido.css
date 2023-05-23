@@ -1,0 +1,90 @@
+main{
+    margin: auto;    
+    font-size: 20px;
+}
+main form{
+    background-color: #FF7900;
+    border-radius: 20px; 
+    width: 700px; 
+    height: 370px; 
+}
+main form label{
+    margin-left: 15px;
+}
+main form h1{
+    background-color: #000000;
+    color: white;     
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;    
+    text-align: center; 
+    padding: 5px;
+}
+main form input{
+    font-family: 'Wellfleet', cursive; 
+    border-radius: 15px;  
+    width: 410px;
+    height: 49px;  
+    font-size: 20px;
+    border:none;
+    margin-left: 14px;
+}
+
+main form input:hover{
+    background-color:#f5f5f5; 
+       
+}
+
+main form .form-boton{
+    background-color: #000000;
+    color: #ffffff;
+    cursor: pointer;
+    width: 110px;    
+    
+}
+
+main form #afiliado{
+    margin-left: 149px;
+    font-family: 'Wellfleet', cursive; 
+    width: 280px;
+    border-radius: 15px;
+    border-style: none;
+    width: 410px;
+    height: 49px; 
+    font-size: 20px;
+}
+
+.segundo-select{
+    margin-left: 166px;    
+    font-family: 'Wellfleet', cursive; 
+    width: 280px;
+    border-radius: 15px;
+    border-style: none;
+    width: 410px;
+    height: 49px; 
+    font-size: 20px;
+}
+
+main form .form-boton:hover{
+    background-color: #ffffff;
+    color: #000000; 
+
+} 
+
+main form #Individuo{
+    margin-left: 149px;
+
+}
+
+main form #Partido{
+    margin-left: 167px;
+
+}
+main form #FechaIngreso{
+    margin-left:72px;
+
+} 
+main form #FechaSalida{
+    margin-left:87px;
+    width: 280px;
+
+}

@@ -1,0 +1,154 @@
+main {
+    display: grid;       
+    grid-template: 9% 25% auto / 100%;
+    grid-template-areas:
+      "main-nombre_visitas"
+      "proceso"
+      "lista-afiliados";
+}
+
+main .main-nombre_visitas{
+    grid-area: main-nombre_visitas;
+    display: grid;       
+    grid-template: 95% auto / 85% 15%;
+    grid-template-areas:
+      "h1 h4"
+      "hr hr";
+}
+
+main .main-nombre_visitas h1{
+    grid-area: h1;
+    text-align: center;
+    margin: 0px;
+    margin-top: 40px;
+    margin-left: 250px;
+}
+main .main-nombre_visitas h3{
+    grid-area: h4;
+    margin: 0px;
+    margin-top: 55px;  
+
+}
+
+main .main-nombre_visitas .linea{
+    grid-area: hr;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+/* _______________________________________________ */
+
+main .proceso{
+    grid-area: proceso;
+    margin:auto;
+}
+
+:root {
+    --curvatura: 15px;
+}  
+
+
+main .proceso table{
+    background-color: #3C3B3B;   
+    border-radius: var(--curvatura);
+    padding: 0px;
+    margin-top: 100px;
+
+}
+main .proceso table .table_titulo{
+    background-color: #000000;
+    color: #ffffff;    
+    font-size: 20px;    
+    border-top-left-radius: var(--curvatura);
+    border-top-right-radius: var(--curvatura);
+}
+
+
+main .proceso .table-proceso, .table-proceso-item {    
+    border-collapse: collapse;
+    font-size: 20px;
+    text-align: center;
+}
+
+
+.proceso .table-proceso .table-proceso-item{
+    padding: 10px 30px;
+    background: #3C3B3B;
+    color: #ffffff;
+}   
+
+  
+
+main .proceso table td {
+    padding: 10px;
+    color: #ffffff;  
+}
+
+
+tr:last-child > td:last-child {
+    border-bottom-right-radius: var(--curvatura);
+}
+tr:last-child > td:first-child {
+    border-bottom-left-radius: var(--curvatura);
+}
+
+/* _______________________________________________ */
+
+
+
+main .lista-afiliados{
+    grid-area: lista-afiliados;
+    margin: auto;
+
+}
+
+table {    
+    background-color: #FCA311;      
+    border-radius: var(--curvatura);   
+
+}
+
+table .table_titulo{
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 40px;    
+    border-top-left-radius: var(--curvatura);
+    border-top-right-radius: var(--curvatura);
+    
+}
+
+
+
+table, td, th {
+    
+    border-collapse: collapse;
+    font-size: 20px;
+    text-align: center;
+}
+
+th {
+    padding: 5px 15px;
+    background: #272727;
+    color: #ffffff;    
+}
+
+main table a{
+    text-decoration: none;
+    color: #000000;
+}
+  
+td:nth-child(3){
+    text-align: center;
+}
+  
+td {
+    padding: 8px;
+}
+  
+tr:nth-child(even) {
+    background: #FF7900;
+}
+
+tr:hover {
+    background: #ff9436;
+}

@@ -1,0 +1,142 @@
+main {
+    display: grid;
+    grid-template: 30% auto auto / 100%;
+    grid-template-areas:
+      "caja1"
+      "afiliaciones"
+      "procesos";
+}
+
+.caja1{
+    grid-area: caja1;
+    margin: auto;    
+}
+.procesos{
+    grid-area: proceso;
+    margin: auto;
+}
+
+.caja1 form {
+    background-color:#3C3B3B;
+    border-radius: 15px;    
+}
+
+.caja1 input {
+    border-radius: 15px;
+    border: none;
+    background-color: #fff;
+    font-family: 'Wellfleet', cursive;
+    width: 200px;
+    height: 30px;
+    margin-top: 10px;    
+}
+.caja1 h2{
+    color: #ffffff;
+    background-color:#000000;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    text-align: center;
+    padding: 6px;
+
+}
+.caja1 label{
+    color: #ffffff;
+}
+.caja1 label, input{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.caja1 textarea{
+    border-radius: 15px;
+    border: none;
+    background-color: #fff;
+    font-family: 'Wellfleet', cursive;
+    width: 595px;
+    height: 100px;
+    margin-left: 175px;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+#apellidos{
+    margin-left: 112px;
+}
+
+#visitas{
+    margin-left: 36px;
+}
+
+.afiliaciones{
+    grid-area: afiliaciones;
+    margin: auto;
+}
+.procesos{
+    grid-area: procesos;
+
+}
+
+
+
+
+
+:root {
+    --curvatura: 15px;
+  }
+  
+table {    
+    background-color: #FCA311;      
+    border-radius: var(--curvatura);
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+
+table .table_titulo{
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 20px;    
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    text-align: center;
+    padding: 10px;
+    
+}
+
+table, td, th {    
+    border-collapse: collapse;
+    font-size: 16px;
+    text-align: center;
+}
+th {
+    padding: 5px 15px;
+    background: #272727;
+    color: #ffffff;    
+}
+td{
+    padding-left: 10px;
+}
+tr:nth-child(even) {
+    background: #FF7900;
+}
+
+tr:hover {
+    background: #ff9436;
+}
+
+textarea{
+    border-radius: 3px;
+    border: none;
+    background-color: #fff;
+    font-family: 'Wellfleet', cursive; 
+    margin: 5px;
+}
+
+
+
+
+tr:last-child > td:last-child {
+    border-bottom-right-radius: var(--curvatura);
+}
+  tr:last-child > td:first-child {
+    border-bottom-left-radius: var(--curvatura);
+}   

@@ -1,0 +1,26 @@
+{% extends "Receta_app/home.html" %}
+{% block contenidoQueCambia %}
+{% load static %}
+{% if recetas %}
+    <h1>Listado de Recetas!</h1>
+        {% for receta in recetas %}
+    
+	<div class="card mb-5 bg-info bg-opacity-50">    <!-- Puse una URL en src --> 
+        <a href="#!"></a><img class="card-img-top" src="{{ receta.poster.url }}" alt="..." /></a>
+        <div class="card-body">
+            <div class="small text-muted">{{ receta.release_date }}</div>
+            <h2 class="card-title h4">{{ receta.title }}</h2>
+            <li class="card-text">Autor: {{ receta.author }}</li>
+            <p> </p>
+            <a class="btn btn-primary" href="{% url 'receta-detalle' receta.pk %}">Leer más →</a>  
+        </div>
+    </div>
+		
+		{% endfor %}
+{% else %}
+<h2>No hay recetas disponibles :(</h2>
+<h3>↓ Agrega alguna!</h3>
+<a class="btn btn-primary" href="{% url 'receta-nuevo' %}">Agregar Receta! →</a>
+
+{% endif %}
+{% endblock %}

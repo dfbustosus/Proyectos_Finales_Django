@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Cargar Avatar</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        form {
+            max-width: 300px;
+            padding: 20px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+        }
+        h3 {
+            text-align: center;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" enctype="multipart/form-data">
+        <center><h1 style="background-color: rgb(68, 207, 17); color: white;">CARGAR AVATAR</h1></center>
+         
+
+
+        {% csrf_token %}
+        {{ miFormulario.as_p}}
+        <input type="submit" value="Actualizar">
+        <br>
+        <center><a href="{%url 'inicio' %}" class="button">Regresar Paguina </a></center>
+    </form>
+</body>
+</html>

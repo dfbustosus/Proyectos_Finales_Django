@@ -1,0 +1,42 @@
+{% extends "App1/padre.html" %}
+{% load static %}
+{% csrf_token %}
+
+{% block contenidoQueCambia %}
+<style>
+  .forum-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 20px;
+  }
+
+  .forum-container h1,
+  .forum-container h5 {
+    margin-bottom: 20px;
+  }
+</style>
+
+<div class="forum-container">
+  <h1>Foro de discusión</h1>
+
+  <h6>¡Bienvenido al foro de discusión de Kicks and Friends!</h6>
+
+  <p>Aquí tienes la oportunidad de expresar tus ideas, compartir conocimientos y debatir sobre todo lo relacionado con el apasionante universo de los sneakers. Ya sea que quieras hablar sobre los últimos lanzamientos, analizar tendencias, intercambiar opiniones sobre marcas o discutir sobre diseños icónicos, este es el lugar adecuado para hacerlo.</p>
+
+  <p>Sin embargo, es importante recordar que este foro tiene como principio fundamental fomentar un ambiente amable y respetuoso para todos los participantes. Queremos mantener un espacio de discusión constructiva y evitar cualquier forma de comportamiento irrespetuoso o ofensivo.</p>
+
+  <p>Nuestros moderadores estarán vigilando activamente los comentarios y eliminarán aquellos que no cumplan con las pautas establecidas. Así que, antes de publicar, asegúrate de expresarte de manera cortés y considerada hacia los demás miembros de la comunidad.</p>
+
+  <p>Valoramos la diversidad de opiniones y creemos que el respeto mutuo es fundamental para mantener una discusión enriquecedora. Así que, ¡adelante! Participa activamente, comparte tus puntos de vista, aprende de otros y disfruta de este espacio dedicado a los amantes de los sneakers.</p>
+
+  <p>Recuerda, un buen debate siempre se basa en el respeto y la cortesía. ¡Esperamos que tengas una experiencia gratificante en nuestro foro!</p>
+
+  <h5><a href="{%url 'nuevodebate'%}">Iniciar un nuevo debate</a><br></h5>
+
+  <h5><a href="{%url 'ver_debates'%}">Ver debates puestos por otros usuarios</a></h5>
+</div>
+{% endblock %}
+

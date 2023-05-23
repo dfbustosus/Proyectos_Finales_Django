@@ -1,0 +1,19 @@
+{% extends 'Home_app/inicio.html' %}
+
+{% block content %}
+    <h1>Conversación con {{ destinatario.username }}</h1>
+    {% for mensaje in mensajes %}
+        <p>De: {{ mensaje.remitente.username }}</p>
+        <p>{{ mensaje.contenido }}</p>
+        <p>{{ mensaje.fecha_envio }}</p>
+        <form method="POST" action="{% url 'eliminar_mensaje' mensaje.id %}">
+            {% csrf_token %}
+            <input type="submit" value="Eliminar">
+        </form>
+        <hr>
+    {% empty %}
+        <p>No hay mensajes en esta conversación.</p>
+    {% endfor %}
+
+    <a href="{% url 'mensaje_nuevo' %}">Nuevo mensaje</a>
+{% endblock %}

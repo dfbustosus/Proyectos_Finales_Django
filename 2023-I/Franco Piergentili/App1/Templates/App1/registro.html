@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <style>
+            .custom-button {
+              background-color: #4CAF50;
+              border: none;
+              color: white;
+              padding: 10px 20px;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              font-size: 16px;
+              margin: 4px 2px;
+              cursor: pointer;
+              border-radius: 4px;
+              transition: background-color 0.3s ease;
+            }
+            
+            .custom-button:hover {
+              background-color: #45a049;
+            }
+            
+            .custom-button:active {
+              background-color: #3e8e41;
+              transform: translateY(2px);
+            }
+          </style>
+          <button type="submit" class="custom-button">Registrate!</button>
+          <a href="{%url 'inicio' %}" class="custom-button">Inicio!</a>
+          
+    </form>
+    
+</body>
+</html>

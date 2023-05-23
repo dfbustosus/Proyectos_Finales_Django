@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Agregar Post
+{% endblock title %}
+
+{% block content %}
+    <h1>Agregar nuevo post</h1>
+    <form action="" class="form-control" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ formulario.as_p }}
+        <input class="btn btn-success" type="submit" value="Agregar">
+    </form>
+{% endblock content %}

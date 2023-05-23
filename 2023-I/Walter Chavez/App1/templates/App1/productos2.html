@@ -1,0 +1,15 @@
+{% extends "App1/padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    <h1>Productos</h1>
+    <p>Detalle de productos</p>
+    <form action="/miFormulario/"    method="post"> {% csrf_token %}
+        <p> Producto: <input type = "text" name="nombre">
+        <p> Precio: <input type = "text" number="precio">
+        <input type = "submit" value="Enviar">
+    </form>   
+
+
+{% endblock %}

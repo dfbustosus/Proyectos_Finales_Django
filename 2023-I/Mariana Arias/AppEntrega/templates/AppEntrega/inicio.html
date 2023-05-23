@@ -1,0 +1,59 @@
+{% extends "AppEntrega/padre.html" %}
+{% load static %}
+{% block cambio %}
+        <!-- Main Content-->
+        
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+                    
+                    <!-- Post preview-->
+                 
+
+                    <body>
+                        <button>
+                            <a href="{% url 'Recetas' %}">Agrega una receta</a>
+                           
+                        </button>
+                    </body>
+                    {% if mensaje %}
+                    <p>{{ mensaje }}</p>
+                    {% endif %}
+                    <hr class="my-4" />
+                    <div class="post-preview">
+                        <a href="https://www.netmd.org/enfermedades-infecciosas/enfermedades-infecciosas-articulos/proyecto-piloto-de-100-000-genomas-es-criado-para-el-diagnostico-de-enfermedades-raras">
+                            <h2 class="post-title"> <i class="bi bi-bookmark-heart-fill"></i> Proyecto piloto de 100.000 genomas es criado para el diagnóstico de enfermedades raras</h2>
+                            
+                            
+                        </a>
+                       
+                    </div>
+                    <!-- Divider-->
+                    <hr class="my-4" />
+                    <!-- Post preview-->
+                    <div class="post-preview">
+                        <a href="https://www.nytimes.com/es/2021/05/25/espanol/comida-estado-animo.html">
+                            <h2 class="post-title"> <i class="bi bi-bookmark-heart-fill"></i> La comida modifica tu estado de ánimo</h2>
+                        
+                           
+                            
+                        </p>
+                    </div>
+                    <!-- Divider-->
+                    <hr class="my-4" />
+                    <!-- Post preview-->
+                    <div class="post-preview">
+
+                        <a href="https://g-se.com/diseno-de-un-programa-de-entrenamiento-de-fuerza-para-ninos-y-jovenes-con-trx-y-sus-efectos-2966-sa-S634e02aa359af">
+                            
+                         <h2 class="post-title"> <i class="bi bi-bookmark-heart-fill"></i>Diseño de un Programa de Entrenamiento de Fuerza para Niños y Jóvenes con Trx y sus Efectos</h2> 
+                        </a>
+                      
+                 
+                
+        </div>
+{% endblock %}
+
+
+

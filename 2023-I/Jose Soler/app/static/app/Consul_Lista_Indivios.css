@@ -1,0 +1,66 @@
+main {
+    margin: auto;
+}
+:root {
+    --curvatura: 15px;
+  }
+  
+table {    
+    background-color: #FCA311;      
+    border-radius: var(--curvatura);   
+
+}
+
+table .table_titulo{
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 40px;    
+    border-top-left-radius: var(--curvatura);
+    border-top-right-radius: var(--curvatura);
+    
+}
+
+
+
+table, td, th {
+    
+    border-collapse: collapse;
+    font-size: 20px;
+    text-align: center;
+}
+
+th {
+    padding: 5px 15px;
+    background: #272727;
+    color: #ffffff;    
+}
+
+main table a{
+    text-decoration: none;
+    color: #000000;
+}
+  
+td:nth-child(3){
+    text-align: center;
+}
+  
+td {
+    padding: 8px;
+}
+  
+tr:nth-child(even) {
+    background: #FF7900;
+}
+
+tr:hover {
+    background: #ff9436;
+}
+
+tr:last-child > td:last-child {
+    border-bottom-right-radius: var(--curvatura);
+}
+  tr:last-child > td:first-child {
+    border-bottom-left-radius: var(--curvatura);
+} 
+  
+  

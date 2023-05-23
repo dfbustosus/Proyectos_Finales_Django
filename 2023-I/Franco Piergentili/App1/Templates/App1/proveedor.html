@@ -1,0 +1,27 @@
+{% extends "App1/pibot.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    {% if miFormulario.errors %} 
+    <p style="color: red;">Estan mal los datos, revisar</p>
+    {% endif %}
+
+    <form action="" method="post" style="text-align: center;">
+        <!--Aca esta la magia-->
+        <table>
+            <tr>
+                <td colspan="2">
+                    <h1 style="background-color: rgb(68, 207, 17); color: white;">ALTA PROVEEDOR</h1>
+                </td>
+            </tr>
+            {{ miFormulario.as_table }}
+        </table>
+
+        <input type="Submit" value="Enviar" style="background-color: rgb(152, 195, 25); color: rgb(11, 11, 11); margin-top: 10px;">
+
+    </form>
+
+{% endblock %}

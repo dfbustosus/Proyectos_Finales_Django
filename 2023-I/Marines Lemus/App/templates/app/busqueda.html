@@ -1,0 +1,33 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+
+<div class="row">
+
+  <h2>Búsqueda de productos</h2>
+  <p>Busca un producto en la base de datos según su nombre.</p>
+
+  <div class="col-md-4">
+    <form action="#" method="get" class="creacion">
+      <label for="buscar">Nombre del producto:</label>
+      <input id="buscar" type="text" name="q">
+      <input class="btn btn-primary mt-2 w-100" type="submit" value="Buscar">
+    </form>
+  </div>
+
+  <div class="col-md-8">
+  {% if productos %}
+    <h2>Resultados de búsqueda:</h2>
+    <ul class="listado-base-de-datos">
+      {% for producto in productos %}
+        <li><p>{{ producto.name }} - {{ producto.price }} - {{ producto.sku }}</p></li>
+      {% endfor %}
+    </ul>
+  {% elif mensaje %}
+    <p>{{ mensaje }}</p>
+  {% endif %}
+  </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,103 @@
+main{
+    margin: auto;
+    font-size: 20px;
+}
+
+
+
+main form label{
+    margin-left: 20px;
+}
+
+
+ main form{
+    background-color: #FF7900;
+    border-radius: 20px;
+    width: 750px;    
+    height: 745px;
+    
+}
+
+main form h1{
+    background-color: #000000;
+    color: white;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    text-align: center; 
+    padding-bottom: 10px; 
+    padding-top: 10px;
+    margin-bottom: 30px;
+     
+}
+
+
+main form input{
+    font-family: 'Wellfleet', cursive; 
+    border-radius: 15px;  
+    width: 400px;
+    height: 47px;  
+    font-size: 20px;
+    border:none;
+    margin-left: 10px;
+    
+       
+}
+
+main form input:hover{
+    background-color:#f5f5f5; 
+       
+}
+
+main form .form-boton{
+    background-color: #000000;
+    color: #ffffff;
+    cursor: pointer;
+    width: 140px;
+    position: fixed;
+    margin-left: 581px;
+    margin-top: 10px;
+}
+
+
+main form .form-boton:hover{
+    background-color: #ffffff;
+    color: #000000;    
+} 
+
+main form #titulo{
+    margin-left: 320px;
+}
+main form #F_Inicio{
+    margin-right:125px;
+}
+
+main form #F_Fin{
+    margin-right:60px;
+}
+
+main form label{
+    margin-left: 30px;
+}
+
+main form #entidad{
+    margin-left: 210px;
+    width: 390px ;
+}
+main form #monto{
+    margin-left: 225px;
+    width: 390px ;
+}
+
+main form #abierto{
+    margin-left: 30px;
+    height: 30px; 
+}
+
+main form #comentarios{
+    margin-left: 325px;
+    height: 100px;
+    width: 390px;
+    border-radius: 15px;
+    font-size: 20px; 
+    
+}

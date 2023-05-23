@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Kicks And Friends</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="{% static 'App1/favicon.ico' %}" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="{% static 'App1/css/styles.css' %}" rel="stylesheet" />
+</head>
+
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'Inicio' %}">INICIO</a>
+            <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-5 px-0 px-lg-1 rounded" href="#portfolio">Sneakers</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-5 px-0 px-lg-1 rounded" href="#about">Acerca de nosotros</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-5 px-0 px-lg-1 rounded" href="{% url 'consejos' %}">Como cuidar tus zapas!</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-5 px-0 px-lg-1 rounded" href="{% url 'foro' %}">Foro</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-1 px-0 px-lg-1 rounded" href="{% url 'login' %}">Iniciar Sesion</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-1 px-0 px-lg-1 rounded" href="{% url 'signup' %}">Registrarme</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-1 px-0 px-lg-1 rounded" href="{% url 'miperfil' %}">Mi perfil</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Masthead-->
+    <header class="masthead bg-primary text-white text-center">
+        <div class="container d-flex align-items-center flex-column">
+            <!-- Masthead Avatar Image-->
+            <img class="masthead-avatar mb-5" src="{% static 'App1/assets/img/avataaars.svg' %}" alt="..." />
+            <!-- Masthead Heading-->
+            <h1 class="masthead-heading text-uppercase mb-0">Kicks and Friends</h1>
+            <!-- Icon Divider-->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Masthead Subheading-->
+            <p class="masthead-subheading font-weight-light mb-0">Sneakers, información, ¡y más! :)</p>
+        </div>
+    </header>
+    {% block contenidoQueCambia %}{% endblock %}
+    <!-- Portfolio Section-->
+    <section class="page-section portfolio" id="portfolio">
+        <div class="container">
+            <!-- Portfolio Section Heading-->
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Sneakers</h2>
+            <!-- Icon Divider-->
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Portfolio Grid Items-->
+            <div class="row justify-content-center">
+                <!-- Portfolio Item 1-->
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
+                        <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                            <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'App1/assets/img/portfolio/kobe.png' %}" alt="..." />
+                    </div>
+                </div>
+                <!-- Portfolio Item 2-->
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
+                        <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                            <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'App1/assets/img/portfolio/jordan.png' %}" alt="..." />
+                    </div>
+                </div>
+                <!-- Portfolio Item 3-->
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
+                        <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                            <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'App1/assets/img/portfolio/kd1.png' %}" alt="..." />
+                    </div>
+                </div>
+                <!-- Portfolio Item 4-->
+                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
+                        <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                            <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'App1/assets/img/portfolio/lebron.png' %}" alt="..." />
+                    </div>
+                </div>
+                <!-- Portfolio Item 5-->
+                <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
+                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
+                        <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                            <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'App1/assets/img/portfolio/giannis.png' %}" alt="..." />
+                    </div>
+                </div>
+                <!-- Portfolio Item 6-->
+                <div class="col-md-6 col-lg-4">
+                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
+                        <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                            <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'App1/assets/img/portfolio/kyrie.png' %}" alt="..." />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Section-->
+    <section class="page-section bg-primary text-white mb-0" id="about">
+        <div class="container">
+            <!-- About Section Heading-->
+            <h2 class="page-section-heading text-center text-uppercase text-white">About</h2>
+            <!-- Icon Divider-->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- About Section Content-->
+            <div class="row">
+                <div class="col-lg-4 ms-auto">
+                    <p class="lead">Hola! mi nombre es Martin.Soy un estudiante de ingeniera en computacion apasionado por la informatica y por la coleccion de zapatillas de basquet y de streetwear</p>
+                </div>
+                <div class="col-lg-4 me-auto">
+                    <p class="lead">En esta pagina podras encontrar todo acerca del calzado de los Reyes del baloncesto actual y de decadas anteriores,te invito a que te registres para acceder a informacion exclusiva y poder crear tu propio perfil!</p>
+                </div>
+            </div>
+            <!-- About Section Button-->
+            <div class="text-center mt-4">
+
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer-->
+    <footer class="footer text-center">
+        <div class="container">
+            <div class="row">
+                <!-- Footer Location-->
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase mb-4">Ubicados en:</h4>
+                    <p class="lead mb-0">
+                        Cordoba
+                        <br />
+                        Argentina
+                    </p>
+                </div>
+                <!-- Footer Social Icons-->
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase mb-4">Redes sociales del creador</h4>
+                    <a class="btn btn-outline-light btn-social mx-1" href="https://www.facebook.com/Martin.Gonzalez917"><i class="fab fa-fw fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light btn-social mx-1" href="https://twitter.com/Martin_Gonzale9"><i class="fab fa-fw fa-twitter"></i></a>
+                    <a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/in/martin-gonzalez-11856a233/"><i class="fab fa-fw fa-linkedin-in"></i></a>
+                </div>
+                <!-- Footer About Text-->
+                <div class="col-lg-4">
+                    <h4 class="text-uppercase mb-4">Te gusto la pagina?</h4>
+                    <p class="lead mb-0">
+                        Si te gusto la pagina,hazmelo saber.
+                        nuestro
+                        <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=DmwnWsCXBJtpRNrKpHBQKmrxGqJfCRwsgxddpmJMPHGsnGnmtwWldwvXWVrcsHGvKgrWNKhzpgnb">correo de contacto </a>
+                        .
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Copyright Section-->
+    <div class="copyright py-4 text-center text-white">
+        <div class="container"><small>Copyright &copy; Your Website 2023</small></div>
+    </div>
+    <!-- Portfolio Modals-->
+    <!-- Portfolio Modal 1-->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                <div class="modal-body text-center pb-5">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Kobe</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                    <div class="divider-custom-line"></div>
+                                </div>
+                                <!-- Portfolio Modal - Image-->
+                                <img class="img-fluid rounded mb-5" src="{% static 'App1/assets/img/portfolio/kobeplayer.png' %}" alt="..." />
+                                <!-- Portfolio Modal - Text-->
+                                <p class="mb-4">Un conglomerado de técnica, talento, temperamento y carácter que hizo de Bryant un ídolo para muchos que crecieron viéndolo jugar y aprendieron del escolta. El calado de su pérdida supuso un mazazo no solo para los profesionales sino para todos los fans. No obstante, la relevancia de Kobe no solo se quedó en su imagen como jugador, pues a través de su pacto publicitario con la marca Nike ayudó a que superase el terreno de lo deportivo instalándose en el plano mental, de la cultura y la moda.</p>
+                                <img class="img-fluid rounded mb-5" src="{% static 'App1/assets/img/portfolio/kobe.png' %}" alt="..." />
+                                <p class="mb-4">El impacto cultural de Bryant está fuera de toda duda. Para más de una generación Kobe ha sido el principal referente competitivo que ha creado en ellos una imagen de éxito que se ha traducido en el uso continuado de todo lo que tuviese que ver con él. Desde el merchandising a las zapatillas. Cualquier parcela y producto que ayudase a los fans o jugadores a sentirse como el #24 aunque fuese solo en el terreno de la imaginación, es uno de sus legados más importantes y aquel que, quizás, más perdure.</p>
+                                <button class="btn btn-primary" data-bs-dismiss="modal">
+                                    <i class="fas fa-xmark fa-fw"></i>
+                                    Cerrar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio Modal 2-->
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                <div class="modal-body text-center pb-5">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">air jordan</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                    <div class="divider-custom-line"></div>
+                                </div>
+                                <!-- Portfolio Modal - Image-->
+                                <img class="img-fluid rounded mb-5" src="{% static 'App1/assets/img/portfolio/jordanplayer.png' %}" alt="..." />
+                                <!-- Portfolio Modal - Text-->
+                                <p class="mb-4">Como muchos de vosotros sabréis, Michael Jordan no es solo un icono en el mundo del Baloncesto sino también del mundo del Streetwear, ya que las famosas zapatillas que revolucionaron las canchas de la NBA también revolucionaron las calles de las ciudades, llegando a ser hoy una de las zapatillas más demandadas de la historia.
+
+                                    Remontamos al año 1984, cuando Michael Jordan firmó su contrato con los Chicago Bulls, no quería firmar con Nike, pues él prefería Adidas o Converse porque fue la única zapatilla que usó cuando era estudiante, incluso las criticó llamándolas las "zapatillas del diablo". Tampoco le gustaba el grosor de la entre suela porque le parecía demasiado gruesa para él, y prefería sentir el suelo de la pista con más precisión. Cabe decir y destacar que muchos jugadores profesionales opinan también lo mismo, por eso el desarrollo de la tecnología Flyknit de Nike.</p>
+                                <img class="img-fluid rounded mb-5" src="{% static 'App1/assets/img/portfolio/jordan.png' %}" alt="..." />
+                                <p class="mb-4">Aunque más tarde aparecieron otros nuevos estilos populares en la alineación de Air Jordan para reemplazar al primero, la verdad es que el Air Jordan 1 siempre ha existido y es el sneaker más popular entre los fans de esta colección, ya que representan el origen de toda la evolución en la NBA, dando lugar así a que a día de hoy cualquier jugador pueda llevar sus propios diseños y colores, pero además revolucionó la forma de vestir de la gente, puesto que al tener distintos colores, pasó a ser parte del outfit de muchos apasionados por la moda.</p>
+                                <button class="btn btn-primary" data-bs-dismiss="modal">
+                                    <i class="fas fa-xmark fa-fw"></i>
+                                    Close Window
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio Modal 3-->
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" aria-labelledby="portfolioModal3" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                <div class="modal-body text-center pb-5">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">KD </h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                    <div class="divider-custom-line"></div>
+                                </div>
+                                <!-- Portfolio Modal - Image-->
+                                <img class="img-fluid rounded mb-5" src="{% static 'App1/assets/img/portfolio/kdplayer.png' %}" alt="..." />
+                                <!-- Portfolio Modal - Text-->
+                                <p class="mb-4">En la larga lista de personas que cambiaron la historia del baloncesto, Kevin Durant es uno de ellos. Kevin también llegó a jugar en la NBA y decidió abandonar la universidad desde muy joven.
+
+                                    Además, Kevin es uno de los mejores anotadores y tiradores del partido, jugando desde la posición de alero.</p>
+                                <img class="img-fluid rounded mb-5" src="{% static 'App1/assets/img/portfolio/kd.png' %}" alt="..." />
+                                <p class="mb-4">Nike llevó la línea de baloncesto característica de Kevin Durant a las raíces que la convirtieron en un éxito entre la gente en primer lugar. Y lo hicieron con la correa, un concepto de diseño simple.
+
+                                    La correa fue una característica destacada tanto en el KD 4 como en el KD 7, que son considerados dos de los mejores modelos de la línea de firma de Durant.</p>
+                                <button class="btn btn-primary" data-bs-dismiss="modal">
+                                    <i class="fas fa-xmark fa-fw"></i>
+                                    Close Window
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio Modal 4-->
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" aria-labelledby="portfolioModal4" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                <div class="modal-body text-center pb-5">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Lebron James</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                    <div class="divider-custom-line"></div>
+                                </div>
+                                <!-- Portfolio Modal - Image-->
+                                <img class="img-fluid rounded mb-5" src="{% static 'App1/assets/img/portfolio/lebronplayer.png' %}" alt="..." />
+                                <!-- Portfolio Modal - Text-->
+                                <p class="mb-4">LeBron James es uno de los atletas más reconocido no solo en la NBA, sino también dentro del ámbito deportivo global. Es el segundo máximo anotador de la liga y uno de los jugadores profesionales con más victorias de la historia.
+
+                                    Pero además de destacarse por su talento deportivo y su mentalidad ganadora, también es reconocido por su gusto por las zapatillas Nike y por su basta colección. Desde el año 2003, la estrella empezó a compartir los modelos nuevos que va agregando cada año a su colección, y se trata de una colección muy amplia.
+
+                                    Todos los modelos coleccionados por el jugador forman parte de la serie "Air Max", creada por la mara en 1987. Es por eso que la primer publicación lleva el nombre "Air Zoom Generation",</p>
+                                <img class="img-fluid rounded mb-5" src="{% static 'App1/assets/img/portfolio/lebron.png' %}" alt="..." />
+                                <button class="btn btn-primary" data-bs-dismiss="modal">
+                                    <i class="fas fa-xmark fa-fw"></i>
+                                    Close Window
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio Modal 5-->
+    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" aria-labelledby="portfolioModal5" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                <div class="modal-body text-center pb-5">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Giannis Antetokounmpo</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                    <div class="divider-custom-line"></div>
+                                </div>
+                                <!-- Portfolio Modal - Image-->
+                                <img class="img-fluid rounded mb-5" src="{% static 'App1/assets/img/portfolio/giannisplayer.png' %}" alt="..." />
+                                <!-- Portfolio Modal - Text-->
+                                <p class="mb-4">Las Nike Zoom Freak 1s. Se trata de las zapatillas con las cuales Antetokounmpo hace su debut en el mundo del calzado deportivo. A sus 24 años, es el primer jugador de baloncesto nacido fuera de Estados Unidos que se convierte en objeto de sus propios zapatos Nike. Se trata de una distinción de la cual él está muy consciente.
+                                    En 2020 llegó el modelo Nike Zoom Freak 2, que incluía el logotipo del jugador, además del nombre de sus padres, Charles y Verónica, y el de sus hermanos. El diseño incluía el color blanco, negro y verde, que recordaba al uniforme de su equipo, los Bucks, y también se habló del verde de la bandera nigeriana, país de donde proceden los antepasados del jugador.</p>
+                                <img class="img-fluid rounded mb-5" src="{% static 'App1/assets/img/portfolio/giannis.png' %}" alt="..." />
+                                <button class="btn btn-primary" data-bs-dismiss="modal">
+                                    <i class="fas fa-xmark fa-fw"></i>
+                                    Close Window
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio Modal 6-->
+    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" aria-labelledby="portfolioModal6" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                <div class="modal-body text-center pb-5">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Kyrie</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                    <div class="divider-custom-line"></div>
+                                </div>
+                                <!-- Portfolio Modal - Image-->
+                                <img class="img-fluid rounded mb-5" src="{% static 'App1/assets/img/portfolio/kyrieplayer.png' %}" alt="..." />
+                                <!-- Portfolio Modal - Text-->
+                                <p class="mb-4">Kyrie Irving es un jugador de baloncesto profesional que actualmente juega para los Brooklyn Nets de la NBA. Desde que se unió a la liga en 2011, ha sido uno de los jugadores más populares y respetados en la cancha.
+
+                                    En 2014, Nike lanzó la primera zapatilla de Kyrie Irving, llamada "Kyrie 1". La zapatilla fue diseñada por el diseñador senior de Nike, Leo Chang, y fue creada específicamente para ajustarse al estilo de juego de Irving, que se caracteriza por su agilidad, rapidez y capacidad para cambiar de dirección con facilidad.
+
+                                    Desde entonces, Nike ha lanzado varias ediciones de las zapatillas de Kyrie Irving, incluyendo la Kyrie 2, Kyrie 3, Kyrie 4, Kyrie 5, Kyrie 6 y Kyrie 7. Cada edición ha presentado nuevas innovaciones en el diseño y la tecnología para ayudar a mejorar el rendimiento de los jugadores en la cancha.
+
+                                    Además de su rendimiento en la cancha, las zapatillas de Kyrie Irving también se han convertido en una especie de declaración de moda. Muchos fanáticos de las zapatillas de todo el mundo han comenzado a coleccionar los modelos lanzados por Nike, y la marca se ha convertido en una de las más populares en el mundo de las zapatillas de baloncesto.
+
+                                    En resumen, las zapatillas de Kyrie Irving han sido una parte importante de su éxito en la cancha y también han dejado una huella significativa en el mundo de la moda y la cultura sneaker.</p>
+                                <img class="img-fluid rounded mb-5" src="{% static 'App1/assets/img/portfolio/kyrie.png' %}" alt="..." />
+                                <button class="btn btn-primary" data-bs-dismiss="modal">
+                                    <i class="fas fa-xmark fa-fw"></i>
+                                    Close Window
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <!-- * *                               SB Forms JS                               * *-->
+    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+</body>
+
+</html>

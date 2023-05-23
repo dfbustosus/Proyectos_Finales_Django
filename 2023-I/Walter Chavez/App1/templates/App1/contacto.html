@@ -1,0 +1,20 @@
+{% extends "App1/padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    <h1>Contacto</h1>
+
+    <p>Dejanos tu consulta y el equipo se comunicara</p>
+    <div class="mb-3 container position-relative">
+        <label for="exampleFormControlInput1" class="form-label">Correo Electronico</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    </div>
+    <div class="mb-3 container position-relative">
+        <label for="exampleFormControlTextarea1" class="form-label">Consulta</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <button type="submit" class="btn btn-primary mb-3 position-relative ">Enviar</button>
+    </div>
+    
+
+{% endblock %}

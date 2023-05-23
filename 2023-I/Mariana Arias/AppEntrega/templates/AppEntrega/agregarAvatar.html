@@ -1,0 +1,17 @@
+{% extends "AppEntrega/padre.html" %}
+{% load static %}
+{% block cambio %}
+
+<title>Cargar Avatar</title>
+</head>
+<body>
+    <p>Cargar Avatar</p>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ FormularioAvatar.as_p}}
+        <input type="submit" value="Actualizar">
+    </form>
+</body>
+</html>
+
+{% endblock %}

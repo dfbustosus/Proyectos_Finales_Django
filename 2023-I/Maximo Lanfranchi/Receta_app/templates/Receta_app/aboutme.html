@@ -1,0 +1,23 @@
+{% extends "Receta_app/home.html" %}
+{% block contenidoQueCambia %}
+
+{% load static %}
+<div class="card mb-5" style="width: 450px;">    <!-- Puse una URL en src --> 
+      <a href="#!"></a><img class="card-img-top" src="{% static 'Receta_app/assets/Foto_CV_MML.jpg' %}" alt="..." style="max-width: 100%; height: auto;" /></a>
+    <div class="card-body bg-info bg-opacity-50">
+        <h2 class="card-title h4">Acerca de mí</h2>
+        <h3>Soy Maximo Martin Lanfranchi.</h3>
+        <p>Soy esudiante de ING. en sistemas en la Universidad Tecnológica Nacional de Argentina, Córdoba </p>
+        <p>Me encanta la programación y soy el creador de esta aplicación web</p>
+        <p>Siempre estoy buscando nuevas herramientas para aprender y utilizar!</p>
+        <h6 class="card-text">Autor: Maximo Martin Lanfranchi</h6>
+        <div class="small text-muted">16/05/2023</div>
+        <a class="btn btn-success" href="{% url 'receta_list' %}">Volver al listado</a>
+        <a class="btn btn-success" href="{% url 'contacto' %}">Contáctame!</a>
+    </div>
+  </div>
+
+
+
+
+{% endblock %}

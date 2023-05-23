@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Wellfleet&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Css/Pag_Admin_Style.css">
+    <link rel="stylesheet" href="Css/Consultar_Individuo.css">
+    <title>Consultar individuo</title>
+</head>
+<body>    
+    <header>
+        <h1>CorPage</h1>
+        <div class="botones">
+            <a href="Pag_Admin_Actu_Datos.html" class="boton-cuenta">Cuenta</a>
+            <a href="index.html" class="boton-cerrar">Cerrar sesión</a>
+       </div>        
+    </header>
+    <div class="barra-nav">
+
+        <samp>ADMINISTRADOR</samp>
+        <nav>
+            <ul class="main-nav">                
+                <li class="main-nav__item"><a href="">CONSULTAS ↧</a>
+                    <ul>
+                        <li class="main-nav__item-subm"><a href="Consul_Lista_Individuos_Admin.html">✔ Lista individuos</a></li>                      
+                        <li class="main-nav__item-subm"><a href="Consultar_Lista_PartidosP_Admin.html">✔ Lista partidos</a></li>                        
+                    </ul>           
+                 </li><br>
+
+                <li class="main-nav__item"><a href="Crear_Partido_Politico_Admin.html">CREAR PARTIDO POLÍTICO</a></li>                
+                <li class="main-nav__item"><a href="Crear_individuo_Admin.html">CREAR INDIVIDUO</a></li>
+                <li class="main-nav__item"><a href="Crear_Proceso_Admin.html">CREAR PROCESO</a></li>
+                <li class="main-nav__item"><a href="Afiliar_a_partido.html">AFILIAR INDIVIDUO A PARTIDO</a></li>
+                
+
+                <li class="main-nav__item"><a href="Aprobar_Individuo.html">SOLICITUDES DE INDIVIDUOS</a></li>
+                <li class="main-nav__item"><a href="Aprobar_Afiliacion.html">SOLICITUDES DE AFILIACIÓN DE INDIVIDUO</a></li>
+                <li class="main-nav__item"><a href="Aprobar_Proceso.html">SOLICITUDES DE PROCESOS</a></li> <!-- APROBAR PROCESO -->                
+                <li class="main-nav__item"><a href="Implicar_Afiliado_Admin.html">IMPLICAR AFILIADO A PROCESO</a></li>
+
+                <li class="main-nav__item"><a href="Habiltar_Desabilitar_Ciudadano.html">CIUDADANOS</a></li>
+                
+            </ul>                        
+        </nav>
+        
+    </div>
+
+    <main>
+        
+        <div class="caja1">
+            <form method="POST">  
+                <h2>Consulta</h2> 
+                <label for="">Apellidos</label>            
+                <input type="text" name="nombres" id="apellidos" maxlength="20" value=" Guerrero Rosero" disabled>                
+                <label for="">Nombres</label> 
+                <input type="text" name="nombres" id="nombres" maxlength="20" value=" Jonathan Andres" disabled><br>
+                <label for="">Fecha de nacimiento</label> 
+                <input type="text" name="nombres" id="fecha" maxlength="20" value="00/00/00" disabled>                
+                <label for="">Visitas</label> 
+                <input type="text" name="nombres" id="visitas" maxlength="20" value="236" disabled><br> <br>                
+            </form>
+
+        </div>
+
+        <div class="afiliaciones">
+
+            <table>            
+                <thead>                    
+                    <td class="table_titulo" COLSPAN=4 > Lista de Afiliaciones</td>
+                    <tr>
+                        <th>Nombre del Patido</th>
+                        <th>Fecha de ingreso</th>
+                        <th>Fecha de salida</th>
+                        </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Liberal</td>
+                        <td>00/00/00</td>
+                        <td>00/00/00</td>
+                    </tr>
+                    <tr>
+                        <td>Republicano</td>
+                        <td>00/00/00</td>
+                        <td>00/00/00</td>
+                    </tr>
+                    <tr>
+                        <td>Conservador </td>
+                        <td>00/00/00</td>
+                        <td>00/00/00</td>
+                    </tr>
+                    <tr>
+                        <td>Conservador </td>
+                        <td>00/00/00</td>
+                        <td>00/00/00</td>
+                    </tr>                    
+                </tbody>
+            </table>
+
+        </div>
+
+
+        <div class="procesos">
+
+
+            <table>            
+                <thead>                    
+                    <td class="table_titulo" COLSPAN=12 > Lista de Procesos</td>
+                    <tr>
+                        <th>Fecha de ingreso</th>
+                        <th>Fecha de salida</th>
+                        <th>Título</th>
+                        <th>Entidad</th>
+                        <th>Monto</th>
+                        <th>Comentarios</th>
+                        <th>Abierto</th>
+                        <th>Acusación</th>
+                        <th>Culpable</th>
+                        <th>Pena</th>
+                        <th>Implicación</th>
+                        <th>Consulta</th>
+                        </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>00/00/00</td>
+                        <td>00/00/00</td>
+                        <td>Proceso1</td>
+                        <td>Entidad1</td>
+                        <td>Monto1</td>                        
+                        <td> <textarea name="" id="" cols="20" rows="2" disabled>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate in optio dolore? Suscipit, dignissimos? Et facere minima optio, saepe atque debitis? Excepturi quam voluptates illum dolore mollitia, numquam dignissimos impedit.</textarea> </td>
+                        <td>Liberal</td>
+                        <td>Liberal</td>
+                        <td>Liberal</td>
+                        <td>Liberal</td>
+                        <td>Liberal</td>
+                        <td><a href="Consultar_Procesos_Admin.html" style="text-decoration: none;" >🔎</a></td>                    
+                    </tr>
+                    <tr>
+                        <td>00/00/00</td>
+                        <td>00/00/00</td>
+                        <td>Proceso2</td>
+                        <td>Entidad2</td>
+                        <td>Monto2</td>
+                        <td> <textarea name="" id="" cols="20" rows="2" disabled>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate in optio dolore? Suscipit, dignissimos? Et facere minima optio, saepe atque debitis? Excepturi quam voluptates illum dolore mollitia, numquam dignissimos impedit.</textarea> </td>
+                        <td>Liberal</td>
+                        <td>Liberal</td>
+                        <td>Liberal</td>
+                        <td>Liberal</td>
+                        <td>Liberal</td>
+                        <td><a href="Consultar_Procesos_Admin.html" style="text-decoration: none;" >🔎</a></td> 
+                    </tr>
+                    <tr>
+                        <td>00/00/00</td>
+                        <td>00/00/00</td>
+                        <td>Proceso3</td>
+                        <td>Entidad3</td>
+                        <td>Monto3</td>
+                        <td> <textarea name="" id="" cols="20" rows="2" disabled>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate in optio dolore? Suscipit, dignissimos? Et facere minima optio, saepe atque debitis? Excepturi quam voluptates illum dolore mollitia, numquam dignissimos impedit.</textarea> </td>
+                        <td>Liberal</td>
+                        <td>Liberal</td>
+                        <td>Liberal</td>
+                        <td>Liberal</td>
+                        <td>Liberal</td>
+                        <td><a href="Consultar_Procesos_Admin.html" style="text-decoration: none;" >🔎</a></td>  
+                    </tr>
+                    <tr>
+                        <td>00/00/00</td>
+                        <td>00/00/00</td>
+                        <td>Proceso4</td>
+                        <td>Entidad4</td>
+                        <td>Monto4</td>
+                        <td> <textarea name="" id="" cols="20" rows="2" disabled>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate in optio dolore? Suscipit, dignissimos? Et facere minima optio, saepe atque debitis? Excepturi quam voluptates illum dolore mollitia, numquam dignissimos impedit.</textarea> </td>
+                        <td>Liberal</td>
+                        <td>Liberal</td>
+                        <td>Liberal</td>
+                        <td>Liberal</td>
+                        <td>Liberal</td>
+                        <td><a href="Consultar_Procesos_Admin.html" style="text-decoration: none;" >🔎</a></td>     
+                    </tr>
+                </tbody>
+            </table>
+
+            
+        </div>
+
+    </main>
+
+
+</body>
+</html>

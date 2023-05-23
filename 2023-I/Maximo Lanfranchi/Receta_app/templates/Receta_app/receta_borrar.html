@@ -1,0 +1,22 @@
+{% extends "Receta_app/home.html" %}
+
+{% block contenidoQueCambia %}
+
+  <h2>Eliminar Receta</h2>
+  <p>¿Estás seguro de que deseas eliminar la receta:  "{{ receta.title }}"?</p>
+  <div class="card mb-5">  
+    {% if receta.poster %}
+      <a href="#!"></a><img class="card-img-top" src="{{ receta.poster.url }}" alt="{{ receta.title }}" /></a>
+    {% endif %}
+    <div class="card-body bg-info bg-opacity-50">
+        <h2 class="card-title h4">{{ receta.title }}</h2>
+        <h3>{{receta.subtitle}}</h3>
+        <p>{{receta.description}}</p>
+        <h6 class="card-text">Autor: {{ receta.author }}</h6>
+        <div class="small text-muted">{{ receta.release_date }}</div>
+        <a class="btn btn-danger" href="{% url 'receta-borrar' receta.pk %}">Sí, eliminar</a>
+        <a class="btn btn-dark" href="{% url 'receta-detalle' receta.pk %}">Cancelar</a>
+    </div>
+  </div>
+
+{% endblock %}

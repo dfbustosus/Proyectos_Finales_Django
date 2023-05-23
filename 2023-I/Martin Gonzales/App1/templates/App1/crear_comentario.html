@@ -1,0 +1,14 @@
+{% extends 'App1/padre.html' %}
+
+{% block contenidoQueCambia %}
+<h2>Comentar en "{{ debate.titulo }}"</h2>
+<form action="{% url 'crear_comentario' %}" method="POST">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="contenido">Comentario:</label>
+    <textarea class="form-control" id="contenido" name="contenido" rows="5" required></textarea>
+    <input type="hidden" name="debate_id" value="{{ debate.id }}">
+  </div>
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends "Usuario_app/base.html" %}
+{% block contenidoQueCambia %}
+{% load static %}
+
+<div class="col-md-6 text-center mb-5">
+</div>
+</div>
+<div class="row justify-content-center">
+<div class="col-md-12 col-lg-10">
+	<div class="wrap d-md-flex">
+		<div class="text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last">
+			<div class="text w-100">
+				<h2>Bienvenido {{ user.username }}!</h2>
+				<p>Aqui podras ver tu información</p>
+			</div>
+  </div>
+		<div class="login-wrap p-4 p-lg-5">
+	  <div class="d-flex">
+		  <div class="w-100">
+			  <h3 class="mb-4">Información de cuenta:</h3>
+		  </div>
+	  </div>
+	  	{% if user.username %}
+		<div class="form-group mb-3">
+			<label class="label">Nombre de usuario: {{ user.username }}</label>
+		  </div>
+        {% endif %}
+
+        {% if user.first_name %}
+        <div class="form-group mb-3">
+		    <label class="label">First name: {{ user.first_name }}</label>
+		</div>
+        {% endif %}
+        {% if user.last_name %}
+        <div class="form-group mb-3">
+		    <label class="label">Last name: {{ user.last_name }}</label>
+		</div>
+        {% endif %}
+
+        {% if user.email %}
+        <div class="form-group mb-3">
+          	<label class="label">Email: {{ user.email }}</label>
+	    </div>
+        {% endif %}
+
+		{% if profile.description %}
+        <div class="form-group mb-3">
+            <label class="label">Descripción: {{ profile.description }}</label>
+        </div>
+        {% endif %}
+        {% if profile.webpage %}
+        <div class="form-group mb-3">
+            <label class="label">Página web: {{ profile.webpage }}</label>
+        </div>
+        {% endif %}
+
+        <div class="form-group mb-3">
+            <label class="label">Cuenta creada el: {{ user.date_joined }}</label>
+      	</div>
+
+        
+
+	<div class="form-group">
+		
+		<p></p>
+        <a href="{% url 'home-inicio' %}" class="form-cancel btn btn-primary px-3">←Volver atrás</a>
+        <a href="{% url 'Perfil' %}" class="form-cancel btn btn-primary px-3">Editar Perfil →</a>
+	</div>
+</div>
+</div>
+</div>
+
+{% endblock %}

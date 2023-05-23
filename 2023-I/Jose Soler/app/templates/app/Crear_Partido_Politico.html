@@ -1,0 +1,18 @@
+{% extends "app/Pag_Admin_Style.html" %}
+{% load static %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'app/Partido_politico_Admin.css' %}">
+{% endblock %}
+
+{% block title %}Crear partido político{% endblock %}
+
+{% block main %}
+<form action="{% url 'app:Crear_Partido_Politico_Post' request.user.id %}" method="POST">
+    {% csrf_token %}
+    <h1>Crear partido político</h1>
+    <label for="">Nombre del partido politico</label>
+    <input type="text" placeholder="Partido Político"  autocomplete="given-name" name="partido" required> <br> <p></p>
+    <input class="form-boton" type="submit" value="Crear">  <br><p></p>  
+    <br><p></p>            
+</form>
+{% endblock %}

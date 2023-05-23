@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Wellfleet&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Css/Pag_Admin_Style.css">
+    <link rel="stylesheet" href="Css/Consul_Lista_Indivios.css">
+    <title>Consulta Lista Individuos</title>
+</head>
+<body>    
+    <header>
+        <h1>CorPage</h1>
+        <div class="botones">            
+            <a href="Pag_Admin_Actu_Datos.html" class="boton-cuenta">Cuenta</a>
+            <a href="index.html" class="boton-cerrar">Cerrar sesión</a>
+       </div>        
+    </header>
+    <div class="barra-nav">
+
+        <samp>ADMINISTRADOR</samp>
+        <nav>
+            <ul class="main-nav">                
+                <li class="main-nav__item"><a href="">CONSULTAS ↧</a>
+                    <ul>
+                        <li class="main-nav__item-subm"><a href="Consul_Lista_Individuos_Admin.html">✔ Lista individuos</a></li>                      
+                        <li class="main-nav__item-subm"><a href="Consultar_Lista_PartidosP_Admin.html">✔ Lista partidos</a></li>                        
+                    </ul>           
+                 </li><br>
+
+                <li class="main-nav__item"><a href="Crear_Partido_Politico_Admin.html">CREAR PARTIDO POLÍTICO</a></li>                
+                <li class="main-nav__item"><a href="Crear_individuo_Admin.html">CREAR INDIVIDUO</a></li>
+                <li class="main-nav__item"><a href="Crear_Proceso_Admin.html">CREAR PROCESO</a></li>
+                <li class="main-nav__item"><a href="Afiliar_a_partido.html">AFILIAR INDIVIDUO A PARTIDO</a></li>
+                
+
+                <li class="main-nav__item"><a href="Aprobar_Individuo.html">SOLICITUDES DE INDIVIDUOS</a></li>
+                <li class="main-nav__item"><a href="Aprobar_Afiliacion.html">SOLICITUDES DE AFILIACIÓN DE INDIVIDUO</a></li>
+                <li class="main-nav__item"><a href="Aprobar_Proceso.html">SOLICITUDES DE PROCESOS</a></li> <!-- APROBAR PROCESO -->                
+                <li class="main-nav__item"><a href="Implicar_Afiliado_Admin.html">IMPLICAR AFILIADO A PROCESO</a></li>
+
+                <li class="main-nav__item"><a href="Habiltar_Desabilitar_Ciudadano.html">CIUDADANOS</a></li>
+                
+            </ul>                        
+        </nav>
+        
+    </div>
+
+    <main>
+        <table>
+            
+            <thead>
+                
+                <td class="table_titulo" COLSPAN=6 >Consultar lista de Individuos</td>
+                <tr>
+                    <th>Apellidos</th>
+                    <th>Nombres</th>
+                    <th>Ultimo partido afiliado</th>
+                    <th>Total procesos</th>
+                    <th>Aprobados</th>  
+                    <th>Consulta</th>                   
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="Consultar_Individuo_Admin.html">Guerrero Rosero</a></td>
+                    <td><a href="Consultar_Individuo_Admin.html">Jonathan Andres</a></td>
+                    <td>Verdes</td>
+                    <td>15</td>
+                    <td>✔</td>
+                    <td><a href="Consultar_Individuo_Admin.html">🔎</a></td>
+                </tr>
+                <tr>
+                    <td><a href="Consultar_Individuo_Admin.html">Melo Tayo</a></td>
+                    <td><a href="Consultar_Individuo_Admin.html">Camilo Andres</a></td>
+                    <td>Morados</td>
+                    <td>25</td>
+                    <td>✘</td>
+                    <td><a href="Consultar_Individuo_Admin.html">🔎</a></td>
+                </tr>
+                <tr>
+                    <td><a href="Consultar_Individuo_Admin.html">Perez Gomez </a></td>
+                    <td><a href="Consultar_Individuo_Admin.html">Juan Miguel</a></td>
+                    <td>Verdes</td>
+                    <td>23</td>
+                    <td>✔</td>
+                    <td><a href="Consultar_Individuo_Admin.html">🔎</a></td>
+                </tr>
+                <tr>
+                    <td><a href="Consultar_Individuo_Admin.html">Rodriguez Avila</a></td>
+                    <td><a href="Consultar_Individuo_Admin.html">Stevan Santiago</a></td>
+                    <td>Azules</td>
+                    <td>36</td>
+                    <td>✘</td>
+                    <td><a href="Consultar_Individuo_Admin.html">🔎</a></td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </main>
+
+
+</body>
+</html>

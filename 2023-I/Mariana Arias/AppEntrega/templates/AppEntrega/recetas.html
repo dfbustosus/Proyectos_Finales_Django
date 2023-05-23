@@ -1,0 +1,79 @@
+{% extends "AppEntrega/padre.html" %}
+{% load static %}
+{% block cambio %}
+<p class="placeholder-glow">
+    <span class="placeholder col-12"></span>
+  </p>
+  <h3>
+  <p class="text-center">Acá podrás añadir recetas</p>
+  </h3>
+  <body>
+    {% if miformulario.errors %} 
+    
+    <p style="color: red;"> Aguno de los datos está mal</p>
+    {% endif %}
+
+    <form action="" method="post">{% csrf_token %}
+        
+        <table>
+
+            {{ miformulario.as_table }}
+        </table>
+        <input type="submit" value="Enviar">
+
+        <button>
+          <a href="{% url 'LeerRecetas' %}">Editar o Eliminar recetas</a>
+         
+      </button>
+
+    </form>
+    
+</body>
+  <p class="placeholder-wave">
+    <span class="placeholder col-12"></span>
+<div class="row">
+    <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+      <img
+        src="https://fullofplants.com/wp-content/uploads/2021/12/best-vegan-tteokbokki-with-cocktail-sausages-and-tofu-fish-korean-inspired-thumb-3.jpg"
+        class="w-100 shadow-1-strong rounded mb-4"
+        alt="tteokbokki"
+        
+      />
+  
+      <img
+        src="https://cdn.colombia.com/gastronomia/2011/08/02/bandeja-paisa-1616.gif"
+        class="w-100 shadow-1-strong rounded mb-4"
+        alt="Bandeja paisa"
+      />
+    </div>
+  
+    <div class="col-lg-4 mb-4 mb-lg-0">
+      <img
+        src="https://carmyy.com/wp-content/uploads/2022/01/Avocado-Milkshake-5.jpg"
+        class="w-100 shadow-1-strong rounded mb-4"
+        alt="Sinh To Bo"
+      />
+  
+      <img
+        src="https://mikhaeats.com/wp-content/uploads/2021/06/japanese-egg-salad-sandwich-featured-image-2.jpg"
+        class="w-100 shadow-1-strong rounded mb-4"
+        alt="Japanese egg sandwich"
+      />
+    </div>
+  
+    <div class="col-lg-4 mb-4 mb-lg-0">
+      <img
+        src="https://www.pequerecetas.com/wp-content/uploads/2019/05/samosa-india-receta.jpg"
+        class="w-100 shadow-1-strong rounded mb-3"
+        alt="Samosas"
+      />
+  
+      <img
+        src="https://www.bradbudge.com/wp-content/uploads/2017/10/canadian_poutine.jpg"
+        class="w-100 shadow-1-strong rounded mb-4"
+        alt="Canadian Poutine"
+      />
+    </div>
+  </div>
+  <!-- Gallery -->
+{% endblock %}

@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Para mantener la transparencia  de los funcionarios públicos esta  plataforma en línea  esta diseñada para que los ciudadanos puedan consultar de una manera simple y rápida los hechos de corrupción gubernamental y los actores que intervinieron en el mismo. ">
+    <meta name="robots" content="index,follow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Wellfleet&display=swap" rel="stylesheet">   
+    <link rel="stylesheet" href="{% static 'app/PaginaPrin_Style.css' %}">
+    <!-- <link rel="shortcut icon" href="#">  Para poner icono -->
+    <title>Página inicial</title>
+</head>
+<body>
+    <header>
+        <h1>CorPage</h1>
+        <form action="{% url 'app:Home_login_post' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" placeholder="Usuario"  autocomplete="name" name="username">
+            <input type="password" placeholder="Contraseña" autocomplete="current-password" name="password">            
+            <input class="header-ingresar" type="submit" value="Ingresar">                
+        </form>        
+    </header>
+
+
+    <div class="info-web">        
+        <article>
+            {% block info %}
+            {% endblock %}            
+        </article>
+
+    </div>
+
+    <main>
+
+        <form action="{% url 'app:Home_registro_post' %}" method="POST" >
+            {% csrf_token %}
+            <h1>Registro</h1>
+            <input type="text" placeholder="Nombres"  autocomplete="given-name" name="nombres" > <br> <p></p>
+            <input type="text" placeholder="Apellidos"  autocomplete="family-name" name="apellidos" > <br> <p></p>
+            <input type="text" placeholder="Usuario"  autocomplete="additional-name" name="username" required > <br> <p></p>
+            <input type="password" placeholder="Contraseña" autocomplete="new-password" name="password" required> <br> <p></p>
+            <input type="email" placeholder="Email" autocomplete="email" name="email" > <br><p></p>
+            <input class="form-boton" type="submit" value="Registrarse">  <br><p></p>  
+            <br><p></p>            
+        </form>      
+
+    </main>
+    <footer>
+        <div class="botones-footer">            
+            <!-- <a href="Pag_Admin_Style.html" class="boton">Administrador</a>
+            <a href="Pag_Usuario_Style.html" class="boton">Usuario</a>
+            <a href="https://bitbucket.org/JonathannGuerrero/pagina_web" target="_blank" class="boton">BitBucket</a> -->
+       </div> 
+    </footer>    
+</body>
+</html>

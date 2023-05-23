@@ -1,0 +1,20 @@
+{% extends "Receta_app/home.html" %}
+{% block contenidoQueCambia %}
+
+{% load static %}
+<div class="card mb-5">    <!-- Puse una URL en src --> 
+      <a href="#!"></a><img class="card-img-top" src="{% static 'Receta_app/assets/Foto_CV_MML.jpg' %}" alt="..." /></a>
+    <div class="card-body bg-info bg-opacity-50">
+        <h2 class="card-title h4">Acerca de mí</h2>
+        <h3>Soy Maximo Martin Lanfranchi.</h3>
+        <p>Email: maximomartinlanfranchi@gmail.com </p>
+        <li>https://www.linkedin.com/in/maximo-martin-lanfranchi/</li>
+        <p> </p>
+        <a class="btn btn-success" href="{% url 'aboutme' %}">← Volver atrás</a>
+    </div>
+  </div>
+
+
+
+
+{% endblock %}

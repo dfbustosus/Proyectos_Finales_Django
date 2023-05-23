@@ -1,0 +1,176 @@
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;    
+    font-family: 'Wellfleet', cursive;    
+    display: grid;       
+    grid-template: 12% 78% 10% / 50% auto;
+    grid-template-areas:
+      "header header"
+      "info-web menu-registro"
+      "footer footer";
+}
+
+header {
+    background-color: #000000;
+    grid-area: header;
+    color: #ffffff;
+    display: grid;  
+    grid-template: 120px / 60% auto;       
+    
+}
+header form {    
+    padding-left:  75px;
+    padding-top: 35px;
+    
+}
+header h1{    
+    text-align: center;
+    font-size: 60px;  
+    margin-block-end: 0px ;  
+    margin-block-start: 18px;
+}
+ header form input { /* User and Password */
+    font-family: 'Wellfleet', cursive; 
+    border-radius: 15px;  
+    width: 250px;
+    height: 49px;  
+    font-size: 20px;
+    border:none;   
+}
+
+header form input:hover { 
+    background-color: #eeeeee;  
+}
+
+header .header-ingresar{
+    font-family: 'Wellfleet', cursive; 
+    border:none; 
+    width: 100px;
+    height: 51px;
+    background: #FF7900;  
+    cursor: pointer;       
+}
+
+/* Header Listo 🡡 */
+/* ------------------------------------ */
+
+.info-web {
+    background-color: #ffffff;
+    grid-area: info-web;
+}
+.info-web article{    
+    margin: 100px;
+    margin-top: 195px;
+}
+.info-web article h1{
+    text-align: center;
+    font-size: 60px; 
+}
+.info-web article p{
+    text-align: justify;
+    font-size: 20px;
+}
+
+/* Info Web Listo 🡡 */
+/* ------------------------------------ */
+
+main {
+    background-color: #ffffff;
+    grid-area: menu-registro;
+    padding: 150px;
+    padding-top: 130px;
+    padding-left: 390px;   
+}
+
+
+main form{
+    background-color: #FF7900;
+    border-radius: 20px;
+    width: 500px;    
+    height: 500px;
+    
+}
+
+main form h1{
+    background-color: #000000;
+    color: white;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    text-align: center; 
+    padding-bottom: 10px; 
+    padding-top: 10px;
+    margin-bottom: 30px;
+     
+}
+
+
+main form input{
+    font-family: 'Wellfleet', cursive; 
+    border-radius: 15px;  
+    width: 400px;
+    height: 49px;  
+    font-size: 20px;
+    border:none;
+    margin-left: 49px;
+    
+       
+}
+
+main form input:hover{
+    background-color:#f5f5f5; 
+       
+}
+
+main form .form-boton{
+    background-color: #000000;
+    color: #ffffff;
+    cursor: pointer;
+    width: 140px;
+    position: fixed;
+    margin-left: 187px;
+}
+
+
+main form .form-boton:hover{
+    background-color: #ffffff;
+    color: #000000;    
+}
+
+/* Formulario Registro Listo 🡡 */
+/* ------------------------------------ */
+
+footer {
+    background-color: #000000;
+    grid-area: footer;    
+}
+
+
+
+
+footer .botones-footer{    
+    padding-left: 1520px;
+    padding-top: 37px;    
+}
+
+footer .boton{
+    background-color: #FF7900;
+    font-family: 'Wellfleet', cursive;
+    border-radius: 15px;
+    padding: 10px; 
+    text-decoration: none;   
+    font-size: 20px;    
+    border:none;    
+    text-decoration: none; 
+    color: #000000;  
+}
+
+footer .boton:hover{
+    background-color: #ffffff; 
+}

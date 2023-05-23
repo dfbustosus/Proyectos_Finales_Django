@@ -1,0 +1,21 @@
+{% extends "app/Pag_Admin_Style.html" %}
+{% load static %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'app/Actualizar_Datos.css' %}">
+{% endblock %}
+
+{% block title %}Actualizar Datos{% endblock %}
+
+{% block main %}
+<form action="{% url 'app:Actualizar_Datos_Post' request.user.id %}" method="POST">
+    {% csrf_token %}
+    <h1>Actualizar Datos</h1>
+    <input type="text" placeholder="Nombres"  autocomplete="given-name" value="{{ request.user.first_name }}" name="nombres" > <br> <p></p>
+    <input type="text" placeholder="Apellidos"  autocomplete="family-name" value="{{ request.user.last_name }}" name="apellidos"> <br> <p></p>
+    <input type="text" placeholder="Usuario"  autocomplete="additional-name" value="{{ request.user.username }}" name="username"><br><p></p>
+    <input type="password" placeholder="Nueva Contraseña" autocomplete="new-password" required name="password"> <br> <p></p>
+    <input type="email" placeholder="Email" autocomplete="email" value="{{ request.user.email }}" name="email"> <br><p></p>
+    <input class="form-boton" type="submit" value="Actualizar">  <br><p></p>  
+    <br><p></p>            
+</form>
+{% endblock %}

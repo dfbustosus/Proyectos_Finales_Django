@@ -1,0 +1,10 @@
+{% extends 'Home_app/inicio.html' %}
+
+{% block content %}
+    <h1>Nuevo mensaje</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar</button>
+    </form>
+{% endblock %}

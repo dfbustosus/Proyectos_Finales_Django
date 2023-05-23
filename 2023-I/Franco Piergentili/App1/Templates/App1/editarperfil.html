@@ -1,0 +1,14 @@
+{% extends "App1/pibot.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    <p style="color: rgb(225, 90, 45);">Editar Proveedores {{usuario}}</p>
+    
+    <form action="" method="POST">{% csrf_token %}
+        <!-- Acá está la magia de Django-->
+        <table>
+            {{ miFormulario.as_table }}
+        </table>
+        <input type="submit", value="Enviar">
+    </form>  
+{% endblock %}

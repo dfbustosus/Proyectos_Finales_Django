@@ -1,0 +1,32 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+<div class="row">
+
+    <h2>LogIn</h2>
+    <p>Ingrese a la aplicación con su nombre y clave de usuario.</p>
+
+    <div class="col-md-4">
+
+        <form method="post" class="creacion">
+            {% csrf_token %}
+            <label for="username">Usuario:</label>
+            <input type="text" name="username" required>
+            <label for="password">Contraseña:</label>
+            <input type="password" name="password" required>
+            <input class="btn btn-primary mt-2 w-100" type="submit" value="Iniciar sesión">
+        </form>
+
+    </div>
+
+    <div class="col-md-8">
+        {% if messages %}
+            {% for message in messages %}
+                <div id="temporizador" class="alert alert-{{ message.tags }}">
+                {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+{% endblock %}

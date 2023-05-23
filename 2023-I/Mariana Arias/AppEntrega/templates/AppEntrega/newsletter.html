@@ -1,0 +1,26 @@
+{% extends "AppEntrega/padre.html" %}
+{% load static %}
+{% block cambio %}
+<p class="placeholder-glow">
+    <span class="placeholder col-12"></span>
+  </p>
+  <h3>
+  <p class="text-center">Inscribete al newsletter </p>
+  </h3>
+  <body>
+    {% if miformulario.errors %} 
+    
+    <p style="color: red;"> Aguno de los datos está mal</p>
+    {% endif %}
+
+    <form action="" method="post">{% csrf_token %}
+        
+        <table>
+
+            {{ miformulario.as_table }}
+        </table>
+        <input type="submit" value=" Quiero inscribirme">
+
+    </form>
+</body>
+{% endblock %}

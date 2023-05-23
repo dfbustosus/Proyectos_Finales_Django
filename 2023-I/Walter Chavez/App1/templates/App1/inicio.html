@@ -1,0 +1,18 @@
+{% extends "App1/padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    <h1>Bienvenido a nuestra App</h1>
+    <p>Acá puedes encontrar la información de todos nuestros productos</p>
+
+    <br>
+
+    <h3>Eleji el producto que más te guste</h3>
+
+    {% if mensaje %}
+        <p>{{ mensaje }}</p>
+    {% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "Usuario_app/base.html" %}
+{% block contenidoQueCambia %}
+{% load static %}
+
+<div class="col-md-6 text-center mb-5">
+</div>
+</div>
+<div class="row justify-content-center">
+<div class="col-md-12 col-lg-10">
+	<div class="wrap d-md-flex">
+		<div class="text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last">
+			<div class="text w-100">
+				<h2>Agregar Avatar!</h2>
+				<p> ← No tienes un avatar? Agrega uno!</p>
+			</div>
+  </div>
+		<div class="login-wrap p-4 p-lg-5">
+		  	{% if avatares %}
+			  <h2>Ya tienes un Avatar:</h2>
+		  		{% for avatar in avatares %}
+                  <p><label class="label" for="">{{ avatar.imagen }}</label></p>
+				  <p><img height="40px" src="{{avatar.imagen.url}}"></p>
+				  <form method="POST" action="{% url 'EliminarAvatar' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="avatar_id" value="{{ avatar.id }}">
+                    <button type="submit" class="form-cancel btn btn-primary px-3">↑ Eliminar!</button>
+                  </form>
+                  <p></p>
+				{% endfor %}
+			{% else %}
+			<div class="form-group mb-3">
+				<h2>No hay avatares cargados</h2>
+				<a href="{% url 'AgregarAvatar' %}" class="form-cancel btn btn-primary px-3">Agregar un avatar!</a>
+			</div>
+			{% endif %}
+	<div class="form-group">
+        <a href="{% url 'Perfil' %}" class="form-cancel btn btn-primary px-3">← Volver atrás</a>
+	</div>
+</div>
+</div>
+</div>
+
+{% endblock %}

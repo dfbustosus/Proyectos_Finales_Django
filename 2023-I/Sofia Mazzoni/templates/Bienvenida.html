@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SProgramacion</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'estilos.css'%}">
+</head>
+<body>
+	<h1>Bienvenidos a SProgramacion</h1>
+	<section>
+		{% for elemento in articulos %}
+		<article>
+			<h3>{{ elemento.titulo }}</h3>
+			<p> {{} elemento.subtitulo }</p>
+			<img src="{{} elememto.imagen }">
+			<footer>
+				Autor: {{ elemento.autor }}
+			</footer>
+		</article>
+		{% enfor %}
+	</section>
+
+</body>
+</html>

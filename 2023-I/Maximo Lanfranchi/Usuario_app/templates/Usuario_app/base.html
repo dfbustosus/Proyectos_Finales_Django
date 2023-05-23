@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	{% load static %}
+  	<title>Recetario - Proyecto Final</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="icon" type="image/x-icon" href="{% static 'Receta_app/assets/libro_recetas.ico' %}" />
+
+	<link rel="stylesheet" href="{% static 'Usuario_app/css/style.css' %}">
+
+	</head>
+	<body>
+		<div class="notifications">
+			{% if form.errors %}
+			<div class="alert alert-warning alert-dismissible fade show" role="alert">
+				{% for field in form %}
+					{% for error in field.errors %}
+						<p>{{ error|escape }}</p>
+					{% endfor %}
+				{% endfor %}
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+	
+			{% endif %}
+		</div>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+
+                {% block contenidoQueCambia %}
+
+                {% endblock %}  	
+                			
+			</div>
+		</div>
+	</section>
+
+	</body>
+</html>
+

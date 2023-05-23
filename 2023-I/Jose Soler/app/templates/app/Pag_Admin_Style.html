@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Wellfleet&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'app/Pag_Admin_Style.css' %}">
+    {% block extra_head %}{% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+    
+
+
+    
+</head>
+<body>    
+    <header>
+        <h1>CorPage</h1>
+        <div class="botones">
+            <a href="{% url 'app:Actualizar_Datos_Admin' %}" class="boton-cuenta">Cuenta</a>
+            <a href="{% url 'app:cerrar_sesion_post' %}" class="boton-cerrar">Cerrar sesión</a>
+        </div>        
+    </header>
+    <div class="barra-nav">
+
+        <samp>ADMINISTRADOR</samp>
+        <nav>
+            <ul class="main-nav">                
+                <li class="main-nav__item"><a href="">CONSULTAS ↧</a>
+                    <ul>
+                        <li class="main-nav__item-subm"><a href="{% url 'app:Lista_Individuos' request.user.id %}">✔ Lista individuos</a></li>                      
+                        <li class="main-nav__item-subm"><a href="{% url 'app:Lista_Partido' request.user.id %}">✔ Lista partidos</a></li>                        
+                    </ul>           
+                 </li><br>
+
+                <li class="main-nav__item"><a href="{% url 'app:Crear_Partido_Politico' %}">CREAR PARTIDO POLÍTICO</a></li>                
+                <li class="main-nav__item"><a href="{% url 'app:Crear_Individuo_Admin' %}">CREAR INDIVIDUO</a></li>
+                <li class="main-nav__item"><a href="{% url 'app:Crear_Proceso_Admin' %}">CREAR PROCESO</a></li>
+                <li class="main-nav__item"><a href="Afiliar_a_partido.html">AFILIAR INDIVIDUO A PARTIDO</a></li>
+                
+
+                <li class="main-nav__item"><a href="Aprobar_Individuo.html">SOLICITUDES DE INDIVIDUOS</a></li>
+                <li class="main-nav__item"><a href="Aprobar_Afiliacion.html">SOLICITUDES DE AFILIACIÓN DE INDIVIDUO</a></li>
+                <li class="main-nav__item"><a href="Aprobar_Proceso.html">SOLICITUDES DE PROCESOS</a></li> <!-- APROBAR PROCESO -->                
+                <li class="main-nav__item"><a href="Implicar_Afiliado_Admin.html">IMPLICAR AFILIADO A PROCESO</a></li>
+
+                <li class="main-nav__item"><a href="Habiltar_Desabilitar_Ciudadano.html">CIUDADANOS</a></li>
+                
+            </ul>                        
+        </nav>
+        
+    </div>
+
+    <main>
+        {% block main %}
+        {% endblock %}
+    </main>
+
+
+</body>
+</html>

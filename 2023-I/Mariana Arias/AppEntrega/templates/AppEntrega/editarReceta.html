@@ -1,0 +1,26 @@
+{% extends "AppEntrega/padre.html" %}
+{% load static %}
+{% block cambio %}
+
+<h1>Formulario - Editar Receta</h1>
+    
+{% if miformulario.errors %}
+
+<p style="color: red;"> Están mal los datos, revisar</p>
+
+{% endif %}
+
+<form action="" method="POST">{% csrf_token %}
+
+    
+    
+    <table>
+
+        {{ miformulario.as_table }}
+
+    </table>
+
+    <input type="submit", value="Enviar">
+
+</form>
+{% endblock%}

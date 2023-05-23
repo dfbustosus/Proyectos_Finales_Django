@@ -1,0 +1,13 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+
+    {% if messages %}
+    {% for message in messages %}
+        <div id="temporizador" class="alert alert-{{ message.tags }} mensajes">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {% endif %}
+
+{% endblock %}

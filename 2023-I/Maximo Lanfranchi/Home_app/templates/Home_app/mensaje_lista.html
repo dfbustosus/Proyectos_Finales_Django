@@ -1,0 +1,48 @@
+{% extends 'Home_app/inicio.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h1>Mensajes recibidos</h1>
+                {% for mensaje in mensajes_recibidos %}
+                    <div class="card mb-4">
+                        <div class="card-body" style="background-color: rgb(235, 226, 97);">
+                            <h5 class="card-title">De: {{ mensaje.remitente.username }}</h5>
+                            <p class="card-text">{{ mensaje.contenido }}</p>
+                            <p class="card-text"><small class="text-muted">{{ mensaje.fecha_envio }}</small></p>
+                            <form method="POST" action="{% url 'eliminar_mensaje' mensaje.id %}">
+                                {% csrf_token %}
+                                <button class="btn btn-danger" type="submit">Eliminar</button>
+                            </form>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p>No hay mensajes recibidos.</p>
+                {% endfor %}
+            </div>
+            <div class="col-lg-6">
+                <h1>| Mensajes enviados</h1>
+                {% for mensaje in mensajes_enviados %}
+                    <div class="card mb-4">
+                        <div class="card-body" style="background-color: aqua;">
+                            <h5 class="card-title">Para: {{ mensaje.destinatario.username }}</h5>
+                            <p class="card-text">{{ mensaje.contenido }}</p>
+                            <p class="card-text"><small class="text-muted">{{ mensaje.fecha_envio }}</small></p>
+                            <form method="POST" action="{% url 'eliminar_mensaje' mensaje.id %}">
+                                {% csrf_token %}
+                                <button class="btn btn-danger" type="submit">Eliminar</button>
+                            </form>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p>No hay mensajes enviados.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <a class="btn btn-primary" href="{% url 'mensaje_nuevo' %}">Nuevo mensaje</a>
+    </div>
+{% endblock %}

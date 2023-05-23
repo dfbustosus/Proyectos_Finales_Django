@@ -1,0 +1,29 @@
+{% extends 'App1/padre.html' %}
+
+{% block contenidoQueCambia %}
+<h2>Comentar</h2>
+<form action="{% url 'opinar_sobre_debate' debate_id=debate.id %}" method="POST">
+  {% csrf_token %}
+  {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  <div class="form-group">
+    <label for="nombre">Nombre:</label>
+    <input type="text" class="form-control" id="nombre" name="nombre" required>
+  </div>
+  <div class="form-group">
+    <label for="apellido">Apellido:</label>
+    <input type="text" class="form-control" id="apellido" name="apellido" required>
+  </div>
+  <div class="form-group">
+    <label for="contenido">Comentario:</label>
+    <textarea class="form-control" id="contenido" name="contenido" rows="5" required></textarea>
+    <input type="hidden" name="debate_id" value="{{ debate.id }}">
+  </div>
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+{% endblock %}

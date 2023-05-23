@@ -1,0 +1,17 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+<div class="row">
+
+    <h2>Agregar Avatar</h2>
+    <p>Sube una imagen para tu perfil.</p>
+
+    <div class="col-md-12">
+        <form method="POST" enctype="multipart/form-data" class="creacion w-500">
+            {% csrf_token %}
+            {{ miFormulario.as_p}}
+            <input class="btn btn-primary mt-2 w-100" type="submit" value="Agregar">
+        </form>
+    </div>
+</div>
+{% endblock %}

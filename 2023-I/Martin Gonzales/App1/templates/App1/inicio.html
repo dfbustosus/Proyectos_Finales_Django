@@ -1,0 +1,26 @@
+{% extends "App1/padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+{% csrf_token %}
+{% if user.is_authenticated %}
+<div style="text-align: center;">
+    <div class="alert alert-success" role="alert">
+        {% if message %}
+        {{ message }}
+        {% else %}
+        <h3>Bienvenido</h3>
+        {% endif %}
+        <h3>{{ user.username }}!</h3>
+        <img height="80px" src="{{url}}">
+
+        <pa><a href="{% url 'logout' %}">Log Out</a></pa>
+    </div>
+</div>
+{% else %}
+<div style="text-align: center;">
+    <div class="alert alert-info" role="alert">
+        Bienvenido, inicie sesión para continuar.
+    </div>
+</div>
+{% endif %}
+{% endblock %}

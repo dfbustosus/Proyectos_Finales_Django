@@ -1,0 +1,20 @@
+{% extends "AppEntrega/padre.html" %}
+{% load static %}
+{% block cambio %}
+</head>
+<body>
+    {% for p in recetas %}
+        <li>{{p}}</li>
+        <button>
+            <a href="{% url 'EliminarRecetas' p.nombre %}"> Eliminar</a>
+            <a href="{% url 'EditarRecetas' p.nombre %}"> Editar</a>
+        </button>  
+       
+    {% endfor %}
+    
+    <br>
+    
+</body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Post {{ post.title}}
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <h1>{{post.title}}</h1>
+    <h3>{{post.subtitle}}</h3>
+    <p>{{post.body}}</p>
+    <img height="250px" src="{% url 'app:imagen' post.id %}" alt=""><br>
+    <small>Creado por {{post.author}}</small>
+    <small>Fecha creacion: {{post.date}}</small>
+</div>
+
+{% endblock content %}
+    

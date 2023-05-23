@@ -1,0 +1,24 @@
+{% extends 'appcoder/base.html' %}
+
+{% block contenido %}
+{% if user.is_authenticated %}
+    <a href="{% url 'appcoder-crear' %}">Crear Post</a>
+    {% if user.avatar.imagen %}
+        <a href="{% url 'appcoder-avatars-actualizar' user.avatar.id %}">Actualizar Avatar</a>
+    {% endif %}
+    <a href="{% url 'appcoder-users-actualizar' user.id %}">Actualizar Profile</a>
+    <a href="{% url 'appcoder-mensajes-listar' %}">Mensajes</a>
+{% endif %}
+<ul>
+{% for post in object_list %}
+    <li>
+        {{post.publicado_el}} - - {{post.titulo}} 
+        {% if user.is_superuser %}
+            <a href="{% url 'appcoder-borrar' post.id %}">Borrar</a>
+            <a href="{% url 'appcoder-actualizar' post.id %}">Actualizar</a>
+        {% endif %}
+        <a href="{% url 'appcoder-detalle' post.id %}">Ver</a>
+    </li>
+{% endfor %}
+</ul>
+{% endblock %}

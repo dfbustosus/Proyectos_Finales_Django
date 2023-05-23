@@ -1,0 +1,146 @@
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;    
+    font-family: 'Wellfleet', cursive;    
+    display: grid;       
+    grid-template: 12% 88% / 210px auto;
+    grid-template-areas:
+      "header header"
+      "barra-nav menu-contenido";
+}
+
+header {
+    grid-area: header;
+    background-color: #000000;    
+    display: grid;       
+    grid-template: 120px / 60% auto;
+    grid-template-areas:
+      "header barra-nav";   
+}
+
+
+header h1{    
+    text-align: center;
+    font-size: 60px;  
+    margin-block-end: 0px ;  
+    margin-block-start: 18px;
+    margin-left: 490px;
+    color: #ffffff;
+}
+
+header .botones{    
+    padding-left: 500px;
+    padding-top: 47px;
+    grid-area: barra-nav;
+}
+
+.botones .boton-cerrar{
+    background-color: #FF7900;
+    font-family: 'Wellfleet', cursive;
+    border-radius: 15px;
+    padding: 10px; 
+    text-decoration: none;   
+    font-size: 20px;    
+    border:none;    
+    text-decoration: none; 
+    color: #000000;  
+}
+
+.botones .boton-cuenta{
+    background-color: #FF7900;
+    font-family: 'Wellfleet', cursive;
+    border-radius: 15px;    
+    padding: 10px;
+    font-size: 20px;
+    border:none;    
+    text-decoration: none; 
+    color: #000000;  
+}
+
+.botones .boton-cuenta:hover{
+    background-color: #ffffff; 
+}
+
+.botones .boton-cerrar:hover{
+    background-color: #ffffff; 
+}
+
+/* Header Listo 🡡 */
+/* _________________________________ */
+
+
+.barra-nav {
+    grid-area: barra-nav;
+    background-color: #000000;
+    display: grid;
+    grid-template: 70px auto / 100%;    
+}
+
+.barra-nav samp{
+    background-color: #FF7900; 
+    font-size: 20px;
+    font-family: 'Wellfleet', cursive;
+    text-align: center;
+    padding-top: 24px ;
+}
+
+.main-nav{
+    display: grid;
+    grid-template: auto 40px 55px 35px 35px 120px 55px 80px 50px 175px / 100%;
+    list-style: none; /* le quita los puntos a las listas */
+    margin-top: 10px; /* espacio en el navegador */
+    padding: 15px;
+    padding-top: 40px;
+
+}
+
+
+.main-nav__item .main-nav__item-subm{
+    float: unset ;    
+    list-style: none ;
+    padding: 0px;
+    margin: 0px;    
+
+}
+.main-nav__item ul{
+    display: none;    
+    margin-left: 0px;
+    padding: 0px;
+    padding-left: 20px;
+    padding-top: 25px;
+}
+
+.main-nav__item:hover > ul{
+    display: block;
+    grid-template: auto;
+}
+
+.main-nav__item a { /* modifica la etiqueta (a) donde se aplique esa clase */
+    color: #ffffff;    
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.main-nav__item a:hover{ /* el hover cambia de color cuando se pasa el mouse (Pseudo clases) */    
+    
+    color: #FF7900;
+}
+
+.main-nav__item a:active{ /* el active cambia de color cuando se DA UN CLIC con el mouse (Pseudo clases) */
+    color: #ffffff;
+}
+
+/* ↑ NO TOCAR ↑ */
+/* ____________________________________________ */
+/* ↓ Agregar contenido ↓ */
+main {
+    grid-area: menu-contenido;
+    background-color: #ffffff;
+}

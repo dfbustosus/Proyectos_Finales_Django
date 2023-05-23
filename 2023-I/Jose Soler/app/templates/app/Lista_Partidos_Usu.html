@@ -1,0 +1,36 @@
+{% extends "app/Pag_Usuario_Style.html" %}
+{% load static %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'app/Consul_Lista_Indivios.css' %}">
+{% endblock %}
+
+{% block title %}Lista partidos políticos{% endblock %}
+
+{% block main %}
+<table>
+            
+    <thead>
+        
+        <td class="table_titulo" COLSPAN=4 >Lista de partidos politicos</td>
+        <tr>
+            <th>Nombre partido</th>
+            <th>Total visitas</th>
+            <th>Total procesos</th> 
+            <th>Consulta</th>                   
+            </tr>
+    </thead>
+    <tbody>
+
+        {% for L in listas %}
+        <tr>
+            <td><a href="#"> {{ L.nombre }}  </a></td>
+            <td> {{L.visitas}} </td>
+            <td>0</td> <!-- Toltal procesos -->
+            <td><a href="#">🔎</a></td>
+        </tr>
+        {% endfor %}
+        
+    </tbody>
+</table>
+
+{% endblock %}

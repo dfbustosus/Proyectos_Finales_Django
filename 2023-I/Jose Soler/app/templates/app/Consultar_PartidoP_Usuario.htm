@@ -1,0 +1,48 @@
+{% extends "app/Pag_Usuario_Style.html" %}
+{% load static %}
+{% block title %} Consulta Partido {% endblock %}
+
+{% block extra_head %}    
+    <link rel="stylesheet" href="{% static 'app/Consul_PartidoP_Usu.css' %}">
+{% endblock %}
+
+{% block main %}
+<form action="{% url 'app:Crear_Proceso_Admin_Post' %}" method="POST"></form>
+{% csrf_token %}
+<table class="table-proceso">            
+    <thead>
+        <td class="table_titulo" COLSPAN=2 >Procesos para partido: Partido Nombre </td>
+        <tr>
+            <th class="table-proceso-item">Total</th>
+            <th class="table-proceso-item">Culpables</th>
+        </tr>
+</thead>
+
+
+
+<table>
+            
+    <thead>
+        
+        <td class="table_titulo" COLSPAN=6 >Lista de afiliados</td>
+        <tr>
+            <th>Apellidos</th>
+            <th>Nombres</th>
+            <th>Fecha de ingreso</th>
+            <th>Fecha de salida</th>
+                             
+        </tr>
+    </thead>
+    <tbody>
+       {% for listas in lista %}
+        <tr>
+            <td><a href="Consultar_Individuo_Admin.html">{{ listas.Nombre }}</a></td>
+            <td><a href="Consultar_Individuo_Admin.html">{{ listas.Apellidos }}</a></td>
+            <td>a </td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</form>
+{% endblock %}
