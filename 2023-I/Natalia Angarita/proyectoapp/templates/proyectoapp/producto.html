@@ -1,0 +1,19 @@
+{% extends "proyectoapp/padre_html.html" %}
+{% load static %}
+{% block contenido %}
+
+{% if miFormulario.errors %} 
+    
+    <p style="color: red;"> Estan mal los datos, revisalos</p>
+    
+    {% endif %}
+
+    <form action="/proyectoapp/buscar/" method="get">
+
+        <input type="string" name="categoria" id="categoria">
+
+        <input type="submit" value="Buscar">
+        
+     </form> 
+
+{% endblock %}

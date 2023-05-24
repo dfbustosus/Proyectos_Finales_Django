@@ -1,0 +1,17 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+<h1>Formulario - editar perfil</h1>
+<h1>De {{usuario}}</h1>
+
+<main class="contianer py-5">
+    <div class="row">
+      <div class="col-md-4 offset-md-4">
+        <form class="card card-body" action="" method="post">
+            {% csrf_token %}
+            {{miFormulario}}
+            <button class="btn btn-primary btn-sm mx-2 border-0">Enviar</button>
+        </form>
+      </div>
+    </div>
+  </main>
+{% endblock %}

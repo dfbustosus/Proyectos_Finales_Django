@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Creative - Tema de Start Bootstrap</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap Icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Fuentes de Google-->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+    <!-- CSS del plugin SimpleLightbox-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+    <!-- CSS principal del tema (incluye Bootstrap)-->
+    <link href="{% static 'app_1/css/styles.css' %}" rel="stylesheet" />
+</head>
+<body id="page-top">
+    <!-- Contacto -->
+    <section class="page-section" id="contact">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8 col-xl-6 text-center">
+                    <h2 class="mt-0">¡Manos a la obra!</h2>
+                    <hr class="divider" />
+                    <p class="text-muted mb-5">Crea tu cuenta con nosotros y comienza a disfrutar de beneficios.</p>
+                </div>
+            </div>
+            <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+                <div class="col-lg-6">
+                    <!-- * * * * * * * * * * * * * * *-->
+                    <!-- * * Formulario de contacto * *-->
+                    <!-- * * * * * * * * * * * * * * *-->
+                    <!-- Este formulario está preintegrado con SB Forms.-->
+                    <!-- Para hacerlo funcional, regístrate en-->
+                    <!-- https://startbootstrap.com/solution/contact-forms-->
+                    <!-- para obtener un token de API.-->
+                    {% if miFormulario.errors %}
+                    <p style="color: red;">Los datos están incorrectos. Revísalos.</p>
+                    {% endif %}
+
+                    <p>Usuarios encontrados: {{ nombre }}</p>
+                    {% if usuarios %}
+                    <table>
+                        <tbody>
+                            {% for usuario in usuarios %}
+                            <tr>
+                                <td>Usuario:{{ usuario.nombre }} {{usuario.apellido}}        </td>
+                                <td>........Email: {{ usuario.email }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-4 text-center mb-5 mb-lg-0">
+                    <i class="bi-phone fs-2 mb-3 text-muted"></i>
+                    <div>+15 (351) 555-5555</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer-->
+    <footer class="bg-light py-5">
+        <div class="container px-4 px-lg-5">
+            <div class="small text-center text-muted">© 2023 - Compañía NÓ.STRO</div>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JS del plugin SimpleLightbox-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+    <!-- JS principal del tema -->
+    <script src="js/scripts.js"></script>
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <!-- * *                             JS de SB Forms                              * *-->
+    <!-- * * Activa tu formulario en https://startbootstrap.com/solution/contact-forms * *-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+</body>
+</html>

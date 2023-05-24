@@ -1,0 +1,26 @@
+{% extends 'layouts/base.html' %} {% block content %}
+<main class="contianer py-5">
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+        <form action="/signup/" method="POST" class="card card-body text-center">
+            <h1>Registrarse</h1>
+            {{error}}
+            {% csrf_token %}
+            <div class="mb-3">
+                <input type="text" placeholder="Nombre de usuario: " class="form-control" name="username">
+            </div>
+            <div class="mb-3">
+                <input type="email" placeholder="Email: " class="form-control" name="email">
+            </div>
+            <div class="mb-3">
+                <input type="password" placeholder="Ingrese su contraseña: " class="form-control" name="password1">
+            </div>
+            <div class="mb-3">
+                <input type="password" placeholder="Confirme su contraseña: " class="form-control" name="password2">
+            </div>
+            <button class="btn btn-dark border-0">Registrarse</button>
+        </form>
+    </div>
+  </div>
+</main>
+{% endblock %}

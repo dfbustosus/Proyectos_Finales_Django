@@ -1,0 +1,21 @@
+{% extends 'layouts/base.html' %} {% block content %}
+<main class="contianer py-5">
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="card card-body">
+        <div class="d-flex">
+            <img src="{{url}}" width="55px" alt="avatar" />
+            <h1>{{user}}</h1>
+        </div>
+        <button class="btn btn-dark border-0">
+          <h2><a href="{% url 'editar_perfil' %}">Editar perfil</a></h2>
+        </button>
+        <h2>agregar para que el usuario pueda modificar su contenido</h2>
+        <button class="btn btn-dark border-0">
+          <a href="{% url 'lista_conversaciones' %}">Ver mensajes</a>
+        </button>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

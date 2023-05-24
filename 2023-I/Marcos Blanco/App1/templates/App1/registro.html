@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+     <script src="../assets/js/color-modes.js"></script>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.111.3">
+    <title>Signin Template · Bootstrap v5.3</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
+
+    
+
+    
+
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    
+
+    
+    <!-- Custom styles for this template -->
+    <link href="{% static 'App1/css/styles.css' %}" rel="stylesheet" />
+
+  </head>
+  <style>
+    body {
+      background-color: #1d1d1d; /* Color de fondo oscuro */
+      color: #fff; /* Color de texto blanco */
+    }
+  </style>
+  <body class="text-center" >
+    
+
+    
+
+
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        
+        <main class="form-signin col-12 col-md-6 col-lg-4">
+          <form action="" method="POST" >
+            {% csrf_token %}
+            <img class="mb-4" src="{% static 'logo.png' %}" alt="" width="80" height="80">
+            <h1 class="h3 mb-3 fw-normal">Ingrese su usuario</h1>
+
+            <div class="form-floating">
+                {{ form.username.label }}
+                <br>
+                {{ form.username }} 
+                <br>
+                {{ form.username.errors.as_text }}
+              
+              </div>
+            <br>
+            <div class="form-floating">
+                {{ form.email.label }}
+                <br>
+                {{ form.email }}
+                <br>
+                {{ form.email.errors.as_text }}
+                {% if error_msg %}
+                <p>{{ error_msg }}</p>
+                {% endif %}
+              
+               </div>
+            <br>
+            <div class="form-floating">
+              {{ form.password1.label }} 
+              <br> 
+              {{ form.password1 }}
+              <br>
+              {{ form.password1.errors.as_text }}
+               </div>
+            <br>
+            <div class="form-floating">
+              {{ form.password2.label }} 
+              <br>
+              {{ form.password2 }}
+              <br>
+              {{ form.password2.errors.as_text }}
+              </div>
+            <br>
+            <br>
+            
+            
+            <button class="w-50 btn btn-lg btn-primary" type="submit">Registrate!</button>
+            <br>
+            <br>
+            <a class="btn btn-secondary btn-s text-uppercase" href="/">Atras</a>
+            <p class="mt-5 mb-3 text-body-secondary">&copy; Koshot</p>
+          </form>
+        </main>
+
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+@mixin flex( $dir, $wrap, $just, $aling) {
+    display: flex;
+    flex-flow: $dir $wrap;
+    justify-content: $just;
+    align-items: $aling;
+};
+
+@mixin tablet (){
+    @media only screen and (min-width:769px){
+        @content
+    }
+};
+
+@mixin desktop(){
+    @media only screen and (min-width:1025px) {
+        @content
+    }
+}

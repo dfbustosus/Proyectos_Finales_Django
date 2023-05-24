@@ -1,0 +1,46 @@
+{% extends "AnatoApp/inicio.html" %}
+{% load static %}
+
+{% block Alumnos %}
+        <!-- Acceso-->
+        <section class="content-section bg-light" id="Alumnos">
+            <div class="container px-4 px-lg-5 text-center">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-10">
+                        {% if not request.user.is_authenticated %} 
+                        <h2>Acceso</h2>
+                        {% endif %}
+                        {% if not request.user.is_staff %}
+                            {% if request.user.is_authenticated %}
+                                <h2>Alumno: {{user.username}}</h2>
+                            {% endif %}
+                        {% endif %}
+                        {% if request.user.is_authenticated and request.user.is_staff %}
+                        <h2>Profesor: {{user.username}}</h2>
+                        {% endif %}
+                        <p class="lead mb-5">
+                            <bold>Aqui podra registrarse y acceder informacion sobre su perfil y la catedra</bold>
+                        </p>
+                        {% if not request.user.is_authenticated %}
+                            <a class="btn btn-dark btn-xl" href="register">Registrarse</a>
+                            <a class="btn btn-dark btn-xl" href="logIn">Iniciar Sesion</a>
+                        {% endif %}
+                        {% if request.user.is_authenticated %}
+                            <a class="btn btn-dark btn-xl" href="blog">Publicaciones</a>
+                            <a class="btn btn-dark btn-xl" href="editarPerfil">Editar Perfil</a>
+                            <a class="btn btn-dark btn-xl" href="logout">Cerrar Sesion</a>  
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock %}
+
+{% block Asistencias %}
+
+{% endblock %}
+
+{% block About %}
+
+{% endblock %}
+

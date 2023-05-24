@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles_home.css' %}">
+    <title>Home - AI Blogs</title>
+</head>
+
+<body>
+    <header class="hero">
+        <section class="hero-container">
+            <figure class="hero-pic">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/011/332/798/small/artificial-intelligence-ai-logo-human-technology-human-digital-robot-tech-icon-design-template-free-vector.jpg" alt="hero-img"
+                    class="hero-img">
+            </figure>
+            <div class="hero-texts">
+                <h2 class="hero-title">Bienvenido a AI Blogs!</h2>
+                <p class="hero-copy">Los mejores Blogs sobre Inteligencia Artificial.</p>
+                {% if user.is_authenticated %}
+                <!-- Contenido para usuarios autenticados -->
+                <a href="{% url 'blog-page' %}" class="hero-cta">Ir al Blog</a>
+
+                {% else %}
+                <!-- Contenido para usuarios no autenticados -->
+                <a href="{% url 'login-page' %}" class="hero-cta">Iniciar Sesión</a>
+                <a href="{% url 'register-page' %}" class="hero-cta">Registrarme</a>
+                <!-- Ver Blogs, pero sin modificar -->
+                <a href="{% url 'blog-page' %}" class="hero-cta">Ir al Blog</a>
+                {% endif %}
+
+            </div>
+        </section>
+    </header>
+
+    <!-- -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+</body>
+
+</html>

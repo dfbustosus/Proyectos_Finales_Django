@@ -1,0 +1,45 @@
+{% extends "App1/calificacion_list.html" %}
+
+{% load static %}
+
+{% block form %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#exampleModal').modal('show');
+    });
+</script>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel" style="color:#1d1d1d;">BORRAR</h1>
+          
+        </div>
+        <div class="modal-body"> 
+            <form method="post">  
+            <form method="post">{% csrf_token %}
+                ¿Estas seguro de que deseas borrar el comentario "{{ object }}"?
+                <input type="submit"  value="BORRAR">
+                
+            </form>    
+            <script>
+                function goBack() {
+                    window.history.back();
+                }
+            </script>
+            <a class="btn btn-primary btn-s text-uppercase" href="#" onclick="goBack()">Atras</a>
+            
+            </div>
+        </div>
+      </div>
+    </div>
+
+        
+    
+{% endblock %}
+
+    
+    
+    

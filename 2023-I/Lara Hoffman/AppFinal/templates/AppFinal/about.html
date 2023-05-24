@@ -1,0 +1,19 @@
+{% extends "AppFinal/layout.html" %}
+{% load static %}
+
+{% block lo-que-cambia %}
+
+<div class="container mt-5">
+    <h1 class="mb-4">Sobre mí</h1>
+    <div class="card">
+      <div class="card-body">
+        <img src="{% static 'AppFinal/assets/img/Lara.jpg'%}" style="width: 150px;height: auto;"class="rounded-circle mb-3" alt="Foto de perfil de LinkedIn">
+        <h5 class="card-title">Lara Hoffman</h5>
+        <p class="card-text">Desarrolladora Backend Jr - Python</p>
+        <a href="https://ar.linkedin.com/in/lara-hoffman" target="_blank" class="btn btn-primary">Visita mi perfil de LinkedIn</a>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}

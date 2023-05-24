@@ -1,0 +1,30 @@
+{% extends "AnatoApp/pagina2.html" %}
+{% load static %}
+
+{% block Alumnos %}
+
+<h1>Formulario - Editar Asistencia</h1>
+    
+    {% if miFormulario.errors %}
+
+    <p style="color: red;"> Están mal los datos, revisar</p>
+
+    {% endif %}
+
+    <form action="" method="POST">{% csrf_token %}
+        
+        <table>
+
+            {{ miFormulario.as_table }}
+
+        </table>
+
+        <input type="submit", value="Enviar">
+
+    </form>
+    <br>
+    <br>
+    <p>
+        <a class="btn btn-dark btn-xl" href="http://127.0.0.1:8000/AnatoApp/">Volver a inicio</a>
+    </p>
+{% endblock %}

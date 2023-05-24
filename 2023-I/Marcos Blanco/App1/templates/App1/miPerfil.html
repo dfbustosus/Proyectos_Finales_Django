@@ -1,0 +1,79 @@
+{% extends "App1/inicio.html" %}
+
+{% load static %}
+
+{% block verrperfil %}
+
+    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    <style>
+      body {
+        background-color: #1d1d1d; /* Color de fondo oscuro */
+        color: #fff; /* Color de texto blanco */
+      }
+    </style>
+    <body class="text-center" >
+    <div class="card " style="width: 22rem;" id="card">
+        {% with avatares=request.user.avatar_set.all %}
+        {% if avatares %}
+        <div style="text-align: center;">
+            <img height="180px" width="180px" style="border-radius: 50%;" src="{{avatares.0.imagen.url}}">
+        </div>    
+        {% else %}
+          <div style="text-align: center;">
+            <img src="{% static 'null.png' %}" alt="user" height="180px" width="180px" style="border-radius: 50%;">
+          </div>        
+        {% endif %}                        
+        {% endwith %}
+        <div style="text-align: center;">
+            <a class="card-link" data-bs-toggle="modal" data-bs-target="#exampleModal" >Cambiar foto</a>
+        </div>
+        <div class="card-body">
+            <div style="text-align: center;">  
+                <h4 class="card-title">{{usuario}}</h4>
+            </div>    
+          <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>  -->
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Email:{{email}}</li>
+          <li class="list-group-item">Nombre:{{first_name}}</li>
+          <li class="list-group-item">Apellido:{{last_name}}</li>
+        </ul>
+        <div class="card-body">
+          <a href="editarPerfil#id_first_name" class="card-link">Editar Perfil</a>
+          <a href="cambiarContraseña#id_password1" class="card-link">Cambiar Contraseña</a>
+        </div>
+      </div>
+    
+
+  
+      
+      
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel" style="color:#1d1d1d;">Cambiar Avatar</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form method="POST" enctype="multipart/form-data" style="color:#1d1d1d;" >
+                {% csrf_token %}
+                {{ miFormulario.as_p}}            
+            
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button  class="btn btn-primary" type="submit">Actualizar</button>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+     
+    
+
+    
+
+{% endblock %}

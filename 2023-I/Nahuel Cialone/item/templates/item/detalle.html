@@ -1,0 +1,56 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %} {{ item.nombre }} {% endblock %}
+
+{% block contenido %}
+<div class="grid grid-cols-5 gap-6">
+    <div class="col-span-3">
+        <img src="{{ item.imagen.url}}" class="rounded-xl">
+    </div>
+
+    <div class="col-span-2 p-6 bg-gray-100 rounded-xl">
+        <h1 class="mb-6 text-3xl">{{ item.nombre }}</h1>
+        <p class="text-gray-500"><strong>Precio: </strong>{{ item.precio }}</p>
+        <p class="text-gray-500"><strong>Vendedor: </strong>{{ item.creador }}</p>
+
+        {% if item.descripcion %}
+            <p class="text-gray-700">
+            <strong class="text-gray-500">Descripción: </strong><br>
+            {{ item.descripcion }}
+            </p>
+        {% endif %}
+
+        {% if request.user == item.creador  %}
+            <div class="mt-6 p-6 bg-white rounded-xl">
+                <p>Este es tu artículo</p>
+
+                <a href="{% url 'item:editar' item.id %}" class="inline-block mt-6 px-6 py-3 text-lg font-semibold bg-teal-500 text-white rounded-xl">Editar</a>
+                <a href="{% url 'item:borrar' item.id %}" class="inline-block mt-6 px-6 py-3 text-lg font-semibold bg-red-500 text-white rounded-xl">Borrar</a>
+            </div>
+        {% else %}
+        <a href="{% url 'mensajes:nuevo' item.id %}" class="inline-block mt-6 px-6 py-3 text-lg font-semibold bg-teal-500 text-white rounded-xl hover:bg-teal-700">Contactar al vendedor</a>
+        {% endif %}
+    </div>
+</div>
+
+<div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
+    <h2 class="mb-12 text-2xl text-center">Misma categoría</h2>
+
+    <div class="grid grid-cols-3 gap-3">
+        {% for item in items_relacionados %}
+            <div>
+                <a href="{% url 'item:detalle' item.id %}">
+                    <div>
+                        <img src="{{ item.imagen.url }}" class="rounded-t-xl">
+                    </div>
+
+                    <div class="p-6 bg-white rounded-b-xl">
+                        <h2 class="text-2xl">{{ item.nombre }}</h2>
+                        <p class="text-gray-500">Precio: {{ item.precio }}</p>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

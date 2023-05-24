@@ -1,0 +1,39 @@
+{% extends "blogs_base/base.html" %}
+{% load static %}
+
+{% block content %}
+    <h1 class="mt-4 mb-4">Acerca de mí</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <img src="/static/images/profile_picture.jpg" alt="Foto de perfil de Pedro Ringuelet" class="img-fluid rounded mb-4">
+        </div>
+        <div class="col-md-8">
+            <p>Hola, mi nombre es <strong>Pedro Ringuelet</strong> y soy estudiante de Ingeniería en Computación en la Universidad Nacional de La Plata. Mis principales intereses están en el Hacking, Inteligencia Artificial (AI) y Robótica.</p>
+
+            <p>En el campo del Hacking, he leído varios libros y realizado cursos para mejorar mis habilidades y conocimientos. Con respecto a la AI y la Robótica, estoy recién comenzando a explorar estas áreas.</p>
+
+            <p>Recientemente, he trabajado en un proyecto en el que utilicé el drone Tello Edu para realizar reconocimiento facial en tiempo real y seguir a la persona que se encuentra frente a él. Además, utilicé la API de GPT para crear un asistente inteligente que imita a Jarvis, el personaje de la película Iron Man.</p>
+
+            <p>Este blog es parte de mi proyecto final para el curso de Python en Coder House. Aquí, comparto mis ideas, aprendizajes y avances en el campo de la Inteligencia Artificial y temas relacionados.</p>
+
+            <p>Si tienes alguna pregunta, sugerencia o simplemente deseas ponerte en contacto conmigo, no dudes en enviar un mensaje a cualquiera de mis redes sociales</p>
+
+            <!-- ... -->
+            <div class="social-icons">
+                <a href="mailto:peter.ringuelet@gmail.com" target="_blank">
+                    <img src="{% static 'images/email_logo.png' %}" alt="Email logo" class="social-icon">
+                </a>
+                <a href="https://github.com/peter-ringuelet" target="_blank">
+                    <img src="{% static 'images/github_logo.png' %}" alt="GitHub logo" class="social-icon">
+                </a>
+                <a href="https://instagram.com/peter.ringuelet" target="_blank">
+                    <img src="{% static 'images/instagram_logo.png' %}" alt="Instagram logo" class="social-icon">
+                </a>
+            </div>
+            <!-- ... -->
+
+<!-- ... -->
+
+        </div>
+    </div>
+{% endblock %}

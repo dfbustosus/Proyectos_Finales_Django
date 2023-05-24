@@ -1,0 +1,17 @@
+#DATABASE
+db.sqlite3
+
+#VIRTUAL ENVs
+.python-version
+env
+venv
+
+#PYTHON FILES
+**/__pycache__
+**/.pytest_cache
+
+#VSCODE FILES
+**/3vscode
+
+#MEDIA FILES
+media

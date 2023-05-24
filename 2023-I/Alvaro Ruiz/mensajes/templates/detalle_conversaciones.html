@@ -1,0 +1,13 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+<h1>mensajes</h1>
+{% for mensajes in conversacion %}
+<h2>{{mensajes}}</h2>
+{% endfor %}
+<form action="{% url 'enviar_mensajes' %}" method="post">
+    {% csrf_token %}
+    {{form}}
+    <button>Enviar mensaje</button>
+</form>
+
+{% endblock %}

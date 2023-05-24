@@ -1,0 +1,13 @@
+{% extends "AppFinal/layout.html" %}
+{% load static %}
+
+{% block lo-que-cambia %}
+
+<h3>Cargar Avatar</h3>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ miFormulario.as_p}}
+    <input type="submit" value="Actualizar">
+</form>
+
+{% endblock %}

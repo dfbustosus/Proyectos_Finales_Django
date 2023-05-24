@@ -1,0 +1,18 @@
+.footer{
+    @include flex(row, wrap, space-between, center);
+    background-color: rgb(44, 44, 44);
+    height: 5rem;
+    padding: 0 6rem;
+
+    p{
+        color: gray;
+    }
+
+    .socials{
+        a{  
+            margin: 0 6px;
+            color: #fff;
+            font-size: 24px;
+        }
+    }
+}

@@ -1,0 +1,39 @@
+{% extends 'layouts/base.html' %}
+{% load static %} 
+{% block title %} MiBlog | Inicio {% endblock %} 
+{% block content %}
+<main class="container py-4">
+  <section class="card border-0 width-100">
+    <div class="text-bg-dark">
+      <img src="{% static 'img/codigoDjango.jpeg' %}" class="card-img img-fluid" alt="..." style="max-height: 350px"/>
+      <div class="card-img-overlay d-flex align-items-center justify-content-center">
+        <div class="text-center">
+          <h1 class="card-title">Inicio</h1>
+          <p class="card-text">Blog creado por Alvaro</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% if not user.is_authenticated %}
+  <div class="text-center">
+    <a class="btn btn-dark" href="{% url 'signin' %}">Iniciar sesión</a>
+    <a class="btn btn-dark" href="{% url 'signup' %}">Registrarse</a>
+  </div>
+  {% endif %}
+  <section class="row py-5">
+    {% for post in posts %}
+    <a class="col-md-4" href="{% url 'post_detail' post.id %}">
+      <div class="card text-bg-dark" style="height: 300px;">
+        <img src="{{post.imagen.url}}" class="card-img" alt="imagen post"  height="100%"/>
+        <div class="card-img-overlay d-flex align-items-center justify-content-center">
+          <div class="text-center">
+            <h2 class="card-title">{{post.titulo}}</h2>
+            <h4 class="card-text">{{post.categoria}}</h4>
+          </div>
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+  </section>
+</main>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "accounts/base.html" %}
+
+{% block form %}
+<form method="post" class="form">
+    {% csrf_token %}
+    <h2 class="form-title">Registrarme</h2>
+    <div class="form-fields-container">
+
+        <div class="form-group">
+            {{ form.username }}
+            <label class="form-label" for="{{ form.username.id_for_label }}">Username:</label>
+            <span class="form-line"></span>
+        </div>
+
+        <div class="form-group">
+            {{ form.email }}
+            <label class="form-label" for="{{ form.email.id_for_label }}">Email:</label>
+            <span class="form-line"></span>
+        </div>
+
+        <div class="form-group">
+            {{ form.password1 }}
+            <label class="form-label" for="{{ form.password1.id_for_label }}">Password:</label>
+            <span class="form-line"></span>
+        </div>
+
+        <div class="form-group">
+            {{ form.password2 }}
+            <label class="form-label" for="{{ form.password2.id_for_label }}">Confirm password:</label>
+            <span class="form-line"></span>
+        </div>
+    </div>
+
+    <button type="submit" class="form-submit">Create account</button>
+    <a href="{% url 'home-page' %}" class="form-cancel">Volver</a>
+</form>
+
+{% endblock %}

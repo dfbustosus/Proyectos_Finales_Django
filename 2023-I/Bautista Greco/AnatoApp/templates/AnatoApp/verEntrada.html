@@ -1,0 +1,29 @@
+{% extends 'AnatoApp/pagina2.html' %}
+{% load static %}
+
+{% block Alumnos %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{entrada.titulo}}</title>
+</head>
+<div class="container text-center">
+<body>
+
+    <p><h1> <i>{{ entrada.titulo }}</i></p></h1>
+    <p><h2><i>{{ entrada.subtitulo }}</i></p></h2>
+    <p>Por: <i>{{ entrada.cuerpo }}</i></p>
+    <p>Fecha: <i>{{ entrada.fecha }}</i></p>
+    <p><i>{{ entrada.autor.username }}</i></p>
+    {% if entrada.imagen %}
+        <img style="height:150px" src="{{ entrada.imagen.url }}" alt="Imagen">
+    {% endif %}
+    <p>
+        <h2><a href="http://127.0.0.1:8000/AnatoApp/verEntradas">Volver a publicaciones</a></h2>
+    </p>
+</body>
+</div>
+</html>
+
+{%endblock%}

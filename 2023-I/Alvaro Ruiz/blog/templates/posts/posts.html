@@ -1,0 +1,33 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} POSTS {% endblock %}
+
+{% block content %}
+<main class="contianer">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h1 class="text-center py-4">POSTS</h1>
+        <ul class="list-group">
+            {% for post in posts %}
+            <a href="{% url 'post_detail' post.id %}" class="list-group-item mb-5 bg-dark text-white p-0 m-0">
+                <h2 class="text-center bg-primary">{{post.titulo}}</h2>
+                <h3 class="text-center">{{post.subtitulo}}</h3> 
+                <div class="d-flex row">
+                    <div class="col-md-4">
+                        <h6 class="text-center"><small>{{post.autor}}</small></h6>
+                    </div>
+                    <div class="col-md-4">
+                        <h6 class="text-center"><small>{{post.categoria}}</small></h6>
+                    </div>
+                    <div class="col-md-4">
+                        <h6 class="text-center"><small>{{post.fechaDePublicacion}}</small></h6>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </main>
+
+{% endblock %}

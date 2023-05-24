@@ -1,0 +1,44 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}Dashboard{% endblock %}
+
+{% block contenido %}
+    <div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
+        <h2 class="mb-12 text-2xl text-center">Mis artículos</h2>
+
+        <div class="grid grid-cols-3 gap-3">
+            {% for item in items %}
+                <div>
+                    <a href="{% url 'item:detalle' item.id %}">
+                        <div>
+                            <img src="{{ item.imagen.url }}" class="rounded-t-xl">
+                        </div>
+
+                        <div class="p-6 bg-white rounded-b-xl">
+                            <h2 class="text-2xl">{{ item.nombre }}</h2>
+                            <p class="text-gray-500">Precio: {{ item.precio }}</p>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
+        <h2 class="mb-12 text-2xl text-center">Categorías</h2>
+
+        <div class="grid grid-cols-3 gap-3">
+            {% for categoria in categorias %}
+            <div>
+                <a href="#">
+                    <div class="p-6 bg-white rounded-b-xl">
+                        <h2 class="text-2xl">{{ categoria.nombre }}</h2>
+                        <p class="text-gray-500">{{ categoria.items.count }} artículos</p>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock%}

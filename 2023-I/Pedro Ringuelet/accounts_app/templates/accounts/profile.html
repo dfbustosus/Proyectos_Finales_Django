@@ -1,0 +1,56 @@
+ {% extends "accounts/base.html" %}
+
+{% block form %}
+<form action="" method="post" class='form'>
+    {% csrf_token %}
+    <h2 class="form-title">Editar Perfil</h2>
+
+    <div class="form-fields-container">
+
+        <div class="form-group">
+
+            {{ form.first_name }}
+            <label class="form-label" for="{{ form.first_name.id_for_label }}">Nombre:</label>
+            <span class="form-line"></span>
+        </div>
+
+        <div class="form-group">
+
+            {{ form.last_name }}
+            <label class="form-label" for="{{ form.last_name.id_for_label }}">Apellido:</label>
+            <span class="form-line"></span>
+        </div>
+
+
+        <div class="form-group">
+
+            {{ form.email }}
+            <label class="form-label" for="{{ form.email.id_for_label }}">Email:</label>
+            <span class="form-line"></span>
+        </div>
+
+        <div class="form-group">
+
+            {{ form.password1 }}
+            <label class="form-label" for="{{ form.password1.id_for_label }}">Password:</label>
+            <span class="form-line"></span>
+        </div>
+        <div class="form-group">
+
+            {{ form.password2 }}
+            <label class="form-label" for="{{ form.password2.id_for_label }}">Repeat Password:</label>
+            <span class="form-line"></span>
+        </div>
+        <div class="form-group">
+
+            {{ form.description }}
+            <label class="form-label" for="{{ form.description.id_for_label }}">Descripción:</label>
+            <span class="form-line"></span>
+        </div>
+    </div>
+
+    <button class="form-submit" type="submit">Guardar</button>
+    <a href="{% url 'blog-page' %}" class="form-cancel">Volver</a>
+</form>
+
+{% endblock %}

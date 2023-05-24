@@ -1,0 +1,145 @@
+{% extends "AppFinal/layout.html" %}
+{% load static %}
+
+{% block lo-que-cambia %}
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+        <div class="carousel-inner" role="listbox">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1622126807280-9b5b32b28e77?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8b2ZmaWNlJTIwZnVybml0dXJlfGVufDB8fDB8fHww&w=1000&q=80');">
+            <div class="carousel-container">
+              <div class="carousel-content container">
+                <h2 class="animate__animated animate__fadeInDown">Bienvenido/a</h2>
+                <p class="animate__animated animate__fadeInUp">Aquí encontrará la silla o escritorio que siempre soñó.</p>
+                <a href="#buscar" class="btn-get-started animate__animated animate__fadeInUp scrollto">Buscar</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-item" style="background-image: url('https://images.pexels.com/photos/667838/pexels-photo-667838.jpeg?cs=srgb&dl=pexels-huseyn-kamaladdin-667838.jpg&fm=jpg');">
+            <div class="carousel-container">
+              <div class="carousel-content container">
+                <h2 class="animate__animated animate__fadeInDown">Productos hechos a su medida</h2>
+                <p class="animate__animated animate__fadeInUp">Todo lo que puede esperar, ¡y más!</p>
+                <a href="{% url 'List' %}" target="_blank" class="btn-get-started animate__animated animate__fadeInUp scrollto">Ver Productos</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-item" style="background-image: url('https://c1.wallpaperflare.com/preview/588/623/690/interior-white-office-workspace.jpg');">
+            <div class="carousel-container">
+              <div class="carousel-content container">
+                <h2 class="animate__animated animate__fadeInDown">¿Le queda alguna duda?</h2>
+                <p class="animate__animated animate__fadeInUp">Puede leer lo que nuestros clientes dicen de nosotros.</p>
+                <a href="{% url 'LeerMensajes' %}" target="_blank" class="btn-get-started animate__animated animate__fadeInUp scrollto">Saber más</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+
+      </div>
+    </div>
+  </section><!-- End Hero -->
+    <!-- ======= Contact Us Section ======= -->
+    <section id="buscar" class="contact">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Buscar productos</h2>
+        </div>
+
+          <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
+            <form action="buscar" method="GET" role="form" class="php-email-form">
+              <div class="form-group">
+                <input type="text" name="nombre" class="form-control" id="buscar" placeholder="Ingrese una palabra">
+              </div>
+              <div class="my-3">
+                <div class=""><h5 style="color: rgb(214, 46, 46); padding: 14px;">{{respuesta}}</h5></div>
+              </div>
+              <div class="text-center"><input type="submit" value="Buscar" class="btn btn-secondary"></div>
+            </form>
+          </div>
+
+        </div>
+        {% if productos %}
+        {% for producto in productos %}
+    <!-- ======= About Lists Section ======= -->
+    <section class="about-lists">
+      <div class="container">
+
+        <div class="row no-gutters">
+
+          <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up">
+            <span>Nombre</span>
+            <h4>{{producto.nombre}}</h4>
+            <p></p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up" data-aos-delay="100">
+            <span>Precio</span>
+            <h4>ARS ${{producto.precio}}</h4>
+            <p></p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up" data-aos-delay="200">
+            <span>Stock</span>
+            <h4>{{producto.stock}}</h4>
+            <p></p>
+          </div>
+
+        </div>
+        <hr>
+        <a href="{% url 'List'%}">Ver todos los productos</a>
+      </div>
+    </section><!-- End About Lists Section -->
+          <!-- <ul class="list-group list-group-horizontal-xxl">
+
+            <li class="list-group-item">Nombre: {{producto.nombre}}</li>
+            <li class="list-group-item">Precio: ARS ${{producto.precio}}</li>
+            <li class="list-group-item">Stock: {{producto.stock}}</li> -->
+        {% endfor %}
+            <!-- <li class="list-group-item"><a href="{% url 'List'%}">Ver todos los productos</a></li>
+          </ul> -->
+      {% endif %}
+      </div>
+    </section><!-- End Contact Us Section -->
+  <!-- <section class="" id="buscar">
+    <div class="col-12"> <img height="40px" src="{{url}}"></div>
+    <div class="col-6">
+      <form action="buscar" class="row g-3" method="GET">
+        <label for="buscar" class="section-title">Buscar productos</label><br>
+        <input type="text" name="nombre" class="form-control" id="buscar" placeholder="Ingrese una palabra">
+        <input type="submit" value="Buscar" class="btn btn-primary">
+      </form>
+    </div>
+  <br>
+  <div class="col-12">
+    {% if productos %}
+    {% for producto in productos %}
+      <ul class="list-group list-group-horizontal-xxl">
+        <li class="list-group-item text-bg-dark">Nombre: {{producto.nombre}}</li>
+        <li class="list-group-item text-bg-dark">Correo electronico: {{producto.correo}}</li>
+        <li class="list-group-item text-bg-dark">Telefono: {{producto.telefono}}</li>
+      </ul>
+    {% endfor %}
+  {% endif %}
+<h5 style="color: rgb(214, 46, 46); padding: 14px;">{{respuesta}}</h5>
+  </div>
+</section> -->
+{% endblock %}

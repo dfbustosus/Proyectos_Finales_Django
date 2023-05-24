@@ -1,0 +1,17 @@
+{% extends "AppFinal/layout.html" %}
+{% load static %}
+
+{% block lo-que-cambia %}
+
+    <h1>Productos</h1>
+    <hr>
+
+    <form method="post">
+        {% csrf_token %}
+        <h5>¿Desea realmente eliminar "{{ object }}"?</h5>
+        <input type="submit" value="Sí">
+    </form>
+        <a href="{% url 'List'%}" type="button">Cancelar</a>
+
+
+{% endblock %}

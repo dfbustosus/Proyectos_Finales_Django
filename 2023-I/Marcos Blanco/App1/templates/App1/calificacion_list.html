@@ -1,0 +1,64 @@
+{% extends "App1/inicio.html" %}
+
+{% load static %}
+
+{% block clasi %}
+
+<section class="page-section" id="contact">
+<div id="cali" style="text-align: center;" >
+<h1 style="color:#ffffff;">Calificaciones</h1>
+</div>
+<a class="btn btn-primary btn-s text-uppercase" href="{% url 'New' %}">Calificar</a>
+    
+<style>
+  #scroll{
+      border:1px solid;
+      height:100px;
+      width:300px;
+      overflow-y:scroll;
+      overflow-x:hidden;
+      word-wrap: break-word;
+  }
+  </style>
+
+   
+   
+{% for calificacion in object_list %}
+        
+          
+          <div style="text-align: center; max-width: 300px; margin: 0 auto;">
+            <div class="list-group">
+              
+              <a  class="list-group-item list-group-item-action active" aria-current="true">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">{{ calificacion.usuario }}</h5>
+                  <small>{{ calificacion.fecha }}</small>
+                  
+                </div>
+                <div id="scroll">
+                   <p class="mb-1">{{ calificacion.comentario }}</p>
+                </div>
+                <small>Puntaje{{ calificacion.puntaje }}/5★</small>
+                
+               <!--  <a class="list-group-item list-group-item-action active"  href="{% url 'Edit' calificacion.id %}">Editar</a>
+                -->
+                {% if request.user.is_superuser %}
+                <a class="list-group-item list-group-item-action active"  href="{% url 'Delete' calificacion.id %}">Borrar</a>
+                {% endif %}
+
+                
+              </a>
+              <br>
+                <br>
+                
+            </div>                 
+          </div> 
+        </h4>     
+      </div>  
+         
+                
+        
+        {% endfor %}
+      </section> 
+
+{% endblock %}

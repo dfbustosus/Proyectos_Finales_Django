@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}Inbox{% endblock %}
+
+{% block contenido %}
+<h1 class="mb-6 text-3xl">Bandeja de entrada</h1>
+
+<div class="space-y-6">
+    {% for conversacion in conversaciones %}
+        <a href="{% url 'mensajes:detalle' conversacion.id %}">
+            <div class="p-6 flex bg-gray-100 rounded-xl">
+                <div class="pr-6">
+                    <img src="{{ conversacion.item.image.url }}" class="w-20 rounded-xl">
+                </div>
+
+                <div>
+                    {% for miembro in conversacion.miembros.all %}
+                        {% if miembro != request.user %}
+                        <p class="mb-4"><strong>{{ miembro.username }}</strong> | {{ conversacion.modificado }}</p>
+                        <p>{{ conversacion.item.nombre }}</p>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+</div>
+{% endblock %}

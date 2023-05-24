@@ -1,0 +1,19 @@
+{% extends "AppFinal/layout.html" %}
+{% load static %}
+
+{% block lo-que-cambia %}
+<main class="px-3">
+  <h1>{{usuario}}</h1>
+  <hr>
+  <p class="lead">Editar</p>
+  
+
+  <h2>Editar perfil</h2>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ user_form.as_p }}
+    {{ perfil_form.as_p }}
+    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+  </form>
+</main>
+{% endblock %}

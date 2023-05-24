@@ -1,0 +1,21 @@
+{% extends "AppFinal/layout.html" %}
+{% load static %}
+
+{% block lo-que-cambia %}
+<main class="px-3">
+  <h1>Productos</h1>
+  <hr>
+  <p class="lead">Editar</p>
+  <!-- {% if miFormulario.errors %}
+  <p style="color: red;">Revisar los datos.</p>
+  {% endif %}-->
+  <form action="" method="POST" enctype="multipart/form-data" class="row g-3 align-items-center">{% csrf_token %}
+    <div class="col-12">
+      {{ form.as_p }}
+    </div>
+    <input type="submit" class="btn btn-primary" value="Editar">
+
+  </form>
+  <!-- <h5>{{mensaje}}</h5> -->
+</main>
+{% endblock %}

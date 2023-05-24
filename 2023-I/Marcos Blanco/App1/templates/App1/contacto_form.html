@@ -1,0 +1,59 @@
+{% extends "App1/inicio.html" %}
+
+{% load static %}
+
+{% block contactos %}
+
+
+
+     
+        
+     <section class="page-section" id="contact">
+      <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Contacto</h2>
+                <h3 class="section-subheading text-muted">Dejanos tus datos y nos comunicaremos.</h3>
+            </div>
+            <form id="contactForm" data-sb-form-api-token="API_TOKEN" action="" method="post">{% csrf_token %} 
+                <div class="row align-items-stretch mb-5">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <!-- Name input-->
+                            <input class="form-control" name="nombre" id="name" type="text" placeholder="Nombre *" required />
+                            <div class="invalid-feedback" data-sb-feedback="name:required">Se requiere nombre</div>
+                        </div>
+                        <div class="form-group">
+                            <!-- Email address input-->
+                            <input class="form-control" name="email" id="email" type="email" placeholder="Email *" required />
+                            <div class="invalid-feedback" data-sb-feedback="email:required">Se requier email.</div>
+                            <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                        </div>
+
+                        <div class="form-group mb-md-0">
+                            <!-- Phone number input-->
+                            <input class="form-control" name="telefono" id="phone" type="tel" placeholder="Telefono *" required />
+                            <div class="invalid-feedback" data-sb-feedback="phone:required">Se requiero telefono</div>
+                        </div>
+                        <br>
+                        <div class="form-group mb-md-0">
+                            
+                            <textarea class="form-control" name="consulta" id="comment" type="text" placeholder="consulta *" required ></textarea>
+                            <div class="invalid-feedback" data-sb-feedback="comment:required">Se requiero completar</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button type="submit"  value="Enviar"  class="btn btn-primary">ENVIAR</button>
+                  </div>
+                </form>
+                
+        </div>
+    </section> 
+                       
+               
+   
+
+{% endblock %}

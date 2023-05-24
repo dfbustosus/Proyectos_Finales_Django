@@ -1,0 +1,6 @@
+{% extends 'layouts/base.html' %} {% block content %}
+<form action="{% url 'enviar_mensajes' destinatario_id %}" method="post">
+	{% csrf_token %}
+	{{form}}
+</form>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "blogs_base/base.html" %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="display-4">{{ blog.title }}</h2>
+            <p class="lead">{{ blog.subtitle }}</p>
+            <hr>
+            <p class="break-word">{{ blog.body|linebreaksbr }}</p>
+            {% if blog.image %}
+            <div class="text-center">
+                <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="img-fluid rounded img-blog">
+            </div>
+            {% endif %}
+            <p><strong>Autor:</strong> {{ blog.author }}</p>
+            <p><strong>Fecha:</strong> {{ blog.date }}</p>
+             {% if user.is_authenticated %}
+            <div class="mb-3">
+                <a class="btn btn-warning" href="{% url 'blog-update' blog.pk %}">Editar blog</a>
+                <a class="btn btn-danger" href="{% url 'blog-delete' blog.pk %}">Eliminar blog</a>
+                <a class="btn btn-secondary" href="{% url 'blog-page' %}">Volver a lista de blogs</a>
+            </div>
+            {% else %}
+            <div class="mb-3">
+                <a class="btn btn-secondary" href="{% url 'blog-page' %}">Volver a lista de blogs</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+
+

@@ -1,0 +1,22 @@
+{% extends "App1/inicio.html" %}
+
+{% load static %}
+
+{% block sugerencias %}
+
+
+<form action="" method="post">{% csrf_token %}
+
+    <div class="form-group form-group-textarea mb-md-0" name="sugerencia">
+        <!-- Message input-->
+        <textarea class="form-control" id="message" name="sugerencia" placeholder="Sugerencias *" required></textarea>
+        <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+    </div>
+    <div class="col-12">
+        <button type="submit"  value="Enviar"  class="btn btn-primary">ENVIAR</button>
+      </div>
+      
+
+   
+
+{% endblock %}

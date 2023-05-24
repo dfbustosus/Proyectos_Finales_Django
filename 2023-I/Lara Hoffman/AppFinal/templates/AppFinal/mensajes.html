@@ -1,0 +1,22 @@
+{% extends "AppFinal/layout.html" %}
+{% load static %}
+
+{% block lo-que-cambia %}
+
+    <h1>Opiniones</h1>
+    <hr>
+    <p>Agregar comentario</p>
+
+    {% if miFormulario.errors %}
+    <p style="color: red;">Revisar los datos.</p>
+    {% endif %}
+    <form action="" method="POST" class="row g-3 align-items-center">{% csrf_token %}
+    <div class="col-12">
+      {{ miFormulario.as_table }}
+    </div>
+    <input type="submit" class="btn btn-primary" value="Agregar">
+
+    </form>
+    <h5>{{mensaje}}</h5>
+
+{% endblock %}

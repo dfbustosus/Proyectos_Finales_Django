@@ -1,0 +1,25 @@
+{% extends "App1/inicio.html" %}
+
+{% load static %}
+
+
+
+
+    
+
+{% block calificacion %}
+
+
+        
+<label for="calificacion" class="form-label">RESULTADO DE BUSQUEDA</label>
+  {% if puntos %}
+    <ul>
+    {% for punto in puntos %}
+      <li>{{ punto.calificacion }} </li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <p>No se encontraro calificaciones con ese puntaje.</p>
+  {% endif %}
+
+{% endblock %}
