@@ -1,0 +1,13 @@
+{% extends 'AppTennis/padre.html' %}
+{% block title %} Registro{% endblock %}
+{% load static %}
+
+{% block contenidoQueCambia %} 
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ formulario.as_p }}
+    <button type="submit"> Registrate!</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'blog_vista/padre.html' %}
+{% load static %}
+{% block miembros %}
+
+<div class="container text-center"> 
+                <form enctype="multipart/form-data" action = "" method = 'POST'> 
+                    
+                    {%csrf_token%}
+                    
+                    <table>
+
+                        {{form.as_table}}
+
+                    </table>
+                    
+                     
+                    <input type="submit" value="Enviar">
+                </form>
+                <a class="btn btn-primary" href="{% url 'MiembrosList' %}">Regresar</a>
+</div>
+{%endblock%}   

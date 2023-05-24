@@ -1,0 +1,32 @@
+<!--Muestro los resultados de la busqueda de torneo-->
+{% extends 'AppTennis/padre.html' %}
+{% load static %}
+{% block contenidoQueCambia %}
+  <h1>Resultados de la búsqueda para "{{ consulta }}"</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Fecha de inicio</th>
+        <th>Fecha de fin</th>
+        <th>Cantidad de jugadores</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for torneo in resultado %}
+          <tr>
+          <td>--{{ torneo.nombre }}--</td>
+          <td>--{{ torneo.fecha_inicio }}--</td>
+          <td>--{{ torneo.fecha_fin }}--</td>
+          <td>--{{ torneo.cantidad_jugadores }}--</td>
+         </tr>
+      {% empty %}
+        <tr>
+          <td colspan="4">No se encontraron resultados.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <li> <p><a href="{% url 'novedades' %}"><h3> Ir a  Inicio </h3></a> </p>  </li>
+{% endblock %}

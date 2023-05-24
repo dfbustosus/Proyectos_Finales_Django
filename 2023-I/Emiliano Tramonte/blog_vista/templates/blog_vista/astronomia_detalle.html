@@ -1,0 +1,27 @@
+{% extends 'blog_vista/padre.html' %}
+{% load static %}
+
+{% block astronomia %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{astronomia.titulo}}</title>
+</head>
+<div class="container text-center"> 
+    <body>
+        <img style="height:150px" src="{{ astronomia.imagen.url }}" alt="Imagen">
+        <p><h1> <i>{{ astronomia.titulo }}</i></p></h1>
+        <p><h2><i>{{ astronomia.subtitulo }}</i></p></h2>
+        <p>Por: <i>{{ astronomia.autor }}</i></p>
+        <p>Fecha: <i>{{ astronomia.fecha }}</i></p>
+        <p><i>{{ astronomia.texto }}</i></p>
+        
+        <p>
+            <a class="btn btn-primary" href="{% url 'AstronomiaList' %}">Regresar</a>
+        </p>
+    </body>
+</div>
+</html>
+
+{%endblock%}

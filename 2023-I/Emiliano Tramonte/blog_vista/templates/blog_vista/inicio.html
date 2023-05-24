@@ -1,0 +1,13 @@
+{% extends 'blog_vista/padre.html' %}
+{% load static %}
+{% block inicio %}
+
+
+
+<!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    {% if mensaje %}
+        <p>{{ mensaje }}</p>
+    {% endif %}
+
+
+{%endblock%}

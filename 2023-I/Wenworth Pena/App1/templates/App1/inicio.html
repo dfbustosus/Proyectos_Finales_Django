@@ -1,0 +1,21 @@
+{% extends "App1/padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+<!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+
+{% if miFormulario.errors %} 
+<p style="color: red;"> Estan mal los datos, revisalos</p>
+{% endif %}
+
+<!--funcion Avatar -->
+    <div class="text-center">
+        <img height="40px" src="{{url}}">
+        <font color="Olive" face="Comic Sans MS,arial">
+        <h3> Que bueno verte {{user.username}}</h3>
+        </font>
+    </div>
+
+{% endblock %}
+
+

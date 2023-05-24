@@ -1,0 +1,21 @@
+{% extends 'AppTennis/padre.html' %}
+{% block title  %} Sobre Mi {% endblock title  %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+
+
+<h1>Mi nombre es Pablo Alessandrini </h1>
+
+<p>Mi nombre es Pablo y me apasiona el tenis.</p>
+<P>Este es un proyecto sobre el curso de coder, en lenguaje Python, orientado a Backend</p>
+
+<p>A continuacion te dejo mis contactos</p>
+<ul>
+    <li><p><a href="#">Mail</a></p></li> 
+    <li><p><a href="#">Linkedin</a></p></li>  
+    <li><p><a href="#">Contacto</a></p></li> 
+</ul>
+<li> <p><a href="{% url 'novedades' %}"><h3> Ir a  Inicio </h3></a> </p>  </li>
+
+{% endblock %}

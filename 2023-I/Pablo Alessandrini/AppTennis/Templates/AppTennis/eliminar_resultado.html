@@ -1,0 +1,14 @@
+{% extends 'AppTennis/padre.html' %}
+{% block title %} Gestion Resultado {% endblock %}
+{% load static %}
+
+{% block contenidoQueCambia %} 
+<h1>¿Estás seguro de que deseas eliminar el resultado seleccionado  "{{r}} "?</h1>
+
+<form method="post">
+  {% csrf_token %}
+  <input type="submit" value="Eliminar">
+</form>
+
+<li> <p><a href="{% url 'novedades' %}"><h3> Ir a  Inicio </h3></a> </p>  </li>
+{% endblock %}

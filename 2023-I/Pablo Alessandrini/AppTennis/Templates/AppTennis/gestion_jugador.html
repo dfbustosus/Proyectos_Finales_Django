@@ -1,0 +1,19 @@
+{% extends 'AppTennis/padre.html' %}
+{% block title %}Gestion Jugador{% endblock %}
+{% load static %}
+
+{% block contenidoQueCambia %}
+    <h1>Gestión Jugador</h1>
+
+    {% for j in jugador %}
+        <li>{{ j }}<button><a href="{% url 'eliminar_jugador' jugador_id=j.id %}">Eliminar</a></button>
+            <button><a href="{% url 'editar_jugador' jugador_id=j.id %}">Editar</a></button>
+        </li>        
+    {% endfor %}
+
+    <a href="{% url 'JugadorFormulario' %}">Cargar otro Jugador</a>   
+
+    <li> <p><a href="{% url 'novedades' %}"><h3> Ir a  Inicio </h3></a> </p>  </li>
+{% endblock %}
+
+

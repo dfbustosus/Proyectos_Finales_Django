@@ -1,0 +1,34 @@
+
+{% extends "AppFinal/padre.html" %}
+
+    {% block Contenido %}
+    
+            <div class="card" style="width: 70rem">
+                <center><img class="grande2" src="{{object.image.url}}" class="card-img-top" >
+                <div class="card-body">
+                <h3 class="card-title">{{object.title}}</h3>
+                <p class="card-text">Time: {{object.time}}min</p>
+                <br>
+                <h4>Ingredientes</h4>
+                {{object.ingredients|linebreaks}}
+                <br>
+                <h4>Pasos</h4>
+                {{object.directions|linebreaks}}
+                <p class="card-text">Autor: {{object.author}}</p>
+                <p class="card-text">{{object.date}}</p>
+                
+
+                {% if request.user.is_authenticated %}
+                    <a href="/comentarios" class="btn btn-primary">Dejar comentario</a>
+                 {% else %}
+                
+                <a href="/comentariofallido" class="btn btn-primary">Dejar comentario</a>
+               
+              
+                {% endif %}
+            
+                </center>
+          </div>
+        </div>
+
+    {% endblock %}

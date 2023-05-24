@@ -1,0 +1,14 @@
+<!--Template que ejecuta el formulario para buscar el torneo-->
+
+{% extends 'AppTennis/padre.html' %}
+{% load static %}
+{% block contenidoQueCambia %}
+  <h1>Buscar Torneo</h1>
+  <form method="get" action="{% url 'resultadoBusquedaTorneo' %}">
+
+    <input type="text" name="consulta" placeholder="Ingrese el nombre del torneo...">
+    <button type="submit">Buscar</button>
+  </form>
+
+  <li> <p><a href="{% url 'novedades' %}"><h3> Ir a  Inicio </h3></a> </p>  </li>
+{% endblock %}

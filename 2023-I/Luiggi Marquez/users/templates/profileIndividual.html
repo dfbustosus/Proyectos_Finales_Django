@@ -1,0 +1,46 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block content %}
+
+    <h4>Perfil de {{ profile.username|capfirst }}</h4>
+    <div class="profileDataContainer">
+
+        <div class="imagenProfileCenter">
+            {% if profile.profile.avatar %}
+                <img src="{{ profile.profile.avatar.url }}" class="imgProfileAvatarBig">
+            {% else %}
+                <img src={% static 'images/no-avatar.jpg' class="imgProfileAvatarBig" %}>
+            {% endif %}
+        </div>
+        <div class="dataProfileContainer">
+            <p><span class="nameProfile">Usuario:</span> {{profile.username}}</p>
+            {% if profile.first_name %}
+            <p><span class="nameProfile">Nombre:</span> {{profile.first_name}}</p>
+            {% endif %}
+            {% if profile.last_name %}
+            <p><span class="nameProfile">Apellido:</span> {{profile.last_name}}</p>
+            {% endif %}
+            <p><span class="nameProfile">Email:</span> {{profile.email}}</p>
+            {% if profile.profile.bio %}
+            <p><span class="nameProfile">Bio:</span> {{profile.profile.bio}}</p>
+            {% endif %}
+            {% if profile.profile.link %}
+            <p><span class="nameProfile">website:</span> {{profile.profile.link}}</p>
+            {% endif %}
+        </div>
+        
+    </div>
+
+    <div class="padding2">
+        <a href="{% url 'chatroom-getmsgs' profile.id %}" class="link">
+            <button class="button mt-3">Enviar Mensaje</button>
+        </a>
+        <a href="{% url 'Profiles' %}">
+            <button  class="button mt-3">Volver</button>
+        </a>
+    </div>
+    </div>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "mensajeria/index.html" %}
+
+{% load static %}
+
+{% block content %}
+
+    <div class="containerProfiles2">
+        <h2>Mensajería Ryu Tech - Chat con: ✉<strong> {{receiver.username|capfirst}} ✉	</strong></h2>
+    </div>
+    
+    <div class="ChatContainer">
+
+        {% for message in messages %}     
+            {% if message.sender %}
+            
+                <div class="messageContainerSender">
+                    <div class="messageSender">{{message.sender|capfirst}}</div>
+                    <div class="messageMessageChat">{{message.message}}</div>
+                </div>
+            {% endif %}
+            {% if message.receiver %}
+            <div class="messageContainerReceiver">
+                <div class="messageReceiver">{{message.receiver|capfirst}}</div>
+                <div class="messageMessageChat">{{message.message}}</div>
+            </div>
+            {% endif %}
+        
+        {% endfor %}
+        <span id="span"></span>
+
+    </div>
+
+    <form action="/mensajeria/chatRoom/receive" method="POST" class="chatSend"> 
+        {% csrf_token %} 
+        <input type="text" name="message" /> 
+        <input type="hidden" name="receiver" value="{{ id }}" /> 
+        <input type="submit" value="Send" /> 
+
+    </form> 
+    <div class="button1">
+        <a href="{% url 'Profiles' %}"><button  class="btn41-43 btn-41">Volver</button></a>
+    </div>
+    <script>
+        document.getElementById('span').scrollIntoView({ block: "end" })
+    </script>
+
+{% endblock %}

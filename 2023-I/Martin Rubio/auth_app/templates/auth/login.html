@@ -1,0 +1,27 @@
+{% extends "auth/base.html" %}
+
+{% block form %}
+<form action="" method="post" class="form">
+    {% csrf_token %}
+    <h2 class="form-title">Iniciar Sesión</h2>
+
+    <div class="form-fields-container">
+        <div class="form-group">
+            {{ form.username }}
+            <label class="form-label" for="{{ form.first_name.id_for_label }}">Username:</label>
+            <span class="form-line"></span>
+        </div>
+
+        <div class="form-group">
+            {{ form.password }}
+            <label class="form-label" for="{{ form.first_name.id_for_label }}">Password:</label>
+            <span class="form-line"></span>
+        </div>
+    </div>
+
+    <!-- {{form.as_p}} -->
+    <button class="form-submit" type="submit">Login</button>
+    <a href="{% url 'home-page' %}" class="form-cancel">Volver</a>
+</form>
+
+{% endblock %}

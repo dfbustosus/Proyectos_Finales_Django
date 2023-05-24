@@ -1,0 +1,12 @@
+{% extends 'blog_vista/padre.html' %}
+{% load static %}
+{% block filosofia %}
+
+<div class="container text-center">
+    <body>
+        <h1>Articulos de Filosofia</h1>
+        <a class="btn btn-primary" href="{% url 'FilosofiaList' %}">Ver Articulos de Filosofia</a>
+        <a class="btn btn-primary" href="{% url 'FilosofiaForm' %}">Agrega un articulo!</a>
+    </body>
+</div>
+{%endblock%}

@@ -1,0 +1,25 @@
+{% extends 'AppTennis/padre.html' %}
+{% block title  %} Contacto{% endblock title  %}
+{% load static %}
+
+
+{% block contenidoQueCambia %}
+
+<h1>Contactanos</h1>
+ 
+<p>Por favor dejame tu nombre, tu email, y tu consulta para contactarnos.</p>
+<form method="post">
+  {% csrf_token %}
+  <label for="name">Nombre:  </label>
+  <input type="text" name="name" required>
+  <br>
+  <label for="email">  Email:  </label>
+  <input type="email" name="email" required>
+  <br>
+  <label for="message">Mensaje </label>
+  <textarea name="message" required></textarea>
+  <br>
+  <button type="submit">Enviar Mensaje</button>
+</form>
+<li> <p><a href="{% url 'novedades' %}"><h3> Ir a  Inicio </h3></a> </p>  </li>
+{% endblock %}

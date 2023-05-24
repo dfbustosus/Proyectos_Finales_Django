@@ -1,0 +1,60 @@
+{% extends "App1/padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+<!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+
+<font color="Olive" face="Comic Sans MS,arial">
+<p> Busca Informacion De Tus Gastos Por Fecha</p>
+</font>
+{% if miFormulario.errors %} 
+
+<p style="color: red;"> Estan mal los datos, revisalos</p>
+
+{% endif %}
+
+<form action="/App1/buscarGasto/" method="get">
+
+    <input type="date" name="fecha" id="fecha">
+
+    <input type="submit" value="Buscar">
+    
+ </form> 
+ 
+ <!-- <p> Estamos buscando el: {{fecha}}</p> -->
+     {% if fechas %} 
+     <ul>
+     {% for fecha in fechas %}
+     
+     <p> Estamos buscando el: {{fecha.fecha}}</p>
+        <li<a>Fecha : </a>{{fecha.fecha}}</li>
+        <br>
+        <li<a>Renta : </a>{{fecha.renta}}</li>
+        <br>
+        <li<a>Alimentacion : </a>{{fecha.alimentacion}}</li>
+        <br>
+        <li<a>Educacion : </a>{{fecha.educacion}}</li>
+        <br>
+        <li<a>Transporte : </a>{{fecha.transporte}}</li>
+        <br>
+        <li<a>Bills : </a>{{fecha.bills}}</li>
+        <br>
+        <li<a>Vestuario : </a>{{fecha.vestuario}}</li>
+        <br>
+        <li<a>Recreacion : </a>{{fecha.recreacion}}</li>
+        <br>
+        <li<a>Otros : </a>{{fecha.otros}}</li>
+        <br>
+      
+     {% endfor %}
+     </ul>
+     {% endif %}
+
+<!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    {% if mensaje %}
+       <p>{{ mensaje }}</p>
+    {% endif %}
+   
+{% endblock %}
+
+

@@ -1,0 +1,18 @@
+{% extends 'AppTennis/padre.html' %}
+{% block title %} Gestion Torneo{% endblock %}
+{% load static %}
+
+
+{% block contenidoQueCambia %}
+    <h1>Gestión Torneo</h1>
+
+    {% for t in torneo %}
+     <li>{{t}}<button> <a href="{% url 'eliminar_torneo' torneo_id=t.id %}">Eliminar</a> </button>
+              <button> <a href="{% url 'editar_torneo' torneo_id=t.id %}">Editar </a> </button>
+    </li>        
+    {% endfor %}
+    
+    <a href=" {% url 'TorneoFormulario' %}">Agregar Otro Torneo</a>   
+
+    <li> <p><a href="{% url 'novedades' %}"><h3> Ir a  Inicio </h3></a> </p>  </li>
+{% endblock %}

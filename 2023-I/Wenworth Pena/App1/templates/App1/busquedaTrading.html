@@ -1,0 +1,48 @@
+{% extends "App1/padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+<!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+<font color="Olive" face="Comic Sans MS,arial">
+<p> Busca Informacion De Tus Trading Por Fecha</p>
+</font>
+{% if miFormulario.errors %} 
+
+<p style="color: red;"> Estan mal los datos, revisalos</p>
+
+{% endif %}
+
+<form action="/App1/buscar/" method="get">
+
+    <input type="date" name="fecha" id="fecha">
+
+    <input type="submit" value="Buscar">
+    
+ </form> 
+
+ 
+ <!-- <p> Estamos buscando el: {{fecha}}</p> -->
+     {% if fechas %} 
+     <ul>
+     {% for fecha in fechas %}
+     <p> Estamos buscando el: {{fecha.fecha}}</p>
+        <li<a>Fecha : </a>{{fecha.fecha}}</li>
+        <br>
+        <li<a>Cryptocurrency : </a>{{fecha.cryptocurrency}}</li>
+        <br>
+        <li<a>Acciones : </a>{{fecha.acciones}}</li>
+        <br>
+        <li<a>Otros : </a>{{fecha.otros}}</li>
+        <br>
+         
+     {% endfor %}
+     </ul>
+     {% endif %}
+
+<!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    {% if mensaje %}
+       <p>{{ mensaje }}</p>
+    {% endif %}
+    
+{% endblock %}
+

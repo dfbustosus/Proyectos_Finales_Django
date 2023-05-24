@@ -1,0 +1,14 @@
+{% extends 'AppTennis/padre.html' %}
+{% block title %} Modulo Gestion {% endblock %}
+{% load static %}
+{% block contenidoQueCambia %}
+<h1>Editar  Inscripción</h1>
+
+<form method="post">
+  {% csrf_token %}
+  {{ formulario.as_p }} 
+  <input type="submit" value="Actualizar">
+</form>
+
+<li> <p><a href="{% url 'novedades' %}"><h3> Ir a  Inicio </h3></a> </p>  </li>
+{% endblock %}

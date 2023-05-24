@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Freelance 1</h1>
+    <ul>
+        {% for freelance in object_list %}
+            <li>
+                <p>Nombre: {{ curso.nombre }}</p>
+                <p>
+                    <a href="{% url 'Detail' freelance.id %}">Ver</a>
+                    <a href="{% url 'Edit' freelance.id %}">Editar</a>
+                    <a href="{% url 'Delete' freelance.id %}">Borrar</a>
+                </p>
+            </li>
+        {% endfor %}
+    </ul>
+    
+</body>
+</html>

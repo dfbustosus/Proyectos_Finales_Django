@@ -1,0 +1,28 @@
+{% extends "App1/padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+<!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+
+{% if miFormulario.errors %} 
+
+<p style="color: red;"> Estan mal los datos, revisalos</p>
+
+{% endif %}
+
+<div class="text-center my-2">
+<font color="Olive" face="Comic Sans MS,arial">
+    <h1>Registra Tu Informacion</h1>
+</font>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Registrate!</button>
+</form>
+
+</div>
+
+{% endblock %}
+
+

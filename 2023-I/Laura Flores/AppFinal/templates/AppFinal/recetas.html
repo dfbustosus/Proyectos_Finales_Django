@@ -1,0 +1,55 @@
+
+    {% extends "AppFinal/padre.html" %}
+    
+    {% block Contenido %}
+    <br> <br> <br> 
+
+    {% if request.user.is_authenticated and  request.user.rol == owner %}
+        <a href="/nuevaReceta" class="btn btn-primary">Nueva Receta</a>
+                  
+    {% endif %}
+
+    {% if messages %}
+        <div class="alert alert-warning" alert-{{ message.tags }}" role="alert">
+        {% for message in messages  %}
+            {{message|safe}} - <a href="{% url 'WishList' %}" class="alert-link">Your Wishlist</a>.
+        {% endfor %}
+        </div>
+    {% endif %}
+    
+    {% for receta in object_list %}
+     
+        {% if receta.public == True %}
+        
+    
+            <div class="card" style="width: 18rem">
+                    <img src="{{receta.image.url}}" class="card-img-top" width: 230px height: 230px >
+
+                <div class="card-body">
+                <h5 class="card-title">{{receta.title}}</h5>
+                <p class="card-text">Time: {{receta.time}}min</p>
+
+                <a href="/detallerecetas/{{receta.id}}/" class="btn btn-primary">Leer más...</a>
+                  
+
+                {% if request.user.is_authenticated %}
+                    
+                    {% if request.user.client.rol == 'owner' %}
+                        <a href="/eliminarReceta/{{receta.id}}/" class="btn btn-primary">Eliminar</a>
+                        <a href="/actualizarReceta/{{receta.id}}/" class="btn btn-primary">Actualizar</a>
+                      
+                  
+                    {% else %}
+                       
+                        <a href="/addWishlist/{{receta.id}}/" class="btn btn-light fw500" role="button" aria-disabled="true">Add to Wish List</a>
+                    {% endif %}
+
+                
+                {% endif %}
+                
+                </div>
+            </div>
+    
+        {% endif %}
+    {% endfor %}
+    {% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'blog_vista/padre.html' %}
+{% load static %}
+{% block inicio %}
+
+<body>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Registrate!</button>
+    </form>
+</body>
+{%endblock%}

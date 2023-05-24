@@ -1,0 +1,76 @@
+{% extends 'admin_templates/base_template.html' %}
+
+<!-- block titulo -->
+{% block title %}
+CategoryList
+{% endblock title %}
+
+<!-- block css personalizado -->
+{% block custom_css %}
+{% endblock custom_css %}
+
+<!-- block título de página -->
+{% block page_title %}
+Lista Categorias
+{% endblock page_title %}
+<!-- block contenido principal -->
+{% block page_content %}
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="search-element">
+          <div class="card">
+            <div class="card-body">
+              <form action="" method="get">
+                <button class="btn btn-primary" type="submit" style="float: right;"><i class="fas fa-search"></i>Buscar</button>
+                <input class="form-control" type="search" placeholder="Search" aria-label="Search" data-width="250" style="width: 250px;float: right;" name="filter" value="{{ filter }}">
+              </form>
+            </div>  
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="search-element">
+          <div class="card">
+            <div class="card-body">
+              <b>Ordenar por: - </b>
+              <a href="{% url 'category_list' %}?filter={{ filter }}&orderby=id">Id</a> |
+              <a href="{% url 'category_list' %}?filter={{ filter }}&orderby=nombre">Categoria</a> |
+            </div>  
+          </div>
+        </div>
+      </div>
+    </div>
+   
+      
+    <div class="card-body p-0">
+      <div class="table-responsive table-invoice">
+        <table class="table table-striped">
+          <tbody><tr>
+            <th>ID</th>
+            <th>Categoría</th>
+            <th>Opciones</th>
+          </tr>
+          {% for category in category_list %}
+          <tr>
+            <td><a href="#">{{category.id}}</a></td>
+            <td class="font-weight-600">{{category.nombre}}</td>
+            <td>
+              <a href="{% url 'category_update' category.id %}" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i> Editar</a>
+              
+              <a href="{% url 'category_eliminar' category.id %}" class="btn btn-icon icon-left btn-danger"><i class="fas fa-times"></i> Eliminar</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody></table>
+      </div>
+    </div>  
+    
+
+{% endblock page_content %}
+
+
+<!-- block js personalizado -->
+{% block custom_js %}
+{% endblock custom_js %}

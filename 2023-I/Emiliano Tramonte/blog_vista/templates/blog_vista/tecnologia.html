@@ -1,0 +1,11 @@
+{% extends 'blog_vista/padre.html' %}
+{% load static %}
+{% block tecnologia %}
+<div class="container text-center"> 
+    <body>
+        <h1>Articulos de Tecnologia</h1>
+        <a class="btn btn-primary" href="{% url 'TecnologiaList' %}">Ver Articulos de Tecnologia</a>
+        <a class="btn btn-primary" href="{% url 'TecnologiaForm' %}">Agrega un articulo!</a>
+    </body>
+</div>
+{%endblock%}

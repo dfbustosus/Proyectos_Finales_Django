@@ -1,0 +1,14 @@
+{% extends "recetas_base/base.html" %}
+
+{% block content %}
+  <h2>{{ receta.nombre }}</h2>
+  {% if receta.poster %}
+    <div class="box">
+      <img src="{{ receta.poster.url }}" width="200" height="auto" alt="{{ receta.title }}">
+    </div>
+  {% endif %}
+  <p>{{ receta.descripcion }}</p>
+  <a class="btn btn-warning" href="{% url 'receta-update' receta.pk %}">Editar receta</a>
+  <a class="btn btn-danger" href="{% url 'receta-delete' receta.pk %}">Eliminar receta</a>
+  
+{% endblock %}

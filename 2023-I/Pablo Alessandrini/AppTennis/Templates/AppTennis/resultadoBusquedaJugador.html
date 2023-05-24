@@ -1,0 +1,16 @@
+<!--Muestro resultados de la busqueda de un jugador-->
+{% extends 'AppTennis/padre.html' %}
+{% load static %}
+{% block contenidoQueCambia %}
+  <h1>Resultados de la búsqueda</h1>
+  <p> Consulta realizada: "{{ consulta }}"</p>
+  <ul>
+    {% for jugador in resultado %}
+      <li>Nombre--> {{ jugador.nombre }} </li>
+      <li>Apellido--> {{ jugador.apellido }} </li>
+      <li>Edad--> {{ jugador.edad}} </li>
+    {% empty %}
+      <li>No se encontraron jugadores</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

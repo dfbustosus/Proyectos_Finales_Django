@@ -1,0 +1,16 @@
+{% extends "App1/padre.html" %} {% load static %} {% block titulo %}
+<h1 class="mb-5">BUSQUEDA DE EMPLEADOS</h1>
+{% endblock %} {% block contenido_que_cambia %} {% if empleados %}
+<h2>Empleado encontrado</h2>
+{% for empleado in empleados %}
+
+<p>DNI: {{ empleado.dni }}</p>
+<p>Nombre: {{ empleado.nombre }}</p>
+<p>Codigo Departamento: {{ empleado.id_departamento }}</p>
+<p>Codigo Puesto: {{ empleado.id_puesto }}</p>
+
+{% endfor %} {% else %}
+
+<h2>NO HAY EMPLEADOS PARA EL DNI INGRESADO</h2>
+
+{% endif %} {% endblock %}

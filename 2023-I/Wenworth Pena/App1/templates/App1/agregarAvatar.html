@@ -1,0 +1,30 @@
+{% extends "App1/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    <font color="Olive" face="Comic Sans MS,arial">
+    <h1>Agregar Avatar</h1>
+    </font>
+    {% if miFormulario.errors %}
+
+    <p style="color: red;"> Están mal los datos, revisar</p>
+
+    {% endif %}
+
+    <body>
+        
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ miFormulario.as_p}}
+            <input type="submit" value="Actualizar">
+        </form>
+    </body>
+
+
+
+{% endblock %}
+
+

@@ -1,0 +1,40 @@
+{% extends 'AppTennis/padre.html' %}
+{% block title %} Lista Jugadores{% endblock %}
+{% load static %}
+{% block contenidoQueCambia %}
+Lista Jugadores
+
+<h1>Base de Datos de Jugadores</h1>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Celular</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for j in jugadores %}
+    <tr>
+      <ul>
+        <td> <li> |{{ j.nombre }}|</td>
+        <td>-|{{ j.apellido }}|-</td>
+        <td>-|{{ j.telefono }}|-</td></li>
+       
+      </ul>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="4">No hay jugadores disponibles.</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<li> <p><a href="{% url 'novedades' %}"><h3> Ir a  Inicio </h3></a> </p>  </li>
+
+
+
+
+{% endblock %}

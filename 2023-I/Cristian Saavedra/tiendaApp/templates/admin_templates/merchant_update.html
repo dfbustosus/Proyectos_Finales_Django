@@ -1,0 +1,85 @@
+{% extends 'admin_templates/base_template.html' %}
+
+<!-- block titulo -->
+{% block title %}
+MerchantUpdate
+{% endblock title %}
+
+<!-- block css personalizado -->
+{% block custom_css %}
+{% endblock custom_css %}
+
+<!-- block título de página -->
+{% block page_title %}
+Update Merchant
+{% endblock page_title %}
+
+<!-- block contenido principal -->
+{% block page_content %}
+<div class="row">
+    <div class="col-12 col-md-12 col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h4>Update Merchant Users</h4>
+            </div>
+            <div class="card-body">
+                <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="form-group">
+                <label>{{ field.label }}</label>
+                <input type="{{ field.field.widget.input_type }}" name="{{ field.name }}" id="{{ field.name }}" class="form-control" value="{{ field.value }}">
+                {% if field.errors %}
+                <div class="alert alert-danger" style="margin: 10px;">
+                    {{ field.errors }}
+                </div>
+                {% endif %}
+                </div>
+                {% endfor %}
+                <div class="form-group">
+                    <label>Foto Actual</label><br>
+                    <img src="{{ merchantuser.profile_pic }}" alt="" style="height: 150px;"/>
+                </div>
+
+                <div class="form-group">
+                    <label>Foto</label>
+                    <input type="file" name="profile_pic" id="profile_pic" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label>Nombre Empresa</label>
+                    <input type="text" name="company_name" id="company_name" class="form-control" value="{{ merchantuser.company_name }}">
+                </div>
+
+                <div class="form-group">
+                    <label>GST</label>
+                    <input type="text" name="gst_details" id="gst_details" class="form-control" value="{{ merchantuser.gst_details }}">
+                </div>
+
+                <div class="form-group">
+                    <label>Dirección</label>
+                    <input type="text" name="adress" id="adress" class="form-control" value="{{ merchantuser.adress }}">
+                </div>
+
+                <div class="form-group">
+                    <label class="custom-switch mt-2" style="float: left;">
+                        <input type="checkbox" name="is_added_by_admin" class="custom-switch-input" {% if merchantuser.is_added_by_admin == 1 %}checked{% endif %}>
+                        <span class="custom-switch-indicator"></span>
+                        <span class="custom-switch-description">Creado por Admin ?</span>
+                    </label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Guardar</button>    
+            </form>
+            </div>
+        </div>  
+    </div> 
+</div>      
+        
+
+{% endblock page_content %}
+
+
+<!-- block js personalizado -->
+{% block custom_js %}
+{% endblock custom_js %}

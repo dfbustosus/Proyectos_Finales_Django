@@ -1,0 +1,30 @@
+{% extends 'blog_vista/padre.html' %}
+{% load static %}
+
+{% block medicina %}
+
+<body>
+    <h1>Articulos de Medicina</h1>
+
+
+    <ul>
+        {% for medicina in object_list %}
+            <li>
+                <p>Titulo: {{ medicina.titulo }}</p>
+                <p>Autor: {{ medicina.autor }}</p>
+                <p>Fecha: {{ medicina.fecha }}</p>
+                
+                <p>
+                    <a href="{% url 'MedicinaDetail' medicina.id %}">Leer más</a>
+                    <a href="{% url 'MedicinaEdit' medicina.id %}">Editar articulo</a>
+                    <a href="{% url 'MedicinaDelete' medicina.id %}">Borrar articulo</a>
+                </p>
+            </li>
+
+        {% endfor %}
+    </ul>
+    
+</body>
+
+{% endblock %}
+

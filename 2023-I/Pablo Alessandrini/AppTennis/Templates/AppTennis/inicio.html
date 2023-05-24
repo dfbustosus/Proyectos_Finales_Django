@@ -1,0 +1,15 @@
+<!--Template Incio una vez que se ingresa a la App-->
+{% extends 'AppTennis/padre.html' %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+    <center>
+    <h1> Proyecto AppTennis Mayo 2023 </h1>
+    <p stringformat>"App de Tennis, que permite cargar resultados de partidos de tenis de un torneo"</p>
+    
+    {% for m in mensaje %}
+    <p> {{ m }} </p>
+    {% endfor %}
+    </center>
+
+{% endblock %}

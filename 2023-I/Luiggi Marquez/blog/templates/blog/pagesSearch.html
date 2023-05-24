@@ -1,0 +1,80 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block content %}
+
+    <h2 class="text-lg-start shadow-sm p-3 mt-3 bg-body-tertiary rounded">Resultado de la búsqueda</h2>
+    <div class="blogFuctionsContainer">
+        <form action="/pages/search/" method="GET">
+            <div>
+                <input type="text" autocomplete="off" name="busqueda" class="input" placeholder="Search">
+            </div>
+        </form> 
+        <div><a href="{% url 'createPage' %}">
+            <button class="buttonPost">
+                <span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"></path><path fill="currentColor" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"></path></svg> Create Post
+                </span>
+          </button></a></div>
+    </div>
+    
+
+    {% for message in messages %}
+        {% if message.tags == 'error' %}
+            <div class="alert alert-{{ message.tags }}">{{ message}}</div>
+        {% endif %}
+    {% endfor %}
+        
+
+    {% if pages %}
+
+    <div class="container-fluid listBlogs">
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            
+            
+            {% for data in pages %}
+            <div class="col">
+                <div class="card">
+
+                    {% if data.imageMain %}
+                        <img src="{{ data.imageMain.url }}" class="card-img-top img-fluid imgBlog" alt="imagen de {{data.title}}">
+                    {% else %}
+                        <img src="{% static 'images/no-image.jpg' %}" class="card-img-top img-fluid imgBlog" alt="imagen de {{data.title}}">
+                    {% endif %}
+
+                    <div class="card-body">
+                    <h5 class="card-title">{{ data.title }}</h5>
+                    <p class="card-text">{{ data.subtitle }}</p>
+                    <a href="{% url 'details' data.id %}" class="btn btn-primary">Leer más...</a>
+                    
+                    {%  if canDelete %}
+                    <div class="cardEdit">
+                        <a href="{% url 'edit' data.id %}">Editar</a>
+                        <a href="{% url 'delete' data.id %}">Eliminar</a>
+                    </div>
+                    {% endif %}
+
+                    </div>
+                </div>
+                <div class="card-footer">
+                    {% if data.dateModified %}
+                        <small class="text-body-secondary">Last updated: {{ data.dateModified }}</small>
+                    {% else %}
+                        <small class="text-body-secondary">Creado: {{ data.dateAdded}}</small>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+    {% else %}
+
+    <h2 class="text-lg-start shadow-sm p-3 mt-5 bg-body-tertiary rounded">No se encontraron publicaciones</h2>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <lottie-player src="../../../media/WO6lWf6E70.json"  background="transparent"  speed="1"  style="width: 1000px; height: 700px;"  loop  autoplay></lottie-player>
+
+    {% endif %}
+
+{% endblock %}

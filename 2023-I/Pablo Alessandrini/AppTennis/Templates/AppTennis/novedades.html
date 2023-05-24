@@ -1,0 +1,40 @@
+{% extends 'AppTennis/padre.html' %}
+{% block title %} Modulo Gestion {% endblock %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+<p>Bienvenido a la AppTennis que podras ver los torneos a disputar,  y te podras dar de alta como jugador y anotarte.</p> 
+<br>
+<div class="container">
+    <ul class="list">
+        <ul><H4>TORNEOS</H4></LI>
+        <li> <p><a href="{% url 'listadostorneos' %}">Lista de Torneos</a></p> </li>
+        <li> <p><a href="{% url 'TorneoFormulario' %}">Cargar un torneo</a></p> </li>
+        <li> <p><a href="{% url 'busquedaTorneo' %}">Buscar Torneo</a></p> </li></ul>
+     </ul>
+
+     <ul class="list">
+      <ul><H4>JUGADORES</H4></LI>
+      <li> <p><a href="{% url 'lista_jugadores' %}">Listado de Jugadores</a></p> </li>
+      <li> <p><a href="{% url 'JugadorFormulario' %}">Darte de alta como jugador</a></p> </li>
+      <li> <p><a href="{% url 'inscripciones' %}">Anotarte en un Torneo</a></p> </li>
+      <li> <p><a href="{% url 'busquedajugador' %}">Buscar Jugador</a></p> </li> </ul>
+    </ul>
+    <ul class="list">
+      <ul><H4>RESULTADOS</H4></LI>
+        <li> <p><a href=" {% url 'ResultadoFormulario' %}">Cargar un resultado</a></p> </li>
+        <li> <p><a href="{% url 'lista_resultados' %}">Ver Resultados Por Torneo</a></p> </li> </ul>
+    </ul>
+    <ul class="list">
+      <ul><H4>MODULO GESTION</H4></LI>
+        <li> <p><a href="{% url 'gestion_inscripcion' %}">Gestion Inscripciones</a></p> </li>
+        <li> <p><a href="{% url 'gestion_jugador' %}">Gestion Jugadores</a></p> </li>
+        <li> <p><a href="{% url 'gestion_torneo' %}">Gestion Torneos</a></p> </li>
+        <li> <p><a href="{% url 'gestion_resultado' %}">Gestion Resultados</a></p> </li></ul>
+     
+    </ul>
+    
+   </div>
+   <li> <p><a href="{% url 'novedades' %}"><h3> Ir a  Inicio </h3></a> </p>  </li>
+{% endblock %}
+

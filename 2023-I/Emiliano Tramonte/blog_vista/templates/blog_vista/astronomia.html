@@ -1,0 +1,15 @@
+{% extends 'blog_vista/padre.html' %}
+{% load static %}
+{% block astronomia %}
+
+
+<div class="container text-center">
+    <body>
+        <h1>Articulos de Astronomia</h1>
+        <a class="btn btn-primary" href="{% url 'AstronomiaList' %}">Ver Articulos de Astronomia</a>
+        <a class="btn btn-primary" href="{% url 'AstronomiaForm' %}">Agrega un articulo!</a>
+    </body>
+</div>
+
+{%endblock%}
+

@@ -1,0 +1,15 @@
+<!-- Template que busca jugador-->
+<!---->
+
+{% extends 'AppTennis/padre.html' %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+  <h1> Busqueda Jugador </h1>
+  <form method="get" action="{% url 'resultadoBusquedaJugador' %}">
+  <input type="text" name="query" placeholder= "Apellido Jugador" >
+    <button type="submit"> Buscar </button>
+  </form>
+  <li> <p><a href="{% url 'novedades' %}"><h3> Ir a  Inicio </h3></a> </p>  </li>
+{% endblock %}
+

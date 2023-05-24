@@ -1,0 +1,6 @@
+superuser:adminCs; clave:123***
+user: usuarioTest_1,clave: 1234567*
+user: Superman,clave: 7654321*
+
+
+

@@ -1,0 +1,30 @@
+{% extends "App1/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+    <font color="Olive" face="Comic Sans MS,arial">
+    <h1>Edita Tus Gastos</h1>
+    </font>
+    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    {% if miFormulario.errors %} 
+    <p style="color: red;">Estan mal los datos, revisar</p>
+    {% endif %}
+
+    <body>
+        {% for p in gastos %}
+            <li>{{p}}</li>  
+            <button type="button" class="btn btn-outline-info btn-sm"><a href="{% url 'EliminarGasto' p.fecha %}"> Eliminar</a></button>
+            <button type="button" class="btn btn-outline-primary btn-sm"><a href="{% url 'EditarGasto' p.fecha %}">Editar</a></button>      
+        {% endfor %}
+        <br>
+        <br>
+        <!-- <a href="gastos">Agregar otro Gasto</a> -->    
+        <button type="button" class="btn btn-outline-primary btn-sm"><a href="{% url 'GastoFormulario' %}">Ingresa Otro Gasto</a></button>
+        
+    </body>
+        
+
+{% endblock %}
+
+

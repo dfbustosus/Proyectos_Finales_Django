@@ -1,0 +1,55 @@
+{% extends 'admin_templates/base_template.html' %}
+
+<!-- block titulo -->
+{% block title %}
+Lista de Productos
+{% endblock title %}
+
+<!-- block css personalizado -->
+{% block custom_css %}
+{% endblock custom_css %}
+
+<!-- block título de página -->
+{% block page_title %}
+Lista de Productos
+{% endblock page_title %}
+
+<!-- block contenido principal -->
+{% block page_content %}
+    <div class="row">
+    {% for prod in products_list %}    
+        <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+            <article class="article article-style-b">
+              <div class="article-header">
+                <div class="article-image" data-background="/media/{{prod.imagen}}" style="background-image: url(&quot;assets/img/news/img13.jpg&quot;);">
+                </div>
+                <div class="article-badge">
+                    <div class="article-badge-item bg-danger"><i class="fas fa-fire"></i>{{ prod.nombre }}</div>
+                </div>
+              </div>
+              <div class="article-details">
+                <p><span class="badge badge-primary">Categoria: {{ prod.categoria }}</span></p>
+                <p>{{ subcategory.description }}</p>
+                <p><span class="badge badge-warning">Precio: {{ prod.precio }}</span></p>
+                <label class="custom-switch mt-2" style="float: left;">
+                    <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" {% if prod.is_active == 1 %}checked{% endif %}>
+                    <span class="custom-switch-indicator"></span>
+                    <span class="custom-switch-description">Activo</span>
+                </label>
+                <div class="article-cta">
+                  <a href="{% url 'product_update' prod.id %}" class="btn btn-warning">Editar <i class="fas fa-chevron-right"></i></a>
+                  <a href="{% url 'product_eliminar' prod.id %}" class="btn btn-icon icon-left btn-danger"><i class="fas fa-times"></i> Eliminar</a>
+                </div>
+              </div>
+            </article>
+        </div>
+    
+    {% endfor %}
+    </div>
+
+{% endblock page_content %}
+
+
+<!-- block js personalizado -->
+{% block custom_js %}
+{% endblock custom_js %}

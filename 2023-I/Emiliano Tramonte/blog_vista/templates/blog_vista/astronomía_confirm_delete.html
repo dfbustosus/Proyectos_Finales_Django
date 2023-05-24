@@ -1,0 +1,16 @@
+{% extends 'blog_vista/padre.html' %}
+{% load static %}
+
+{% block astronomia %}
+
+<div class="container text-center"> 
+<body>
+    
+    <form method="post">{% csrf_token %}
+        ¿Estas seguro de que deseas borrar a este articulo? <br>"{{ object }}"?<br>
+        <input type="submit" value="Borrar">
+    </form>
+    <a class="btn btn-primary" href="{% url 'AstronomiaList' %}">Regresar</a>
+</body>
+</div>
+{% endblock %}

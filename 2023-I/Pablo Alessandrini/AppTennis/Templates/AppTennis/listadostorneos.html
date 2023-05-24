@@ -1,0 +1,36 @@
+{% extends 'AppTennis/padre.html' %}
+{% load static %}
+{% block contenidoQueCambia %}
+<h1>Bienvenido a Torneos</h1>
+
+<h2>Torneos Disponibles</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Fecha de inicio</th>
+      <th>Fecha de fin</th>
+      <th>Cantidad de jugadores</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for torneo in torneos %}
+    <tr>
+      <ul>
+        <td> <li> "{{ torneo.nombre }}"</td>
+        <td>{{ torneo.fecha_inicio }}</td>
+        <td>{{ torneo.fecha_fin }}</td>
+        <td>{{ torneo.cantidad_jugadores }} </li></td>  
+      </ul>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="4">No hay torneos disponibles.</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<li> <p><a href="{% url 'novedades' %}"><h3> Ir a  Inicio </h3></a> </p>  </li>
+
+
+{% endblock %}

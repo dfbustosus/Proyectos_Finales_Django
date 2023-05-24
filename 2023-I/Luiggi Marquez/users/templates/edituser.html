@@ -1,0 +1,36 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <h4>Cuenta de usuario - Edición</h4>
+    
+    
+    <div>
+        <h5 class="centerTitle">Editar cuenta de usuario</h5>
+        
+
+        <span class="centerTitle" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Si deseas modificar un campo debes sobreescribirlo. Si deseas borrar un campo, solo déjalo en blanco; la contraseña por motivos de seguridad no puede quedar en blanco (si no se desea editar dejarla en blanco)">
+            <h6>Ayuda</h6>
+        </span>
+
+        {% if errors %}
+        <h3 class="errorData">{{errors}}</h3>
+        {% endif %}
+
+       <form action="/user/edit/" method="POST" enctype="multipart/form-data" class="estudiantes">
+        {% csrf_token %}
+        {{form.as_p}}
+
+        <div class="button1"><button class="btn41-43 btn-41">Actualizar</button></div>
+       </form>
+        
+    </div>
+   
+  
+        <div class="button1">
+            
+            <a href="{% url 'profile' %}"><button  class="btn41-43 btn-41">Ir a profile</button></a>
+            <a href="{% url 'home' %}"><button  class="btn41-43 btn-41">Ir a Home</button></a>
+        </div>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,14 @@
+<!--Templata inicio de Torneo-->
+{% extends 'AppTennis/padre.html' %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+<form action="" method="POST">{% csrf_token %}
+  <table>
+    {{miFormulario.as_table}}
+  </table>     
+  <input type="submit", value ="Enviar" > 
+</form>
+<li> <p><a href="{% url 'novedades' %}"><h3> Ir a  Inicio </h3></a> </p>  </li>
+ 
+{% endblock %}

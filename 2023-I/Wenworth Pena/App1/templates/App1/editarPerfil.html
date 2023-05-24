@@ -1,0 +1,20 @@
+{% extends "App1/padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+
+    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    <font color="Olive" face="Comic Sans MS,arial">
+    <h1>Editar Perfil De {{usuario}}</h1>
+    </font>
+    <form action="" method="POST">{% csrf_token %}
+        <!-- Acá está la magia de Django-->
+        <table>
+            {{ miFormulario.as_table }}
+        </table>
+        <input type="submit", value="Enviar">
+    </form>  
+
+{% endblock %}
+
+

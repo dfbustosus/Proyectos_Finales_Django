@@ -1,0 +1,42 @@
+{% extends "App1/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    {% if miFormulario.errors %} 
+    <p style="color: red;">Estan mal los datos, revisar</p>
+    {% endif %}
+
+    <section class="py-1"> <!-- 5-->
+        <div class="container my-1"> <!-- 5-->
+            <div class="content-center">
+                <div class="col-lg-6">   
+                    <font color="Olive" face="Comic Sans MS,arial">
+                    <h2>Administra Tu Futuro</h2>               
+                    <p class="lead"><strong>Ingresa la Informacion de Tus Inversiones Trading.</strong></p>
+                    <p class="lead"><strong>Digita la fecha en este formato, MM/DD/YYYY.</strong></p>
+                    </font>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <form action="" method="post">{% csrf_token %}
+        <!--Aca esta la magia-->
+        <table>
+            {{ miFormulario.as_table }}
+        </table>
+        <input type="submit", value="Enviar">
+    </form>
+
+    <form action="" method="post">
+        
+        <br>
+        <button type="button" class="btn btn-outline-info btn-sm"><a class="list-inline-item" href="{% url 'LeerTradings' %}">Edita tus Trading</a></button>
+        <button type="button" class="btn btn-outline-info btn-sm"><a class="list-inline-item" href="{% url 'BusquedaTrading' %}">Busca Tus Tradings</a></button>
+        
+
+{% endblock %}
+

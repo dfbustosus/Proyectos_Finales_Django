@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        {% load static %}
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Efecto Doppler - Divulgación científica</title>
+        <link rel="icon" type="image/x-icon" href="{% static 'blog_vista/assets/favicon.ico'%}" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'blog_vista/css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            <div class="container px-3 px-lg-4">
+                {% if not request.user.is_authenticated %}
+                <a class="navbar-brand" href="{% url 'Register' %}">Registrate!</a>
+                {% endif %}
+                <br>
+                {% if not request.user.is_authenticated %}
+                <a class="navbar-brand" href="{% url 'Login' %}">Inicia sesión</a>
+                {% endif %}
+                <br>
+                {% if request.user.is_authenticated %}
+                <a class="navbar-brand" href="{% url 'Logout' %}">Salir</a>
+                {% endif %}
+                {% if request.user.is_authenticated %}
+                
+                <a class="navbar-brand" href="{% url 'EditarPerfil' %}">Editar perfil</a>
+                <a class="navbar-brand" href="{% url 'Profile' %}">Ver perfil</a>
+
+                {% endif %}
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'Inicio' %}">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'About' %}">Acerca de mí</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'Medicina' %}">Medicina</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'Biologia' %}">Biología</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'Filosofia' %}">Filosofía</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'Astronomia' %}">Astronomía</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'Tecnologia' %}">Tecnología</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'Miembros' %}">Miembros</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('{{ background_image_url }}')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Efecto Doppler</h1>
+                            <span class="subheading">Un nuevo tipo de revista de divulgación científica</span>
+                            <br><br>
+                            
+                            {% if request.user.is_authenticated %}
+                                {% with avatares=request.user.avatar_set.all %}
+                                    {% if avatares %}
+                                        <img height = '60ypx' src = '{{avatares.0.imagen.url}}'>
+                                    {% endif %}
+                                    <p class="text-muted small mb-4 mb-lg-0"> Hola, {{user.username}}! <br> Que gusto verte otra vez :)</p>
+                                {% endwith %}
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        {%block inicio%}
+
+        {%endblock%}
+        <!-- MEDICINA -->
+        {% block medicina %}
+
+        {% endblock %}
+
+        <!-- BIOLOGIA-->
+        {% block biologia %}
+
+        {% endblock %}
+
+        <!-- FILOSOFIA -->
+        {% block filosofia %}
+
+        {% endblock %}
+
+        <!-- ASTRONOMIA -->
+        {% block astronomia %}
+
+        {% endblock %}
+
+        <!-- TECNOLOGIA -->
+        {% block tecnologia %}
+
+        {% endblock %}
+        
+        <!-- MIEMBROS -->
+        {% block miembros %}
+
+        {% endblock %}
+
+        <!-- ABOUT -->
+        {% block about %}
+
+        {% endblock %}
+        
+        <!-- BUSCAR -->
+        {% block buscar %}
+
+        {% endblock %}              
+               
+        <!-- Footer-->
+        <footer class="border-top">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <ul class="list-inline text-center">
+
+                            <li class="list-inline-item">
+                                <a href="https://github.com/en-tremonte">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                    <br> <br>
+                            
+                                    <div class="small text-center text-muted fst-italic">emilianotremonte@gmail.com</div>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="small text-center text-muted fst-italic">Copyright &copy; Emiliano Tremonte 2023</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'blog_vista/js/scripts.js' %}"></script>
+
+
+
+    </body>
+</html>
+

@@ -1,0 +1,52 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+{% block content %}
+
+    {% for message in messages %}
+        {% if message.tags == 'error' %}
+            <div class="alert alert-{{ message.tags }}">{{ message}}</div>
+        {% endif %}
+    {% endfor %}
+
+    {% for data in post %}
+        
+        <div class="editTitlePostDetails">
+            <div>
+                <a href="{% url 'edit' data.id %}">
+                    <button class="buttonPostEdit">Editar</button>
+                </a>
+            </div>
+            <div>
+                <a href="{% url 'delete' data.id %}">
+                    <button class="buttonPostEdit">Eliminar</button>
+                </a>
+            </div>
+        </div>
+        <div class="postImg">
+            {% if data.imageMain %}
+                <img src="{{ data.imageMain.url }}" class="card-img-top img-fluid imgBlogDetail" alt="imagen de {{data.title}}">
+            {% else %}
+                <img src="{% static 'images/no-image.jpg' %}" class="card-img-top img-fluid imgBlogDetail" alt="imagen de {{data.title}}">
+            {% endif %}
+        </div>
+
+        <div class="titlePostDetail"><h3>{{data.title}}</h3></div>
+
+        <div class="postDetailAuthor">
+            <p>By: {{data.user.first_name|capfirst}} {{data.user.last_name|capfirst}}</p>
+            <p>Updated: {{data.dateModified}}</p>
+        </div>
+        <section class="section"> {{data.Message|safe}}</section>
+
+    {% endfor %}
+
+    <div class="centerTitle2">
+        <a href="{% url 'pages' %}">
+            <button class="buttonPostEdit">Volver</button>
+        </a>
+    
+    </div>
+
+{% endblock %}

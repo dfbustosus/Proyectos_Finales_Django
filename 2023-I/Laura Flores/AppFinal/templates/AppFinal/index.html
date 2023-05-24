@@ -1,0 +1,29 @@
+
+    {% extends "AppFinal/padre.html" %}
+    
+    {% block Contenido %}
+    <h1>
+      Recetas del día
+    </h1>
+
+
+    {% for receta in recetas %}
+    
+        {% if receta.public == True %}
+       
+
+            
+            <div class="card" style="width: 18rem">
+                <img src="{{receta.image.url}}" class="card-img-top" >
+                <div class="card-body">
+                <h5 class="card-title">{{receta.title}}</h5>
+                <p class="card-text">Time: {{receta.time}}min</p>
+
+                <a href="/detallerecetas/{{receta.id}}/" class="btn btn-primary">Leer más...</a>
+
+                </div>
+            </div>
+    
+        {% endif %}
+        {% endfor %}
+        {% endblock %}

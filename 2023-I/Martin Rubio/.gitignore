@@ -1,0 +1,17 @@
+# Virtual envs
+.python-version
+env
+venv
+
+# Python files
+**/__pycache__
+**/.pytest_cache
+
+# VSCode files
+**/.vscode
+
+# DB
+*.sqlite3
+
+# Media files
+media

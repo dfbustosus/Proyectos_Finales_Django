@@ -1,0 +1,87 @@
+{% extends "mensajeria/index.html" %}
+
+{% load static %}
+
+{% block content %}
+
+    <h2>Usuarios Ryu Tech - Profiles</h2>
+
+    {% for message in messages %}
+        {% if message.tags == 'error' %}
+            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        {% endif %}
+        {% if message.tags == 'success' %}
+        <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        {% endif %}
+    {% endfor %}
+
+    <div class="mainContainer">
+    {% for data in usuarios %}
+    
+       {% if data.username != request.user.username %}
+            <div class="containerProfiles">
+                <div class="userContainer">
+                    <div class="subcontainer1">
+                        <div class="padding"><strong>{{data.username|capfirst}}</strong></div>
+                        {% if canDelete %}
+                        <div>
+                        
+                            <form method="POST" action="{% url 'deleteuser' data.id %}">
+                                {% csrf_token %}
+                                <button class="buttonDeleteUser">Eliminar</button>
+                            </form>
+                            
+                        </div>
+                        {% endif %}
+
+                    </div>
+                    <div class="subcontainer2">
+                        <div class="padding">{{data.email}}</div>  
+                    </div>
+                    <div class="subcontainer3">
+                        <div>
+                            {% if data.profile.avatar %}
+                                <a href="{% url 'profileIndividual' data.id %} ">
+                                    <img src="{{data.profile.avatar.url}}" class="imgProfileChat" title="Perfil de usuario">
+                                </a>
+                            {% else %}
+                                <a href="{% url 'profileIndividual' data.id %} "></a>
+                                    <img src="{% static 'images/no-avatar.jpg' %}" class="imgProfileChat" title="Perfil de usuario">
+                                </a>
+                            {% endif %}
+                        </div>
+                        {% if canDelete %}
+                            <div class="userPermission">
+                                <form method="POST" action="" class="formPermission">
+                                    {% csrf_token %}
+                                
+                                    <label for="permiso">Seleccionar permiso:</label>
+                                    <select name="permiso" id="permiso">
+                                    <option value="can_view">Ver</option>
+                                    <option value="can_edit">Editar</option>
+                                    <option value="can_delete">Eliminar</option>
+                                    </select>
+                                    <input type="hidden" name="id" value="{{ data.id }}">
+                                    <input type="submit" value="Asignar">
+                                </form>
+                            </div>
+                        {% endif %}
+                        <div class="padding">
+
+                            <a href="{% url 'chatroom-getmsgs' data.id %}" class="link">
+                                <button class="button">Enviar Mensaje</button>
+                            </a>
+                            
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %} <!-- Para evitar que el mismo usuario se incluya en los perfiles -->
+        
+
+    {% endfor %}
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "App1/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+<h1 class="mb-5">LISTADO DE EMPLEADOS</h1>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+
+
+<ul>
+    <h5>DNI - Nombre - Departamento - Puesto</h3>
+    {% for empleado in empleados %}
+    <li>{{ empleado.dni }} - {{ empleado.nombre }} - {{ empleado.id_departamento }} - {{ empleado.id_puesto }}</li>
+
+    {% endfor %}
+</ul>
+
+{% endblock %}

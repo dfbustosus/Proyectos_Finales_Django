@@ -1,0 +1,31 @@
+
+    {% extends "AppFinal/padre.html" %}
+    {% block Contenido %}
+    <section class="py-5">
+        <div class="container my-5">
+            
+            <ul>
+                <a class="nav-link"   href="{% url 'Index' %}"}>Inicio</a></li>
+                <a class="nav-link" href="{% url 'Actualizar' user.id %}"}>Actualizar Perfil</a></li>
+            </ul>
+            {% if request.user.client.rol == 'owner' %}
+                <ul>
+                    <a class="nav-link"   href="{% url 'Recetas' %}"}>Administracion Recetas</a></li>
+                </ul>
+            {% else %}
+                <ul>
+                    <a class="nav-link"   href="{% url 'WishList' %}"}>WishList</a></li>
+                </ul>
+            {% endif %}
+        
+            <ul>
+                <li>User: {{user.username}}</li>
+                <li>Email: {{user.email}}</li>
+                <li>Nombre: {{user.first_name}}</li>
+                <li>rol: {{client.rol}}</li>
+
+            </ul>   
+            
+        </div>
+    </section>
+    {% endblock %}

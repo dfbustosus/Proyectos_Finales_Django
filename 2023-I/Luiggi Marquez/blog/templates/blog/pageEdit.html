@@ -1,0 +1,39 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+
+    <div class="editTitlePostDetails">
+        <div>
+            <a href="{% url 'delete' id %}">
+                <button class="buttonPostEdit">Eliminar</button>
+            </a>
+        </div>
+    </div>
+    
+    <h2 class="text-lg-start shadow-sm p-3 mt-5 bg-body-tertiary rounded">Edición - Post</h2>
+
+    {% for message in messages %}
+        {% if message.tags == 'error' %}
+            <div class="alert alert-{{ message.tags }}">{{ message}}</div>
+        {% endif %}
+    {% endfor %}
+        
+    <form action="" method="POST" enctype="multipart/form-data" class="estudiantes">
+        {% csrf_token %}
+        {{form.as_p}}
+        {{form.media}}
+        <div class="button1"><button class="btn41-43 btn-41">Actualizar</button></div>
+    </form>
+
+
+    <div class="centerTitle2">
+        <a href="{% url 'pages' %}">
+            <button class="buttonPostEdit">Volver</button>
+        </a>
+    
+    </div>
+        
+
+{% endblock %}
+

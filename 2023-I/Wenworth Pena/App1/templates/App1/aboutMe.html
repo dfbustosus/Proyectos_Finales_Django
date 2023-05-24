@@ -1,0 +1,24 @@
+{% extends "App1/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    {% if miFormulario.errors %} 
+    <p style="color: red;">Estan mal los datos, revisar</p>
+    {% endif %}    
+     
+    <font color="Olive" face="Comic Sans MS,arial">
+    <h2 class="text-center">Hola mi nombre es Wentworth Pena Fonseca</h2>
+    <p style="text-align:center">Soy Ingeniero Electronico, mi experiencia es en el area 
+    del hardware y, las telecomunicaciones. Debido a la demanda mundial de 
+    programadores y a las mejores oportunidades que se estan dando en ente campo, 
+    he optado por ampliar mis conocimientos en el mundo de la programacion. Por 
+    otra parte me gusta viajar todo el tiempo y con la ayuda de la progamacion lo 
+    puedo hacer sin tener que abandonar o renunciar a mi trabajo.</p>              
+    </font>          
+  
+{% endblock %}
+
+

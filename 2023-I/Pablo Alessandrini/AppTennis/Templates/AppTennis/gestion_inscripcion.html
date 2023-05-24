@@ -1,0 +1,21 @@
+{% extends 'AppTennis/padre.html' %}
+{% block title %} Gestion Inscripcion {% endblock %}
+{% load static %}
+
+
+{% block contenidoQueCambia %}
+    <h1>Gestión de las inscripciones</h1>
+
+    {% for inscripcion in inscripciones %}
+     <li>{{inscripcion}} <button> <a href="{% url 'eliminar_inscripcion' inscripcion_id=inscripcion.id %}">Eliminar</a> </button>
+                         <button> <a href="{% url 'editar_inscripcion' inscripcion_id=inscripcion.id %}">Editar </a> </button>
+    </li>        
+    {% endfor %}
+    
+    <a href=" {% url 'inscripciones' %}">Agregar otra inscripcion</a>
+    <li> <p><a href="{% url 'novedades' %}"><h3> Ir a  Inicio </h3></a> </p>  </li>
+    
+
+{% endblock %}
+
+

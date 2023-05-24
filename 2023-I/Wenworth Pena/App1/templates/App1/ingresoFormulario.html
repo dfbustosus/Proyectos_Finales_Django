@@ -1,0 +1,38 @@
+{% extends "App1/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    {% if miFormulario.errors %} 
+    <p style="color: red;">Estan mal los datos, revisar</p>
+    {% endif %}
+
+    <section class="py-1"> <!-- 5-->
+        <div class="container my-1"> <!-- 5-->
+            <div class="content-center">
+                <div class="col-lg-6">  
+                    <h2>Administra Tu Futuro</h2>
+                    <p class="lead">Ahora ya puedes registrar el movimiento de tu dinero.</p>                   
+                    <p class="lead"><strong>Ingresa la Informacion de Tus Ingresos.</strong></p>
+                    <p class="lead"><strong>Digita la fecha en este formato, MM/DD/YYYY.</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <form action="" method="post">{% csrf_token %}
+        <!--Aca esta la magia-->
+        <table>
+            {{ miFormulario.as_table }}
+        </table>
+
+        <input type="submit", value="Enviar">
+
+    </form>
+
+{% endblock %}
+
+
+

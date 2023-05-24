@@ -1,0 +1,49 @@
+
+{% extends "AppFinal/padre.html" %}
+    
+    {% block Contenido %}
+
+    {% if messages %}
+        <div class="alert alert-warning" alert-{{ message.tags }}" role="alert">
+        {% for message in messages  %}
+            {{message|safe}} - <a href="{% url 'WishList' %}" class="alert-link">Your Wishlist</a>.
+        {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if wishlist %}
+    
+  {% for recipe in wishlist %}
+
+  <div class="card mb-3 rounded-0">
+    <div class="row g-0">
+      <div class="col-md-10">
+          <div class="card-body">
+            <div class="card" style="width: 18rem">
+            <img src="{{recipe.image.url}}" class="card-img-top" width: 230px height: 230px >
+            </div>
+          <h5 class="card-title">{{recipe.title}}</h5>
+          <p class="card-text">Time: {{recipe.time}}min</p>
+          </div>
+          <a href="/detallerecetas/{{recipe.id}}/" class="btn btn-primary">Leer más...</a>
+        <br> 
+        <a type="button" class="btn btn-primary fw500 btn-sm" href="{% url 'user_wishlist' recipe.id %}">Remove from Wishlist</a>
+      </div>
+    </div>
+  </div>
+
+
+  {% endfor %}
+
+ 
+
+  <a href="/comentarios" class="btn btn-primary">Dejar comentario WishList</a>
+  {% else %}
+  <p class="card-text">Aun no se han agregado recetas!</p>
+  {% endif %}
+
+
+
+</div>
+
+{% endblock %}

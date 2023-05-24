@@ -1,0 +1,33 @@
+{% extends "App1/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+    <font color="Olive" face="Comic Sans MS,arial">
+    <h1>Edita Tus Trading</h1>
+    </font>
+    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    {% if miFormulario.errors %} 
+    <p style="color: red;">Estan mal los datos, revisar</p>
+    {% endif %}
+
+    <body>
+        {% for p in tradings %}
+            <li>{{p}}</li>  
+            <button type="button" class="btn btn-outline-info btn-sm"><a href="{% url 'EliminarTrading' p.fecha %}"> Eliminar</a></button>
+            <button type="button" class="btn btn-outline-primary btn-sm"><a href="{% url 'EditarTrading' p.fecha %}">Editar</a></button>      
+        {% endfor %}
+        <br>
+        <br>
+        <!-- <a href="tradins">Agregar otro Trading</a> -->    
+        <button type="button" class="btn btn-outline-primary btn-sm"><a href="{% url 'TradingFormulario' %}">Ingresa Otro Trading</a></button>
+        
+        
+    </body>
+        
+
+{% endblock %}
+
+
+
+

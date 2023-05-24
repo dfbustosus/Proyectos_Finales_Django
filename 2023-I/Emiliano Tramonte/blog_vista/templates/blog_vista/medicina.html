@@ -1,0 +1,14 @@
+
+{% extends 'blog_vista/padre.html' %}
+{% load static %}
+
+{% block medicina %}
+<div class="container text-center"> 
+    <body>
+        <h1>Articulos de Medicina</h1>
+        <a class="btn btn-primary" href="{% url 'MedicinaList' %}">Ver Articulos de Medicina</a>
+        <a class="btn btn-primary" href="{% url 'MedicinaForm' %}">Agrega un nuevo articulo! </a>
+    </body>
+</div>    
+{% endblock %}
+

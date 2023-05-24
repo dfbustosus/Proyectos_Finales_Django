@@ -1,0 +1,39 @@
+{% extends 'AppTennis/padre.html' %}
+{% load static %}
+{% block contenidoQueCambia %}
+Lista de resultados
+ 
+<table>
+  <thead>
+    <tr>
+      <th>Torneo</th>
+      <th>Jugador 1</th>
+      <th>Jugador 2</th>
+      <th>Resultado</th>
+      <th>Comentario</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for r in resultados %}
+    <tr>
+      <ul>
+        <td> <li> |{{ r.torneo }}|</td>
+        <td>-|{{ r.jugador1 }}|-</td>
+        <td>-|{{ r.jugador2}}|-</td></li>
+        <td>-|{{ r.resultado}}|-</td></li>
+        <td>-|{{ r.comentario}}|-</td></li>
+       
+      </ul>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="4">No hay resultados disponibles.</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<li> <p><a href="{% url 'novedades' %}"><h3> Ir a  Inicio </h3></a> </p>  </li>
+
+
+
+{% endblock %}

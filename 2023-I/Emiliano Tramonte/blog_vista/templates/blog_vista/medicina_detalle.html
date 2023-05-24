@@ -1,0 +1,28 @@
+{% extends 'blog_vista/padre.html' %}
+{% load static %}
+
+{% block medicina %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{medicina.titulo}}</title>
+</head>
+<div class="container text-center">
+<body>
+    <img style="height:150px" src="{{ medicina.imagen.url }}" alt="Imagen">
+
+    <p><h1> <i>{{ medicina.titulo }}</i></p></h1>
+    <p><h2><i>{{ medicina.subtitulo }}</i></p></h2>
+    <p>Por: <i>{{ medicina.autor }}</i></p>
+    <p>Fecha: <i>{{ medicina.fecha }}</i></p>
+    <p><i>{{ medicina.texto }}</i></p>
+    
+    <p>
+        <a class="btn btn-primary" href="{% url 'MedicinaList' %}">Regresar</a>
+    </p>
+</body>
+</div>
+</html>
+
+{%endblock%}

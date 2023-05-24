@@ -1,0 +1,12 @@
+<!--Template Inicio Jugador-->
+{% extends 'AppTennis/padre.html' %}
+{% load static %}
+{% block contenidoQueCambia %}
+<form action="" method="POST">
+    {% csrf_token %}
+        {{ form.as_p }}
+    <button type="submit">Iniciar sesion</button>
+</form>
+<li> <p><a href="{% url 'register' %}"><h3> SI  AUN NO TE REGISTRASTE HACE CLICK ACA </h3></a> </p>  </li>
+
+{% endblock %}

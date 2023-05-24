@@ -1,0 +1,24 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+    <h3 class="centerTitleLogin" >Login</h3>
+
+    {% if errors %}
+        <h4 class="errorData">{{errors}}</h4>
+    {% endif %}
+
+    <form class="estudiantes" action="/login/" method="POST">
+        {% csrf_token %}
+        {{form.as_div}}
+        <div class="button1"><button class="btn41-43 btn-41">Login</button></div>
+    </form>
+
+    <div>
+        <h5>No tienes cuenta? Regístrate</h5>
+        <div class="button1">
+            <a href="{% url 'signup' %}"><button  class="btn41-43 btn-41">Sign Up</button></a>
+        </div>
+    </div>
+
+{% endblock %}

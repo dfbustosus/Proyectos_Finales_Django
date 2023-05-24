@@ -1,0 +1,26 @@
+{% extends 'blog_vista/padre.html' %}
+{% load static %}
+
+{% block tecnologia %}
+
+<body>
+    <h1>Articulos de Tecnologia</h1>
+    <ul>
+        {% for tecnologia in object_list %}
+            <li>
+                <p>Titulo: {{ tecnologia.titulo }}</p>
+                <p>Autor: {{ tecnologia.autor }}</p>
+                <p>Fecha: {{ tecnologia.fecha }}</p>
+                
+                <p>
+                    <a href="{% url 'TecnologiaDetail' tecnologia.id %}">Leer más</a>
+                    <a href="{% url 'TecnologiaEdit' tecnologia.id %}">Editar articulo</a>
+                    <a href="{% url 'TecnologiaDelete' tecnologia.id %}">Borrar articulo</a>
+                </p>
+            </li>
+        {% endfor %}
+    </ul>
+    
+</body>
+
+{% endblock %}

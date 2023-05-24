@@ -1,0 +1,28 @@
+{% extends "recetas_base/base.html" %}
+{% block content %}
+<h2>Listado de recetas</h2>
+{% if recetas %}
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">Nombre</th>
+			<th scope="col">Opciones</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for receta in recetas %}
+
+		<tr>
+			<th scope="row">{{ receta.id }}</th>
+			<td>{{ receta.nombre }}</td>
+			<td><a class="btn btn-sm btn-info" href="{% url 'receta-detail' receta.pk %}">ver</a></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% else %}
+<p>No hay recetas disponibles</p>
+{% endif %}
+<a href="{% url 'receta-create' %}" class="btn btn-success">Agregar receta</a>
+{% endblock %}

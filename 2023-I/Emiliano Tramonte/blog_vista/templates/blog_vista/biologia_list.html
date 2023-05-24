@@ -1,0 +1,26 @@
+{% extends 'blog_vista/padre.html' %}
+{% load static %}
+
+{% block biologia %}
+
+<body>
+    <h1>Articulos de Biologia</h1>
+    <ul>
+        {% for biologia in object_list %}
+            <li>
+                <p>Titulo: {{ biologia.titulo }}</p>
+                <p>Autor: {{ biologia.autor }}</p>
+                <p>Fecha: {{ biologia.fecha }}</p>
+                
+                <p>
+                    <a href="{% url 'BiologiaDetail' biologia.id %}">Leer más</a>
+                    <a href="{% url 'BiologiaEdit' biologia.id %}">Editar articulo</a>
+                    <a href="{% url 'BiologiaDelete' biologia.id %}">Borrar articulo</a>
+                </p>
+            </li>
+        {% endfor %}
+    </ul>
+    
+</body>
+
+{% endblock %}

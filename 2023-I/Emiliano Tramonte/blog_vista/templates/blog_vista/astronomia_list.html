@@ -1,0 +1,27 @@
+{% extends 'blog_vista/padre.html' %}
+{% load static %}
+
+{% block astronomia %}
+
+    <body>
+        <h1>Articulos de Astronomia</h1>
+        <ul>
+            {% for astronomia in object_list %}
+                <li>
+                    <p>Titulo: {{ astronomia.titulo }}</p>
+                    <p>Autor: {{ astronomia.autor }}</p>
+                    <p>Fecha: {{ astronomia.fecha }}</p>
+                    
+                    <p>
+                        <a href="{% url 'AstronomiaDetail' astronomia.id %}">Leer más</a>
+                        <a href="{% url 'AstronomiaEdit' astronomia.id %}">Editar articulo</a>
+                        <a href="{% url 'AstronomiaDelete' astronomia.id %}">Borrar articulo</a>
+                    </p>
+                </li>
+            {% endfor %}
+        </ul>
+
+    </body>
+
+
+{% endblock %}

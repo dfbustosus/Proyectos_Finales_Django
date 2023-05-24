@@ -1,0 +1,28 @@
+{% extends "blog_vista/padre.html" %}
+{% load static %}
+{% block inicio %}
+   
+<div class="container text-center">
+    <h1></h1>
+    <h1> Perfil De {{usuario}}</h1>
+    
+        
+        
+            <li>
+                {% if request.user.is_authenticated %}
+                    {% with avatares=request.user.avatar_set.all %}
+                        {% if avatares %}
+                            <img height = '100px' src = '{{avatares.0.imagen.url}}'>
+                        {% endif %}
+                
+                    {% endwith %}
+                {% endif %}
+                <p>email: {{ usuario.email }}</p>
+                <p>Nombre: {{ usuario.first_name}}</p>
+                <p>Apellido: {{ usuario.last_name }}</p>
+
+            </li>
+</div>
+       
+     
+{% endblock %}

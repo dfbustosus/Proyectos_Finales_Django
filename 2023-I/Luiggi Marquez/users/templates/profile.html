@@ -1,0 +1,43 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block content %}
+    
+        <h4>Perfil de usuario</h4>
+ 
+    <div class="profileDataContainer">
+
+        <div class="imagenProfileCenter">
+            {% if request.user.profile.avatar %}
+                <img src="{{ request.user.profile.avatar.url }}" class="imgProfileAvatarBig">
+            {% else %}
+                <img src={% static 'images/no-avatar.jpg' class="imgProfileAvatarBig" %}>
+            {% endif %}
+        </div>
+        <div class="dataProfileContainer">
+            <p><span class="nameProfile">Usuario:</span>  {{request.user.username}}</p>
+            {% if request.user.first_name %}
+            <p><span class="nameProfile">Nombre:</span>  {{request.user.first_name}}</p>
+            {% endif %}
+            {% if request.user.last_name %}
+            <p><span class="nameProfile">Apellido:</span>  {{request.user.last_name}}</p>
+            {% endif %}
+            {% if request.user.email %}
+            <p><span class="nameProfile">Email:</span>  {{request.user.email}}</p>
+            {% endif %}
+            {% if equest.user.profile.bio %}
+            <p><span class="nameProfile">Bio:</span>  {{request.user.profile.bio}}</p>
+            {% endif %}
+            {% if request.user.profile.link %}
+            <p><span class="nameProfile">website:</span>  {{request.user.profile.link}}</p>
+            {% endif %}
+        </div>
+        
+    </div>
+
+        <div class="button1">
+            <a href="{% url 'edituser' %}"><button  class="btn41-43 btn-41">Cambiar password y datos de la cuenta</button></a>
+            <a href="{% url 'editprofile' %}"><button  class="btn41-43 btn-41">Editar perfil</button></a>
+        </div>
+    </div>
+{% endblock %}

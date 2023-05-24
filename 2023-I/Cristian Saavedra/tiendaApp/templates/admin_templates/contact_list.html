@@ -1,0 +1,80 @@
+{% extends 'admin_templates/base_template.html' %}
+
+<!-- block titulo -->
+{% block title %}
+ContactList
+{% endblock title %}
+
+<!-- block css personalizado -->
+{% block custom_css %}
+{% endblock custom_css %}
+
+<!-- block título de página -->
+{% block page_title %}
+Lista de Mensajes Formulario de Contacto
+{% endblock page_title %}
+<!-- block contenido principal -->
+{% block page_content %}
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="search-element">
+          <div class="card">
+            <div class="card-body">
+              <form action="" method="get">
+                <button class="btn btn-primary" type="submit" style="float: right;"><i class="fas fa-search"></i>Buscar</button>
+                <input class="form-control" type="search" placeholder="Search" aria-label="Search" data-width="250" style="width: 250px;float: right;" name="filter" value="{{ filter }}">
+              </form>
+            </div>  
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="search-element">
+          <div class="card">
+            <div class="card-body">
+              <b>Ordenar por: - </b>
+              <a href="{% url 'contacto_lista' %}?filter={{ filter }}&orderby=id">Id</a> |
+              <a href="{% url 'contacto_lista' %}?filter={{ filter }}&orderby=nombre">Nombre</a> |
+            </div>  
+          </div>
+        </div>
+      </div>
+    </div>
+   
+      
+    <div class="card-body p-0">
+      <div class="table-responsive table-invoice">
+        <table class="table table-striped">
+          <tbody><tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>TipoConsulta</th>
+            <th>Mensaje</th>
+            <th>Opciones</th>
+          </tr>
+          {% for cto in contact_list %}
+          <tr>
+            <td><a href="#">{{cto.id}}</a></td>
+            <td class="font-weight-600">{{cto.nombre}}</td>
+            <td class="font-weight-600">{{cto.tipo_consulta}}</td>
+            <td class="font-weight-600">{{cto.mensaje}}</td>
+            <td>
+              <a href="#" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i> Editar</a>
+              
+              <a href="#" class="btn btn-icon icon-left btn-danger"><i class="fas fa-times"></i> Eliminar</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody></table>
+      </div>
+    </div>  
+    
+
+{% endblock page_content %}
+
+
+<!-- block js personalizado -->
+{% block custom_js %}
+{% endblock custom_js %}

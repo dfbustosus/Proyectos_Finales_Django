@@ -1,0 +1,13 @@
+{% extends "App1/padre.html" %} {% load static %} {% block titulo %}
+<h1 class="mb-5">PANTALLA PARA BUSCAR EMPLEADOS</h1>
+{% endblock %} {% block contenido_que_cambia %}
+
+<h3>{{ mensaje }}</h3>
+
+<form action="{% url 'muestraBusquedaEmpleado' %}" method="GET">
+  <input type="number" name="dni" id="dni" placeholder="Ingrese DNI a buscar" />
+
+  <input type="submit" value="buscar Empleado" />
+</form>
+
+{% endblock %}

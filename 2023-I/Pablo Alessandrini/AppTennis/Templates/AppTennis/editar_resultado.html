@@ -1,0 +1,13 @@
+{% extends 'AppTennis/padre.html' %}
+{% block title %}Editar Resultado{% endblock %}
+
+{% block contenidoQueCambia %}
+    <h1>Editar Resultado</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ formulario.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+    <li> <p><a href="{% url 'novedades' %}"><h3> Ir a  Inicio </h3></a> </p>  </li>
+{% endblock %}
